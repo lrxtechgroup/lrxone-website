@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LRX One — One Platform. Endless Possibilities.</title>
+  <meta name="description" content="LRX One is the intelligent enterprise operating system that connects, automates, analyzes, and scales every aspect of your business." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:       #D4AF37;
+      --gold-dark:  #B8922E;
+      --gold-dim:   rgba(212,175,55,0.1);
+      --gold-line:  rgba(212,175,55,0.25);
+      --black:      #0E0E0E;
+      --dark:       #1A1A1A;
+      --mid:        #222222;
+      --grey:       #555555;
+      --light-grey: #888888;
+      --white:      #FFFFFF;
+      --font:       'Montserrat', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); background: var(--black); color: var(--white); overflow-x: hidden; }
+
+    /* ── NAV ──────────────────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 70px;
+      background: rgba(14,14,14,0.95);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--gold-line);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: baseline;
+      gap: 0;
+      text-decoration: none;
+    }
+
+    .nav-brand .lrx {
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      color: var(--gold);
+    }
+
+    .nav-brand .pipe {
+      font-size: 20px;
+      font-weight: 200;
+      color: var(--gold);
+      margin: 0 6px;
+    }
+
+    .nav-brand .one {
+      font-size: 20px;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      color: var(--white);
+    }
+
+    .nav-center {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-center a {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--light-grey);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-center a:hover { color: var(--gold); }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-signin {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      border: 1px solid var(--gold-line);
+      padding: 9px 20px;
+      border-radius: 2px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .nav-signin:hover { border-color: var(--gold); background: var(--gold-dim); }
+
+    .nav-start {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      padding: 10px 22px;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .nav-start:hover { opacity: 0.85; }
+
+    /* ── HERO ─────────────────────────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 60px;
+      padding: 100px 5% 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 60%;
+      height: 100%;
+      background: radial-gradient(ellipse 80% 70% at 80% 50%, rgba(212,175,55,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-left { position: relative; z-index: 1; }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.2s forwards;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .hero-headline {
+      font-size: clamp(40px, 5.5vw, 72px);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.4s forwards;
+    }
+
+    .hero-headline .gold { color: var(--gold); }
+
+    .hero-sub {
+      font-size: clamp(13px, 1.5vw, 16px);
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--light-grey);
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.5s forwards;
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--light-grey);
+      margin-bottom: 44px;
+      max-width: 480px;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.6s forwards;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.8s forwards;
+    }
+
+    .btn-gold {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      padding: 16px 36px;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .btn-gold:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    .btn-outline {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: transparent;
+      border: 1px solid var(--gold-line);
+      padding: 16px 36px;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .btn-outline:hover { border-color: var(--gold); background: var(--gold-dim); }
+
+    /* ── DASHBOARD MOCKUP ─────────────────────────────────────────────────── */
+    .hero-right {
+      position: relative;
+      z-index: 1;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.5s forwards;
+    }
+
+    .dashboard-mock {
+      background: var(--dark);
+      border: 1px solid var(--gold-line);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow:
+        0 0 0 1px rgba(212,175,55,0.1),
+        0 40px 80px rgba(0,0,0,0.6),
+        0 0 120px rgba(212,175,55,0.04);
+    }
+
+    .mock-titlebar {
+      background: var(--mid);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      border-bottom: 1px solid var(--gold-line);
+    }
+
+    .mock-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .mock-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--grey);
+    }
+
+    .mock-url {
+      flex: 1;
+      background: var(--dark);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 4px;
+      padding: 4px 12px;
+      font-size: 11px;
+      color: var(--light-grey);
+      font-family: monospace;
+    }
+
+    .mock-body {
+      padding: 24px;
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 16px;
+      min-height: 360px;
+    }
+
+    .mock-sidebar {
+      background: rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.04);
+      border-radius: 4px;
+      padding: 16px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .mock-nav-item {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      padding: 8px 10px;
+      border-radius: 3px;
+      color: var(--light-grey);
+    }
+
+    .mock-nav-item.active {
+      background: var(--gold-dim);
+      color: var(--gold);
+      border: 1px solid var(--gold-line);
+    }
+
+    .mock-content {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .mock-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+    }
+
+    .mock-card {
+      background: rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 4px;
+      padding: 14px;
+    }
+
+    .mock-card-label {
+      font-size: 8px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-bottom: 8px;
+    }
+
+    .mock-card-value {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--gold);
+    }
+
+    .mock-chart {
+      background: rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 4px;
+      padding: 14px;
+      height: 120px;
+      display: flex;
+      align-items: flex-end;
+      gap: 4px;
+    }
+
+    .mock-bar {
+      flex: 1;
+      background: linear-gradient(to top, var(--gold-dark), var(--gold));
+      border-radius: 2px 2px 0 0;
+      opacity: 0.7;
+    }
+
+    .mock-table {
+      background: rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .mock-tr {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      padding: 8px 12px;
+      font-size: 9px;
+      color: var(--light-grey);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      gap: 8px;
+    }
+
+    .mock-tr.header { color: var(--grey); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+
+    .mock-status {
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 2px 6px;
+      border-radius: 2px;
+    }
+
+    .mock-status.ok { background: rgba(212,175,55,0.15); color: var(--gold); }
+    .mock-status.run { background: rgba(100,200,100,0.1); color: #6cc; }
+
+    /* ── PILLARS BAND ─────────────────────────────────────────────────────── */
+    .pillars-band {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      background: var(--dark);
+      border-top: 1px solid var(--gold-line);
+      border-bottom: 1px solid var(--gold-line);
+      overflow-x: auto;
+    }
+
+    .pillar-item {
+      flex: 1;
+      min-width: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      padding: 32px 24px;
+      border-right: 1px solid var(--gold-line);
+      transition: background 0.2s;
+    }
+
+    .pillar-item:last-child { border-right: none; }
+    .pillar-item:hover { background: var(--gold-dim); }
+
+    .pillar-item svg { width: 28px; height: 28px; stroke: var(--gold); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+
+    .pillar-item span {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--light-grey);
+    }
+
+    /* ── FEATURES ─────────────────────────────────────────────────────────── */
+    section { padding: 100px 5%; }
+
+    .section-eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .section-headline {
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .section-sub {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--light-grey);
+      max-width: 540px;
+      margin-bottom: 60px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1px;
+      background: var(--gold-line);
+      border: 1px solid var(--gold-line);
+    }
+
+    .feature {
+      background: var(--dark);
+      padding: 40px 36px;
+      transition: background 0.2s;
+    }
+
+    .feature:hover { background: #1f1f1f; }
+
+    .feature-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-line);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .feature-icon svg { width: 20px; height: 20px; stroke: var(--gold); fill: none; stroke-width: 1.5; stroke-linecap: round; }
+
+    .feature h3 {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-bottom: 10px;
+      color: var(--white);
+    }
+
+    .feature p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--light-grey);
+    }
+
+    /* ── PRICING ──────────────────────────────────────────────────────────── */
+    .pricing-section { background: var(--dark); }
+
+    .pricing-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--gold-line);
+      max-width: 1100px;
+      margin: 0 auto;
+      border: 1px solid var(--gold-line);
+    }
+
+    .pricing-card {
+      background: var(--black);
+      padding: 48px 36px;
+      position: relative;
+      transition: background 0.2s;
+    }
+
+    .pricing-card:hover { background: #111; }
+
+    .pricing-card.featured {
+      background: var(--dark);
+    }
+
+    .pricing-card.featured::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(to right, var(--gold-dark), var(--gold));
+    }
+
+    .pricing-tier {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .pricing-price {
+      font-size: 48px;
+      font-weight: 900;
+      line-height: 1;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .pricing-price .currency {
+      font-size: 20px;
+      font-weight: 600;
+      vertical-align: super;
+      color: var(--gold);
+    }
+
+    .pricing-price .period {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--light-grey);
+    }
+
+    .pricing-desc {
+      font-size: 13px;
+      color: var(--light-grey);
+      line-height: 1.6;
+      margin: 16px 0 32px;
+      min-height: 52px;
+    }
+
+    .pricing-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+
+    .pricing-features li {
+      font-size: 13px;
+      color: var(--light-grey);
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .pricing-features li::before {
+      content: '—';
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .pricing-cta {
+      display: block;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 14px;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .pricing-cta.primary {
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--black);
+    }
+
+    .pricing-cta.secondary {
+      border: 1px solid var(--gold-line);
+      color: var(--gold);
+    }
+
+    .pricing-cta:hover { opacity: 0.85; }
+
+    /* ── CTA BANNER ───────────────────────────────────────────────────────── */
+    .cta-banner {
+      text-align: center;
+      padding: 100px 5%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(212,175,55,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-banner h2 {
+      font-size: clamp(32px, 5vw, 60px);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .cta-banner p {
+      font-size: 17px;
+      color: var(--light-grey);
+      line-height: 1.7;
+      max-width: 480px;
+      margin: 0 auto 44px;
+    }
+
+    /* ── FOOTER ───────────────────────────────────────────────────────────── */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid var(--gold-line);
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding: 64px 5% 48px;
+    }
+
+    .footer-brand p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--light-grey);
+      margin-top: 16px;
+      max-width: 280px;
+    }
+
+    .footer-brand .brand-mark {
+      font-size: 22px;
+      font-weight: 900;
+    }
+
+    .footer-brand .brand-mark .gold { color: var(--gold); }
+
+    .footer-col h4 {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+    .footer-col a {
+      font-size: 13px;
+      color: var(--light-grey);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover { color: var(--gold); }
+
+    .footer-bottom {
+      padding: 20px 5%;
+      border-top: 1px solid rgba(212,175,55,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-bottom p {
+      font-size: 12px;
+      color: var(--grey);
+    }
+
+    .footer-bottom a {
+      font-size: 12px;
+      color: var(--grey);
+      text-decoration: none;
+    }
+
+    .footer-bottom a:hover { color: var(--gold); }
+
+    /* ── ANIMATIONS ───────────────────────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ───────────────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .nav-center { display: none; }
+      .footer-top { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a class="nav-brand" href="/">
+      <span class="lrx">LRX</span>
+      <span class="pipe">|</span>
+      <span class="one">ONE</span>
+    </a>
+
+    <ul class="nav-center">
+      <li><a href="#features">Platform</a></li>
+      <li><a href="#features">Solutions</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="https://lrxtechgroup.com">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <a href="https://app.lrxone.com/login" class="nav-signin">Sign In</a>
+      <a href="https://app.lrxone.com/register" class="nav-start">Get Started</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <p class="hero-eyebrow">Enterprise Operating System</p>
+      <h1 class="hero-headline">
+        One Platform.<br/>
+        <span class="gold">Endless</span><br/>
+        Possibilities.
+      </h1>
+      <p class="hero-sub">Connect · Automate · Analyze · Scale · Secure</p>
+      <p class="hero-desc">
+        LRX One is the intelligent operating system that connects, automates, analyzes,
+        and scales every aspect of your business — from a single platform.
+      </p>
+      <div class="hero-actions">
+        <a href="https://app.lrxone.com/register" class="btn-gold">Start Free →</a>
+        <a href="#features" class="btn-outline">See Platform</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="dashboard-mock">
+        <div class="mock-titlebar">
+          <div class="mock-dots">
+            <div class="mock-dot"></div>
+            <div class="mock-dot"></div>
+            <div class="mock-dot"></div>
+          </div>
+          <div class="mock-url">app.lrxone.com/dashboard</div>
+        </div>
+        <div class="mock-body">
+          <div class="mock-sidebar">
+            <div class="mock-nav-item active">Dashboard</div>
+            <div class="mock-nav-item">Workflows</div>
+            <div class="mock-nav-item">Documents</div>
+            <div class="mock-nav-item">Analytics</div>
+            <div class="mock-nav-item">AI Coach</div>
+            <div class="mock-nav-item">Integrations</div>
+            <div class="mock-nav-item">Users</div>
+            <div class="mock-nav-item">Settings</div>
+          </div>
+          <div class="mock-content">
+            <div class="mock-row">
+              <div class="mock-card">
+                <div class="mock-card-label">Workflows</div>
+                <div class="mock-card-value">24</div>
+              </div>
+              <div class="mock-card">
+                <div class="mock-card-label">Users</div>
+                <div class="mock-card-value">12</div>
+              </div>
+              <div class="mock-card">
+                <div class="mock-card-label">Today</div>
+                <div class="mock-card-value">98%</div>
+              </div>
+            </div>
+            <div class="mock-chart">
+              <div class="mock-bar" style="height:40%"></div>
+              <div class="mock-bar" style="height:65%"></div>
+              <div class="mock-bar" style="height:50%"></div>
+              <div class="mock-bar" style="height:80%"></div>
+              <div class="mock-bar" style="height:60%"></div>
+              <div class="mock-bar" style="height:90%"></div>
+              <div class="mock-bar" style="height:75%"></div>
+              <div class="mock-bar" style="height:95%"></div>
+            </div>
+            <div class="mock-table">
+              <div class="mock-tr header">
+                <span>Workflow</span><span>Status</span><span>Last Run</span>
+              </div>
+              <div class="mock-tr">
+                <span>Invoice Processing</span>
+                <span><span class="mock-status ok">Active</span></span>
+                <span>2m ago</span>
+              </div>
+              <div class="mock-tr">
+                <span>Lead Scoring</span>
+                <span><span class="mock-status run">Running</span></span>
+                <span>Now</span>
+              </div>
+              <div class="mock-tr">
+                <span>Report Generation</span>
+                <span><span class="mock-status ok">Active</span></span>
+                <span>1h ago</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILLARS BAND -->
+  <div class="pillars-band">
+    <div class="pillar-item">
+      <svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+      <span>Connect</span>
+    </div>
+    <div class="pillar-item">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M4.93 19.07l1.41-1.41M19.07 19.07l-1.41-1.41M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>
+      <span>Automate</span>
+    </div>
+    <div class="pillar-item">
+      <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      <span>Analyze</span>
+    </div>
+    <div class="pillar-item">
+      <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+      <span>Scale</span>
+    </div>
+    <div class="pillar-item">
+      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <span>Secure</span>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <section id="features">
+    <p class="section-eyebrow">The Platform</p>
+    <h2 class="section-headline">Everything your business needs.<br/>Nothing it doesn't.</h2>
+    <p class="section-sub">
+      LRX One brings together the tools your team already needs — without the complexity of stitching
+      ten different platforms together.
+    </p>
+    <div class="features-grid">
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><path d="M3 17h4M7 17v4M7 17V13H3v4"/></svg>
+        </div>
+        <h3>Workflow Automation</h3>
+        <p>Build and deploy business workflows without code. Trigger on events, schedule them, or run them on demand.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3>AI Business Assistant</h3>
+        <p>Ask questions about your data, get workflow recommendations, and let AI handle the repetitive analysis.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h3>Real-time Analytics</h3>
+        <p>Dashboards that update as your business moves. Track what matters across every department.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        </div>
+        <h3>Document Management</h3>
+        <p>Store, version, and search your business documents. Full-text search across everything you upload.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M13 6h3a2 2 0 0 1 2 2v7M11 18H8a2 2 0 0 1-2-2V9"/></svg>
+        </div>
+        <h3>Integration Hub</h3>
+        <p>Connect to Slack, Salesforce, Xero, and 300+ other tools your business already uses.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Team & Permissions</h3>
+        <p>Role-based access control, SSO support, and detailed audit logs for enterprise compliance.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="pricing-section">
+    <div class="pricing-header">
+      <p class="section-eyebrow">Simple Pricing</p>
+      <h2 class="section-headline">Start free. Scale when you're ready.</h2>
+    </div>
+    <div class="pricing-grid">
+
+      <div class="pricing-card">
+        <div class="pricing-tier">Starter</div>
+        <div class="pricing-price">Free</div>
+        <p class="pricing-desc">For small teams getting started with business automation.</p>
+        <ul class="pricing-features">
+          <li>Up to 5 team members</li>
+          <li>Up to 10 workflows</li>
+          <li>100 document slots</li>
+          <li>Basic analytics</li>
+          <li>Email support</li>
+        </ul>
+        <a href="https://app.lrxone.com/register" class="pricing-cta secondary">Get Started Free</a>
+      </div>
+
+      <div class="pricing-card featured">
+        <div class="pricing-tier">Business</div>
+        <div class="pricing-price">
+          <span class="currency">R</span>999<span class="period">/month</span>
+        </div>
+        <p class="pricing-desc">For growing businesses that need automation at scale.</p>
+        <ul class="pricing-features">
+          <li>Up to 25 team members</li>
+          <li>Up to 100 workflows</li>
+          <li>1,000 document slots</li>
+          <li>AI Assistant (1,000 msgs/mo)</li>
+          <li>All integrations</li>
+          <li>Priority support</li>
+        </ul>
+        <a href="https://app.lrxone.com/register?plan=business" class="pricing-cta primary">Start Business Trial</a>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-tier">Enterprise</div>
+        <div class="pricing-price">
+          <span class="currency">R</span>4,999<span class="period">/month</span>
+        </div>
+        <p class="pricing-desc">For large organisations with advanced security and compliance needs.</p>
+        <ul class="pricing-features">
+          <li>Up to 200 team members</li>
+          <li>Unlimited workflows</li>
+          <li>50,000 document slots</li>
+          <li>AI Assistant (10,000 msgs/mo)</li>
+          <li>SSO / SAML</li>
+          <li>POPIA compliance tools</li>
+          <li>Dedicated onboarding</li>
+        </ul>
+        <a href="mailto:info@lrxtechgroup.com" class="pricing-cta secondary">Contact Sales</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner" id="contact">
+    <h2>Ready to <span style="color:var(--gold)">elevate</span> your business?</h2>
+    <p>Join the businesses using LRX One to automate their operations and move faster. Free to start.</p>
+    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+      <a href="https://app.lrxone.com/register" class="btn-gold">Start Free Today →</a>
+      <a href="mailto:info@lrxtechgroup.com" class="btn-outline">Talk to Sales</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand-mark"><span class="gold">LRX</span> | ONE</div>
+        <p>The intelligent enterprise operating system. Built in South Africa for businesses everywhere.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="#features">Workflows</a></li>
+          <li><a href="#features">AI Assistant</a></li>
+          <li><a href="#features">Analytics</a></li>
+          <li><a href="#features">Integrations</a></li>
+          <li><a href="#features">Documents</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="https://lrxtechgroup.com">LRX Tech Group</a></li>
+          <li><a href="https://lrxtechgroup.com#founder">Leadership</a></li>
+          <li><a href="mailto:info@lrxtechgroup.com">Contact</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Get Started</h4>
+        <ul>
+          <li><a href="https://app.lrxone.com/register">Free Trial</a></li>
+          <li><a href="https://app.lrxone.com/login">Sign In</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="mailto:info@lrxtechgroup.com">Sales</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 LRX Tech Group (Pty) Ltd · South Africa · <a href="https://lrxtechgroup.com">lrxtechgroup.com</a></p>
+      <p>info@lrxtechgroup.com · +27 00 123 4567</p>
+    </div>
+  </footer>
+
+</body>
+</html>
