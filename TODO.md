@@ -14,16 +14,13 @@ done — don't just accumulate; keep this reflecting real, current state.
       `robots.txt`.
 - [x] Footer copyright year was a hardcoded "2025" — made it dynamic via
       a small inline script so it doesn't need a yearly manual bump.
+- [x] Added `sitemap.xml`, linked from `robots.txt`.
 
 ## Not investigated yet
 
-- [ ] No `sitemap.xml`.
 - [ ] Real Privacy Policy / Terms of Service page content and URLs, once
       written — update the footer links in `index.html` to point at them
       instead of the `mailto:` placeholder.
-
-## Not investigated yet
-
 - [ ] No deployment/hosting config found in the repo (no CI/CD workflow) —
       unclear how/where this actually gets published. Worth documenting
       once known.
