@@ -6,6 +6,21 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-07-25/26 — Fixed the two gaps from the first review, merged to main
+
+Branch `fix/footer-links-favicon-robots` (off `main`), merged in:
+
+- Footer `/privacy` and `/terms` links pointed at pages that don't exist
+  — pointed both at a `mailto:` instead of fabricating legal content.
+  Real Privacy Policy / Terms of Service pages still need to be written
+  by the site owner and linked once they exist.
+- Added an inline-SVG favicon, `robots.txt`, and `sitemap.xml` (linked
+  from `robots.txt`).
+- Footer copyright year was hardcoded — made it dynamic via a small
+  inline script.
+
+---
+
 ## 2026-07-25 — First review of this repo (no prior MEMORY/TODO existed)
 
 This is the marketing/product landing page for LRX One, a single static
