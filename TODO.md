@@ -3,6 +3,17 @@
 Living backlog. Check items off (or move to MEMORY.md as a dated entry) as they're
 done — don't just accumulate; keep this reflecting real, current state.
 
+## Fixed 2026-07-27 — Real Privacy Policy / Terms of Service pages
+
+- [x] Built `privacy.html` and `terms.html` (real, user-supplied POPIA
+      content — Information Officer, registered address, data
+      processors, retention periods; not fabricated). Footer links in
+      `index.html` updated from `mailto:` placeholders to the real
+      pages. See MEMORY.md for detail.
+- [x] The app frontend's (`lrxtechgroup/lrxone`) signup form linked to
+      `/terms`/`/privacy` on `app.lrxone.com`, which don't exist as
+      routes there — fixed in that repo to point here instead.
+
 ## Fixed 2026-07-25
 
 - [x] Footer `/privacy` and `/terms` links pointed at pages that don't
@@ -18,9 +29,6 @@ done — don't just accumulate; keep this reflecting real, current state.
 
 ## Not investigated yet
 
-- [ ] Real Privacy Policy / Terms of Service page content and URLs, once
-      written — update the footer links in `index.html` to point at them
-      instead of the `mailto:` placeholder.
 - [ ] No deployment/hosting config found in the repo (no CI/CD workflow) —
       unclear how/where this actually gets published. Worth documenting
       once known.

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service — LRX One</title>
+  <meta name="description" content="LRX One Terms of Service — the terms governing use of the LRX One platform, provided by LRX Tech Group (Pty) Ltd." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect width='36' height='36' rx='6' fill='%230E0E0E'/%3E%3Ctext x='18' y='24' text-anchor='middle' font-family='Arial,sans-serif' font-size='13' font-weight='900' fill='%23D4AF37'%3ELRX%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:       #D4AF37;
+      --gold-dark:  #B8922E;
+      --gold-dim:   rgba(212,175,55,0.1);
+      --gold-line:  rgba(212,175,55,0.25);
+      --black:      #0E0E0E;
+      --dark:       #1A1A1A;
+      --grey:       #555555;
+      --light-grey: #888888;
+      --white:      #FFFFFF;
+      --font:       'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    html { background: #0E0E0E; scroll-behavior: smooth; }
+    body { font-family: var(--font); background: var(--black); color: var(--white); overflow-x: hidden; }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 70px;
+      background: rgba(14,14,14,0.95);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--gold-line);
+    }
+
+    .nav-brand { display: flex; align-items: baseline; text-decoration: none; }
+    .nav-brand .lrx { font-size: 20px; font-weight: 900; letter-spacing: 0.05em; color: var(--gold); }
+    .nav-brand .pipe { font-size: 20px; font-weight: 200; color: var(--gold); margin: 0 6px; }
+    .nav-brand .one { font-size: 20px; font-weight: 300; letter-spacing: 0.2em; color: var(--white); }
+
+    .nav-back { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--light-grey); text-decoration: none; transition: color 0.2s; }
+    .nav-back:hover { color: var(--gold); }
+
+    main { max-width: 760px; margin: 0 auto; padding: 150px 5% 100px; }
+
+    .doc-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .doc-title { font-size: clamp(32px, 5vw, 48px); font-weight: 900; letter-spacing: -0.02em; margin-bottom: 12px; }
+    .doc-updated { font-size: 13px; color: var(--light-grey); margin-bottom: 56px; }
+
+    .doc-intro { font-size: 16px; line-height: 1.8; color: var(--light-grey); margin-bottom: 56px; padding-bottom: 56px; border-bottom: 1px solid var(--gold-line); }
+
+    section.doc-section { margin-bottom: 48px; }
+    section.doc-section h2 {
+      font-size: 20px; font-weight: 800; letter-spacing: -0.01em; color: var(--white);
+      margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid rgba(212,175,55,0.15);
+    }
+    section.doc-section h2 .num { color: var(--gold); margin-right: 10px; }
+    section.doc-section p { font-size: 15px; line-height: 1.8; color: var(--light-grey); margin-bottom: 14px; }
+    section.doc-section ul { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 14px 0; }
+    section.doc-section ul li { font-size: 15px; line-height: 1.7; color: var(--light-grey); padding-left: 20px; position: relative; }
+    section.doc-section ul li::before { content: '—'; color: var(--gold); position: absolute; left: 0; }
+    section.doc-section strong { color: var(--white); font-weight: 600; }
+    section.doc-section a { color: var(--gold); text-decoration: none; }
+    section.doc-section a:hover { text-decoration: underline; }
+
+    footer { border-top: 1px solid var(--gold-line); padding: 40px 5%; text-align: center; }
+    footer p { font-size: 12px; color: var(--grey); }
+    footer a { color: var(--grey); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+
+    @media (max-width: 600px) {
+      main { padding-top: 130px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-brand" href="/">
+      <span class="lrx">LRX</span>
+      <span class="pipe">|</span>
+      <span class="one">ONE</span>
+    </a>
+    <a class="nav-back" href="/">← Back to lrxone.com</a>
+  </nav>
+
+  <main>
+    <p class="doc-eyebrow">Legal</p>
+    <h1 class="doc-title">Terms of Service</h1>
+    <p class="doc-updated">Last updated: 27 July 2026</p>
+
+    <p class="doc-intro">
+      These Terms of Service ("Terms") govern access to and use of LRX One
+      (<a href="https://app.lrxone.com">app.lrxone.com</a>), provided by LRX Tech
+      Group (Pty) Ltd, a company registered in the Republic of South Africa
+      ("LRX Tech Group", "we", "us"). By creating a workspace or otherwise using
+      LRX One, you agree to these Terms on behalf of the organisation you
+      represent. See our <a href="/privacy.html">Privacy Policy</a> for how we
+      handle personal information — it's incorporated into these Terms by
+      reference.
+    </p>
+
+    <section class="doc-section">
+      <h2><span class="num">1.</span>The service</h2>
+      <p>
+        LRX One is a business-to-business enterprise operating system providing
+        workflow automation, an AI business assistant, analytics, document
+        management, and related tools. LRX One is intended for use by
+        businesses and their authorised personnel, not individual consumers.
+      </p>
+    </section>
+
+    <section class="doc-section">
+      <h2><span class="num">2.</span>Acceptable use</h2>
+      <p>You (and any users your organisation authorises) agree not to:</p>
+      <ul>
+        <li>Use LRX One for any unlawful purpose or in violation of any applicable law or regulation.</li>
+        <li>Attempt to gain unauthorised access to any part of the platform, other tenants' data, or our infrastructure.</li>
+        <li>Upload content that infringes on the intellectual property or other rights of any third party.</li>
+        <li>Use the AI Assistant to generate content intended to harm, defraud, or mislead others.</li>
+        <li>Reverse engineer, decompile, or attempt to extract the source code of the platform, except where applicable law permits it.</li>
+        <li>Interfere with or disrupt the integrity or performance of the platform, including through excessive automated requests outside documented API limits.</li>
+      </ul>
+      <p>We may suspend or terminate access for any organisation or user that violates these Terms.</p>
+    </section>
+
+    <section class="doc-section">
+      <h2><span class="num">3.</span>Subscriptions and payment</h2>
+      <ul>
+        <li>LRX One is offered under subscription plans (including a free Starter tier) described on our pricing page. Plan features and limits are as published at the time of subscription and may change with reasonable notice for future billing periods.</li>
+        <li>Paid subscriptions are billed in advance on a recurring basis (monthly, unless otherwise agreed) via our payment processors.</li>
+        <li>Fees are quoted in South African Rand (ZAR) unless otherwise stated, and are exclusive of VAT unless stated as inclusive.</li>
+        <li>You're responsible for keeping your payment details current. Failure to pay may result in suspension of access after reasonable notice.</li>
+        <li>Except where required by law or otherwise stated at the point of purchase, fees already paid are non-refundable.</li>
+        <li>You may cancel your subscription at any time; cancellation takes effect at the end of the current billing period.</li>
+      </ul>
+    </section>
+
+    <section class="doc-section">
+      <h2><span class="num">4.</span>Service availability</h2>
+      <p>
+        We aim to keep LRX One available and reliable, and we monitor the
+        platform continuously. Like any hosted software, LRX One may
+        occasionally be unavailable for scheduled maintenance or due to factors
+        outside our reasonable control. Specific uptime commitments, where
+        offered, are set out in a separate Service Level Agreement for
+        applicable Enterprise plans rather than in these general Terms.
+      </p>
+    </section>
+
+    <section class="doc-section">
+      <h2><span class="num">5.</span>Your data</h2>
+      <p>
+        You retain ownership of the business data, documents, and content you
+        submit to LRX One ("Customer Data"). You grant us a licence to host,
+        process, and display Customer Data solely as necessary to provide the
+        service to you. We process Customer Data in accordance with our
+        <a href="/privacy.html">Privacy Policy</a>. On termination of your
+        subscription, Customer Data is retained and then deleted in line with
+        the retention periods described in that policy.
+      </p>
+    </section>
+
+    <section class="doc-section">
+      <h2><span class="num">6.</span>Intellectual property</h2>
+      <p>
+        LRX One, including its software, design, and branding, is the property
+        of LRX Tech Group (Pty) Ltd and its licensors. These Terms grant you a
+        limited, non-exclusive, non-transferable right to use the platform for
+        your organisation's internal business purposes — they do not transfer
+        any ownership rights to you.
+      </p>
+    </section>
+
+    <section class="doc-section">
+      <h2><span class="num">7.</span>Limitation of liability</h2>
+      <p>
+        To the maximum extent permitted by applicable law, LRX Tech Group
+        (Pty) Ltd's total liability arising out of or related to your use of
+        LRX One is limited to the amount you paid us for the service in the
+        12 months preceding the claim. We are not liable for indirect,
+        incidental, or consequential damages, including loss of profits, data,
+        or business opportunity, except where such liability cannot be
+        excluded under South African law.
+      </p>
+    </section>
+
+    <section class="doc-section">
+      <h2><span class="num">8.</span>Termination</h2>
+      <p>
+        Either party may terminate these Terms by ceasing use of the platform
+        and cancelling any active subscription. We may suspend or terminate
+        access immediately for material breach of these Terms, including
+        non-payment or violation of the acceptable use provisions above.
+      </p>
+    </section>
+
+    <section class="doc-section">
+      <h2><span class="num">9.</span>Changes to these Terms</h2>
+      <p>
+        We may update these Terms from time to time. Material changes will be
+        communicated to active tenants by email before taking effect. The
+        "Last updated" date at the top of this page always reflects the
+        current version.
+      </p>
+    </section>
+
+    <section class="doc-section">
+      <h2><span class="num">10.</span>Governing law</h2>
+      <p>
+        These Terms are governed by the laws of the Republic of South Africa.
+        Any disputes arising from these Terms or your use of LRX One are
+        subject to the exclusive jurisdiction of the courts of South Africa.
+      </p>
+    </section>
+
+    <section class="doc-section">
+      <h2><span class="num">11.</span>Contact us</h2>
+      <p>
+        Questions about these Terms can be directed to
+        <a href="mailto:info@lrxtechgroup.com">info@lrxtechgroup.com</a>.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="footer-year"></span> LRX Tech Group (Pty) Ltd · South Africa · <a href="https://lrxtechgroup.com">lrxtechgroup.com</a></p>
+  </footer>
+
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

@@ -6,6 +6,39 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-07-27 — Built real Privacy Policy and Terms of Service pages
+
+Part of working through a rediscovered planning doc (`lrxtechgroup/lrxone`'s
+`CLAUDE_TODO.md`, item 12). The earlier fix here (2026-07-25) deliberately
+left the footer's Privacy Policy/Terms links pointed at `mailto:` rather
+than fabricate legal content — the site owner has now supplied real
+content (Information Officer, registered address, data processors,
+retention periods, POPIA scope), so that block is lifted.
+
+- New `privacy.html`: Information Officer (Brandon Le Roux), registered
+  address, what's collected, the real data-processor list (AWS
+  af-south-1, Anthropic, Stitch, PayFast, Stripe, Microsoft, Keycloak),
+  retention (12 months post-cancellation, 7 years for financial records
+  per FICA), and POPIA rights, matching the site's existing gold-on-black
+  brand and typography.
+- New `terms.html`: acceptable use, subscription/payment terms, service
+  availability, data ownership (incorporating the Privacy Policy by
+  reference), limitation of liability, governing law (Republic of South
+  Africa).
+- `index.html`'s footer links updated from the `mailto:` placeholders to
+  the real pages.
+- Verified both parse as well-formed HTML (`html.parser`), not just
+  visually checked.
+
+Also flagged and got fixed in `lrxtechgroup/lrxone`: the app frontend's
+`RegisterPage.tsx` had its own "Terms of Service"/"Privacy Policy" links
+pointing at `/terms`/`/privacy` *relative to `app.lrxone.com`* — routes
+that don't exist in that app's router at all (confirmed - the catch-all
+route there redirects to `/login`). Now points at the real pages built
+here instead.
+
+---
+
 ## 2026-07-25/26 — Fixed the two gaps from the first review, merged to main
 
 Branch `fix/footer-links-favicon-robots` (off `main`), merged in:

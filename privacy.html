@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — LRX One</title>
+  <meta name="description" content="LRX One Privacy Policy — how LRX Tech Group (Pty) Ltd collects, uses, and protects personal information under POPIA." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect width='36' height='36' rx='6' fill='%230E0E0E'/%3E%3Ctext x='18' y='24' text-anchor='middle' font-family='Arial,sans-serif' font-size='13' font-weight='900' fill='%23D4AF37'%3ELRX%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:       #D4AF37;
+      --gold-dark:  #B8922E;
+      --gold-dim:   rgba(212,175,55,0.1);
+      --gold-line:  rgba(212,175,55,0.25);
+      --black:      #0E0E0E;
+      --dark:       #1A1A1A;
+      --grey:       #555555;
+      --light-grey: #888888;
+      --white:      #FFFFFF;
+      --font:       'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    html { background: #0E0E0E; scroll-behavior: smooth; }
+    body { font-family: var(--font); background: var(--black); color: var(--white); overflow-x: hidden; }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 70px;
+      background: rgba(14,14,14,0.95);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--gold-line);
+    }
+
+    .nav-brand { display: flex; align-items: baseline; text-decoration: none; }
+    .nav-brand .lrx { font-size: 20px; font-weight: 900; letter-spacing: 0.05em; color: var(--gold); }
+    .nav-brand .pipe { font-size: 20px; font-weight: 200; color: var(--gold); margin: 0 6px; }
+    .nav-brand .one { font-size: 20px; font-weight: 300; letter-spacing: 0.2em; color: var(--white); }
+
+    .nav-back { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--light-grey); text-decoration: none; transition: color 0.2s; }
+    .nav-back:hover { color: var(--gold); }
+
+    main { max-width: 760px; margin: 0 auto; padding: 150px 5% 100px; }
+
+    .doc-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .doc-title { font-size: clamp(32px, 5vw, 48px); font-weight: 900; letter-spacing: -0.02em; margin-bottom: 12px; }
+    .doc-updated { font-size: 13px; color: var(--light-grey); margin-bottom: 56px; }
+
+    .doc-intro { font-size: 16px; line-height: 1.8; color: var(--light-grey); margin-bottom: 56px; padding-bottom: 56px; border-bottom: 1px solid var(--gold-line); }
+
+    section.doc-section { margin-bottom: 48px; }
+    section.doc-section h2 {
+      font-size: 20px; font-weight: 800; letter-spacing: -0.01em; color: var(--white);
+      margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid rgba(212,175,55,0.15);
+    }
+    section.doc-section h2 .num { color: var(--gold); margin-right: 10px; }
+    section.doc-section p { font-size: 15px; line-height: 1.8; color: var(--light-grey); margin-bottom: 14px; }
+    section.doc-section ul { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 14px 0; }
+    section.doc-section ul li { font-size: 15px; line-height: 1.7; color: var(--light-grey); padding-left: 20px; position: relative; }
+    section.doc-section ul li::before { content: '—'; color: var(--gold); position: absolute; left: 0; }
+    section.doc-section strong { color: var(--white); font-weight: 600; }
+    section.doc-section a { color: var(--gold); text-decoration: none; }
+    section.doc-section a:hover { text-decoration: underline; }
+
+    .info-card {
+      background: var(--dark);
+      border: 1px solid var(--gold-line);
+      border-radius: 6px;
+      padding: 24px 28px;
+      margin: 20px 0;
+    }
+    .info-card p { margin-bottom: 6px; font-size: 14px; }
+    .info-card p:last-child { margin-bottom: 0; }
+    .info-card .label { color: var(--grey); font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 4px; display: block; }
+
+    table.processor-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+    table.processor-table th, table.processor-table td {
+      text-align: left; padding: 10px 14px; font-size: 13px; border-bottom: 1px solid rgba(212,175,55,0.12);
+      color: var(--light-grey);
+    }
+    table.processor-table th { color: var(--gold); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-size: 10px; }
+
+    footer { border-top: 1px solid var(--gold-line); padding: 40px 5%; text-align: center; }
+    footer p { font-size: 12px; color: var(--grey); }
+    footer a { color: var(--grey); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+
+    @media (max-width: 600px) {
+      main { padding-top: 130px; }
+      table.processor-table { font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-brand" href="/">
+      <span class="lrx">LRX</span>
+      <span class="pipe">|</span>
+      <span class="one">ONE</span>
+    </a>
+    <a class="nav-back" href="/">← Back to lrxone.com</a>
+  </nav>
+
+  <main>
+    <p class="doc-eyebrow">Legal</p>
+    <h1 class="doc-title">Privacy Policy</h1>
+    <p class="doc-updated">Last updated: 27 July 2026</p>
+
+    <p class="doc-intro">
+      LRX Tech Group (Pty) Ltd ("LRX Tech Group", "we", "us") operates LRX One
+      (<a href="https://app.lrxone.com">app.lrxone.com</a>), a business-to-business
+      enterprise operating system. This policy explains what personal information
+      we collect through LRX One, how we use it, who we share it with, and the
+      rights you have over it, in accordance with South Africa's Protection of
+      Personal Information Act 4 of 2013 ("POPIA").
+    </p>
+
+    <section class="doc-section">
+      <h2><span class="num">1.</span>Who we are</h2>
+      <p>
+        LRX One is a B2B platform — our direct customers are businesses ("tenants"),
+        and the personal information we process belongs to those businesses' own
+        employees and authorised users. LRX One is not directed at, and does not
+        knowingly collect information from, individual consumers or minors.
+      </p>
+      <div class="info-card">
+        <p><span class="label">Information Officer</span>Brandon Le Roux</p>
+        <p><span class="label">Email</span><a href="mailto:brandon@lrxtechgroup.com">brandon@lrxtechgroup.com</a></p>
+        <p><span class="label">Registered address</span>Unit 4 De Oude Akker 1, Reservoir Street, Brackenfell South, Cape Town, Western Cape, 7560, South Africa</p>
+      </div>
+    </section>
+
+    <section class="doc-section">
+      <h2><span class="num">2.</span>Information we collect</h2>
+      <p>We collect the following categories of personal information through LRX One:</p>
+      <ul>
+        <li><strong>Account and identity data</strong> — name, work email address, job title, and authentication credentials for each user your organisation invites to the platform.</li>
+        <li><strong>Usage data</strong> — actions taken within the platform (workflows created, documents uploaded, features used) needed to operate and improve the service.</li>
+        <li><strong>Content you provide</strong> — documents, workflow configurations, and other business data your organisation stores or processes through LRX One.</li>
+        <li><strong>Communications with the AI Assistant</strong> — messages you send to LRX One's AI features, processed to generate responses.</li>
+        <li><strong>Billing information</strong> — processed on our behalf by our payment processors (see Section 4); we do not store full card numbers ourselves.</li>
+        <li><strong>Technical data</strong> — IP address, browser type, and device information, collected automatically for security and service-reliability purposes.</li>
+      </ul>
+    </section>
+
+    <section class="doc-section">
+      <h2><span class="num">3.</span>How we use it</h2>
+      <p>We process personal information to:</p>
+      <ul>
+        <li>Provide, maintain, and secure the LRX One platform for your organisation.</li>
+        <li>Authenticate users and enforce your organisation's access controls.</li>
+        <li>Process payments and manage subscriptions.</li>
+        <li>Respond to support requests and communicate service-related notices.</li>
+        <li>Improve platform features, informed by aggregated usage patterns.</li>
+        <li>Comply with our own legal obligations, including South African financial recordkeeping requirements.</li>
+      </ul>
+    </section>
+
+    <section class="doc-section">
+      <h2><span class="num">4.</span>Who we share it with</h2>
+      <p>
+        We share personal information only with third-party service providers
+        ("operators", in POPIA terms) who process it on our behalf to deliver
+        LRX One, under contractual confidentiality and security obligations.
+        We do not sell personal information.
+      </p>
+      <table class="processor-table">
+        <tr><th>Processor</th><th>Purpose</th></tr>
+        <tr><td>Amazon Web Services (af-south-1, Cape Town)</td><td>Cloud infrastructure and data storage</td></tr>
+        <tr><td>Anthropic</td><td>AI Assistant feature — processes messages you send to it</td></tr>
+        <tr><td>Stitch</td><td>Payment processing (EFT / card, South Africa)</td></tr>
+        <tr><td>PayFast</td><td>Payment processing (South Africa)</td></tr>
+        <tr><td>Stripe</td><td>Payment processing (international customers)</td></tr>
+        <tr><td>Microsoft</td><td>Business email and productivity tools</td></tr>
+        <tr><td>Keycloak (self-hosted)</td><td>Authentication and identity management</td></tr>
+      </table>
+      <p>
+        Our primary infrastructure is hosted in AWS's af-south-1 (Cape Town) region.
+        Some processors listed above may process data outside South Africa as part
+        of their own service delivery; where that happens, we rely on contractual
+        safeguards consistent with POPIA's cross-border transfer requirements.
+      </p>
+    </section>
+
+    <section class="doc-section">
+      <h2><span class="num">5.</span>Data retention</h2>
+      <ul>
+        <li>Account and platform data is retained for <strong>12 months after subscription cancellation</strong>, after which it is deleted unless you request earlier deletion (see Section 7).</li>
+        <li>Financial records (invoices, payment records) are retained for <strong>7 years</strong>, as required under South African tax and financial legislation (FICA).</li>
+      </ul>
+    </section>
+
+    <section class="doc-section">
+      <h2><span class="num">6.</span>Security</h2>
+      <p>
+        We apply technical and organisational measures appropriate to the
+        sensitivity of the information we hold, including encryption in transit,
+        access controls scoped to each tenant, and infrastructure hosted in a
+        secured AWS environment. No system is completely immune to risk, and we
+        continuously work to improve our safeguards.
+      </p>
+    </section>
+
+    <section class="doc-section">
+      <h2><span class="num">7.</span>Your rights</h2>
+      <p>Under POPIA, you have the right to:</p>
+      <ul>
+        <li>Request access to the personal information we hold about you.</li>
+        <li>Request correction of inaccurate or outdated information.</li>
+        <li>Request deletion of your personal information, subject to our legal retention obligations (Section 5).</li>
+        <li>Object to processing carried out on the basis of legitimate interest.</li>
+        <li>Lodge a complaint with the Information Regulator of South Africa.</li>
+      </ul>
+      <p>
+        If you're an individual user of a tenant on LRX One, requests about your
+        own account data should generally go through your organisation's
+        administrator first, since they control your account. Tenant
+        administrators can submit a deletion request for their organisation's
+        data directly through the platform's tenant deletion-request endpoint, or
+        by contacting our Information Officer at
+        <a href="mailto:brandon@lrxtechgroup.com">brandon@lrxtechgroup.com</a>.
+      </p>
+    </section>
+
+    <section class="doc-section">
+      <h2><span class="num">8.</span>Changes to this policy</h2>
+      <p>
+        We may update this policy from time to time. Material changes will be
+        communicated to active tenants by email. The "Last updated" date at the
+        top of this page always reflects the current version.
+      </p>
+    </section>
+
+    <section class="doc-section">
+      <h2><span class="num">9.</span>Contact us</h2>
+      <p>
+        Questions about this policy or how we handle personal information can be
+        directed to our Information Officer, Brandon Le Roux, at
+        <a href="mailto:brandon@lrxtechgroup.com">brandon@lrxtechgroup.com</a>.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="footer-year"></span> LRX Tech Group (Pty) Ltd · South Africa · <a href="https://lrxtechgroup.com">lrxtechgroup.com</a></p>
+  </footer>
+
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
