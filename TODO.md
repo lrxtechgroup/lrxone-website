@@ -3,6 +3,18 @@
 Living backlog. Check items off (or move to MEMORY.md as a dated entry) as they're
 done — don't just accumulate; keep this reflecting real, current state.
 
+## Fixed 2026-07-28 — Nav/hero "Register Interest" → real "Register" link
+
+- [x] User request: nav and hero top-level CTAs now read "Register" /
+      "Sign In" instead of "Register Interest" / "Sign In" — Register
+      points straight at `app.lrxone.com/register` (a real route in the
+      app frontend) instead of a `mailto:`. See MEMORY.md.
+- [ ] Footer still has the old "Register Interest" → `mailto:` link,
+      now inconsistent with the real "Register" link above it on the
+      same page. Left as-is — user scoped the request to "the top" of
+      the page specifically; flagged for the user rather than changed
+      unprompted.
+
 ## Fixed 2026-07-27 (yet later same day) — Restructured into a dedicated sign-in page
 
 - [x] Site rebuilt around Sign In as the primary CTA (site's stated

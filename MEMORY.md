@@ -6,6 +6,37 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-07-28 (later same day) — Nav/hero "Register Interest" → real "Register" link
+
+User request: at the top of the page, replace "Register Interest"
+(the `mailto:` low-commitment CTA) with a real "Register" that goes
+straight to the app's sign-up page, sitting alongside "Sign In" the
+same way the two already work in the app frontend itself.
+
+Checked `lrxone/frontend/src/App.tsx` first rather than guessing the
+URL — confirmed `/register` is a real, already-wired route
+(`RegisterPage.tsx`), the same way `/login` already was when Sign In
+was made real during yesterday's restructure. Same reasoning applies to
+both now: the link is structurally correct and will just start working
+once the app is actually deployed to `app.lrxone.com`, no code change
+needed later.
+
+- Nav: `Register Interest` (`mailto:`) → `Register` (`https://app.lrxone.com/register`).
+- Hero actions: same swap, kept "Sign In" as the primary (`btn-gold`)
+  button and "Register" as secondary (`btn-outline`) — unchanged
+  visual hierarchy, since sign-in is still this page's stated primary
+  purpose.
+- Hero note copy adjusted ("New here? Register above, or see the full
+  pitch first.") since "register your interest" no longer describes
+  what happens — it's a real form now, not an email.
+- Deliberately left the footer's "Register Interest" `mailto:` link
+  untouched — the user scoped this to "the top" of the page. It's now
+  inconsistent with the real Register link above it; noted in TODO.md
+  rather than changed unprompted.
+- Verified `index.html` still parses cleanly.
+
+---
+
 ## 2026-07-28 — Fixed outbound links to point at the real LRX One product page
 
 Follow-up to the restructure below: this site's "full pitch" links
