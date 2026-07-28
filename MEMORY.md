@@ -6,6 +6,39 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-07-28 (mobile audit) — Fixed nav crowding on the reworked hero
+
+Part of the same cross-repo mobile audit as `lrxtechgroup-website`'s
+footer-overflow fix (see that repo's own MEMORY.md for the sibling bug
+found there). Ran the same Playwright overflow sweep — 375px and 768px,
+`scrollWidth` vs `clientWidth` — across all 5 pages here.
+
+`index.html` didn't technically overflow (no horizontal scrollbar
+triggered), but a closer look at the nav specifically (bounding-box
+measurements of `.nav-brand`, `.nav-link`, `.nav-start`) showed it was
+right at the edge of breaking: at 375px the "LRX | ONE" logo's right
+edge and "About"'s left edge were both at 134px — zero gap, touching
+directly — and the "Sign In" button's right edge sat at 376px against a
+375px viewport, a 1px clip. The math: `.nav-brand` (134px) +
+`.nav-right`'s total width (242px) sums to exactly 376px, leaving no
+room for the flex `justify-content: space-between` gap to do anything.
+
+This nav (`About` / `Register` / `Sign In`) never had responsive
+handling — `lrxtechgroup-website`'s equivalent nav pattern already hides
+secondary links under 768px via `.nav-links { display: none; }`, relying
+on the hero's own CTAs instead, but that treatment was never applied
+here. Added the matching rule: `@media (max-width: 768px) { .nav-link {
+display: none; } }`. Only the gold Sign In button remains in the nav at
+phone widths now; About and Register are still reachable via the hero
+buttons and footer.
+
+Also re-checked the pillars band (the two-product-tile rework from
+earlier today) at 375px specifically, since it was a brand-new component
+— renders cleanly, no issues. The four legal pages were already clean
+(their nav is a single "back" link, never had room to crowd).
+
+---
+
 ## 2026-07-28 (second correction) — LRX One is the umbrella product, not just a login
 
 Second correction in the same thread of work. The first correction fixed

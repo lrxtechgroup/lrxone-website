@@ -3,6 +3,27 @@
 Living backlog. Check items off (or move to MEMORY.md as a dated entry) as they're
 done — don't just accumulate; keep this reflecting real, current state.
 
+## Fixed 2026-07-28 (mobile audit) — Nav crowding on the reworked hero at phone widths
+
+- [x] Ran the same mobile overflow sweep done on `lrxtechgroup-website`
+      across this site's 5 pages at 375px/768px. `index.html` didn't
+      technically overflow (no horizontal scrollbar), but the nav was
+      genuinely cramped at 375px: the "LRX | ONE" logo and the "About"
+      link had zero gap between them (touching directly), and the "Sign
+      In" button clipped 1px past the viewport edge. Root cause:
+      `.nav-right`'s three items (About, Register, Sign In) had no
+      responsive handling at all, unlike `lrxtechgroup-website`'s
+      equivalent nav (which hides secondary links under 768px, keeping
+      just the primary CTA). Added the same `@media (max-width: 768px) {
+      .nav-link { display: none; } }` rule here for consistency — only
+      the gold Sign In button remains at phone widths now.
+- [x] Also visually re-checked the reworked pillars band (the two
+      product tiles from the earlier hero rework) at 375px — renders
+      cleanly, no changes needed there.
+- [x] The other 4 pages on this site (terms/privacy/refund/cancellation)
+      were all already clean — their minimal single-link nav never had
+      this problem.
+
 ## Fixed 2026-07-28 (second correction) — LRX One is the umbrella product, not just a login
 
 - [x] User corrected the framing from the two entries directly below:
