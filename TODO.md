@@ -3,6 +3,34 @@
 Living backlog. Check items off (or move to MEMORY.md as a dated entry) as they're
 done — don't just accumulate; keep this reflecting real, current state.
 
+## Fixed 2026-07-28 (correction) — app.lrxone.com is the shared login for both products
+
+- [x] User corrected an assumption from the entry directly below this
+      one: this site (and `app.lrxone.com`, the account system it signs
+      you into) is **not** LRX One Core-exclusive — it's the shared login
+      for both LRX One Core and LRX One Billing. Generalised `terms.html`,
+      `privacy.html`, `refund-policy.html`, and `cancellation-policy.html`
+      accordingly (product name "LRX One Core" → "LRX One" in
+      titles/scope statements, explicit mentions of both products added
+      throughout each page's substantive sections). This was a real
+      compliance gap, not just a copy nit — the Terms/Privacy a LRX One
+      Billing customer would be bound by, signing in through this same
+      login, described a different product than the one they were using.
+- [x] Lightly corrected `index.html` (the sign-in page itself) to match:
+      `<title>`/meta description no longer claim to be LRX One Core
+      exclusive, and the "Looking for features, pricing..." line now
+      links to both products' pages on lrxtechgroup.com instead of only
+      LRX One Core's. Deliberately did **not** redesign the hero pitch,
+      dashboard mockup, or "LRX ONE | CORE" nav/footer brand mark — that
+      content is Core-specific by evident design choice (the mockup shows
+      Core's own dashboard), and changing it is a bigger product-framing
+      call than a metadata correction. Flagged below if that's wanted.
+- [ ] **Open question**: should the hero pitch, dashboard mockup, and
+      nav/footer "LRX ONE | CORE" wordmark also be reworked to represent
+      both products (or made product-neutral), now that this is confirmed
+      to be a shared login surface? Left alone pending a decision — this
+      is a visible design/positioning choice, not a compliance fix.
+
 ## Fixed 2026-07-28 (final one today) — Reconciled legal pages with lrxtechgroup-website
 
 - [x] `cancellation-policy.html` Section 3 still said "or to the free
@@ -18,14 +46,11 @@ done — don't just accumulate; keep this reflecting real, current state.
       `billing@lrxtechgroup.com`. `terms.html`'s general "Contact us"
       section now explicitly splits general vs. billing questions, same
       as the other site.
-- [ ] **Not changed, deliberately**: this site's pages stay LRX One
-      Core-specific (product name, `app.lrxone.com` references, nav
-      branding) rather than being generalised to also cover LRX One
-      Billing the way `lrxtechgroup-website`'s versions are — that's a
-      legitimate difference given this domain is the single-product
-      sign-in site, not the corporate umbrella. Only the underlying
-      *rules* (no free tier, refund window, cancellation timing, contact
-      routing) needed to match; the copy scope doesn't.
+- [x] The line below this originally said the pages would deliberately
+      stay LRX One Core-specific, reasoning this was a single-product
+      site. That assumption was wrong — see the correction entry above:
+      `app.lrxone.com` is the shared login for both products, so the
+      pages were generalised after all.
 
 ## Fixed 2026-07-28 (very last one today) — STARTER tier wording updated (no longer free)
 

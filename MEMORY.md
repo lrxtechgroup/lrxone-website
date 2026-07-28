@@ -6,6 +6,51 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-07-28 (correction) — app.lrxone.com is the shared login for both products
+
+Direct correction to the entry immediately below, from the same
+session's earlier legal-pages reconciliation pass. That pass explicitly
+reasoned: "this site's pages stay LRX One Core-specific... that's a
+legitimate difference given this domain is the single-product sign-in
+site, not the corporate umbrella." The user corrected that: `lrxone.com`
+/ `app.lrxone.com` is actually the shared login for **both** LRX One
+Core and LRX One Billing, not a Core-exclusive surface. That flips the
+premise the earlier "deliberately not changed" call was built on.
+
+This isn't just a copy-scope nit — it's a real compliance gap. A LRX One
+Billing customer signing in through `app.lrxone.com` would have been
+bound by Terms of Service, a Privacy Policy, and a Refund/Cancellation
+Policy that described themselves as governing "LRX One Core" only, a
+different product than the one they're actually using.
+
+**Fixed across all four legal pages** — titles, meta descriptions, and
+every substantive section (the service/who-we-are, acceptable use,
+subscriptions, service availability, data ownership, IP, liability,
+termination, governing law, information collected, how it's used, who
+it's shared with, rights requests) now name both LRX One Core and LRX
+One Billing explicitly, or use the umbrella name "LRX One" for the
+shared account system itself, instead of exclusively naming Core. The
+privacy.html processor table's Anthropic row is the one deliberately
+Core-specific line left in place — the AI Assistant genuinely is a Core
+feature only, so scoping that one row correctly means naming Core
+specifically, not generalising it.
+
+**Also lightly corrected `index.html`** (the actual sign-in page):
+`<title>` and meta description no longer claim Core-exclusivity, and the
+"Looking for features, pricing, and the full product tour?" line now
+links to both products' pages on lrxtechgroup.com instead of only Core's.
+
+**Deliberately left alone**: the hero pitch ("One Platform. Endless
+Possibilities," the Connect/Automate/Analyze/Scale/Secure pillars), the
+dashboard mockup (which visibly shows Core's own UI — Workflows,
+AI Coach, Documents), and the "LRX ONE | CORE" nav/footer brand mark.
+Those are load-bearing design/product-positioning choices, not metadata
+— reworking them to represent both products (or neutralising them) is a
+bigger call than this fix, and is flagged as an open question in TODO.md
+rather than decided unilaterally.
+
+---
+
 ## 2026-07-28 (final one today) — Reconciled legal pages with lrxtechgroup-website
 
 User asked to make sure the policies on lrxone.com and lrxtechgroup.com
