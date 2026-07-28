@@ -25,11 +25,42 @@ done — don't just accumulate; keep this reflecting real, current state.
       content is Core-specific by evident design choice (the mockup shows
       Core's own dashboard), and changing it is a bigger product-framing
       call than a metadata correction. Flagged below if that's wanted.
-- [ ] **Open question**: should the hero pitch, dashboard mockup, and
-      nav/footer "LRX ONE | CORE" wordmark also be reworked to represent
-      both products (or made product-neutral), now that this is confirmed
-      to be a shared login surface? Left alone pending a decision — this
-      is a visible design/positioning choice, not a compliance fix.
+- [x] **Resolved**: user asked for the hero and nav brand to be reworked
+      to cover both products. See the new entry above for what shipped.
+
+## Fixed 2026-07-28 (design follow-up) — Hero, nav brand, and dashboard mockup now represent both products
+
+- [x] Nav brand and footer brand mark: "LRX ONE | CORE" → "LRX | ONE",
+      matching the wordmark already used on this site's own legal pages
+      (an inconsistency that existed even before the dual-product issue).
+- [x] Hero eyebrow/headline/sub/desc rewritten from Core's specific pitch
+      ("Enterprise Operating System" / "One Platform. Endless
+      Possibilities." / "Connect · Automate · Analyze · Scale · Secure")
+      to a shared-account framing ("Product Sign-In" / "One Account.
+      Every LRX Product." / "LRX One Core · LRX One Billing").
+- [x] Dashboard mockup replaced entirely — it showed Core's own internal
+      UI (Workflows, AI Coach, a workflow status table), which was
+      never an honest depiction of what a *shared* login lands on. Now
+      shows a "Choose a product" picker with two tiles (LRX One Core,
+      LRX One Billing) — the CSS classes it used (`.mock-body`,
+      `.mock-sidebar`, `.mock-card`, `.mock-chart`, `.mock-table`, etc.)
+      were fully unused afterward and removed rather than left as dead
+      weight; replaced with `.mock-picker*` classes.
+      `.mock-url` changed from "app.lrxone.com/dashboard" to
+      "app.lrxone.com" to match (no single product's dashboard to point
+      at anymore).
+- [x] Pillars band: Core's five-pillar framework (Connect / Automate /
+      Analyze / Scale / Secure) replaced with two clickable tiles — LRX
+      One Core and LRX One Billing, each linking to that product's page
+      on lrxtechgroup.com. `.pillar-item` needed `text-decoration: none`
+      added since the markup changed from `<div>` to `<a>`.
+- [x] Footer links: "Register Interest" mailto subject de-Core'd, single
+      "Features & Pricing" link split into separate "LRX One Core" /
+      "LRX One Billing" links.
+- [x] Verified visually with a Playwright screenshot (not just HTML
+      validity) — confirmed the fadeUp entrance animations need ~1.5-2s
+      to fully resolve before a screenshot reads correctly; a naive
+      500ms wait caught several elements mid-animation.
 
 ## Fixed 2026-07-28 (final one today) — Reconciled legal pages with lrxtechgroup-website
 

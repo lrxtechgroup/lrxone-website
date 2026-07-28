@@ -163,31 +163,20 @@
     .mock-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--grey); }
     .mock-url { flex: 1; background: var(--dark); border: 1px solid rgba(255,255,255,0.06); border-radius: 4px; padding: 4px 12px; font-size: 11px; color: var(--light-grey); font-family: monospace; }
 
-    .mock-body { padding: 24px; display: grid; grid-template-columns: 160px 1fr; gap: 16px; min-height: 360px; }
-
-    .mock-sidebar { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.04); border-radius: 4px; padding: 16px 12px; display: flex; flex-direction: column; gap: 6px; }
-    .mock-nav-item { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; padding: 8px 10px; border-radius: 3px; color: var(--light-grey); }
-    .mock-nav-item.active { background: var(--gold-dim); color: var(--gold); border: 1px solid var(--gold-line); }
-
-    .mock-content { display: flex; flex-direction: column; gap: 12px; }
-    .mock-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
-    .mock-card { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05); border-radius: 4px; padding: 14px; }
-    .mock-card-label { font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--grey); margin-bottom: 8px; }
-    .mock-card-value { font-size: 20px; font-weight: 800; color: var(--gold); }
-
-    .mock-chart { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05); border-radius: 4px; padding: 14px; height: 120px; display: flex; align-items: flex-end; gap: 4px; }
-    .mock-bar { flex: 1; background: linear-gradient(to top, var(--gold-dark), var(--gold)); border-radius: 2px 2px 0 0; opacity: 0.7; }
-
-    .mock-table { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden; }
-    .mock-tr { display: grid; grid-template-columns: 2fr 1fr 1fr; padding: 8px 12px; font-size: 9px; color: var(--light-grey); border-bottom: 1px solid rgba(255,255,255,0.04); gap: 8px; }
-    .mock-tr.header { color: var(--grey); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
-    .mock-status { font-size: 8px; font-weight: 700; letter-spacing: 0.1em; padding: 2px 6px; border-radius: 2px; }
-    .mock-status.ok { background: rgba(212,175,55,0.15); color: var(--gold); }
-    .mock-status.run { background: rgba(100,200,100,0.1); color: #6cc; }
+    /* Product picker — what actually sits behind a shared login: choose which
+       product this account opens into, not a single product's dashboard. */
+    .mock-picker { padding: 32px 24px; min-height: 360px; display: flex; flex-direction: column; justify-content: center; gap: 20px; }
+    .mock-picker-label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--grey); text-align: center; }
+    .mock-picker-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .mock-picker-card { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 24px 16px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; transition: background 0.2s, border-color 0.2s; }
+    .mock-picker-card.active { background: var(--gold-dim); border-color: var(--gold-line); }
+    .mock-picker-icon svg { width: 26px; height: 26px; stroke: var(--gold); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .mock-picker-name { font-size: 12px; font-weight: 700; color: var(--white); }
+    .mock-picker-desc { font-size: 9px; letter-spacing: 0.04em; color: var(--light-grey); }
 
     /* ── PILLARS BAND — the "some advertising" this page keeps ─────────────── */
     .pillars-band { display: flex; justify-content: center; background: var(--dark); border-top: 1px solid var(--gold-line); border-bottom: 1px solid var(--gold-line); overflow-x: auto; }
-    .pillar-item { flex: 1; min-width: 120px; display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 32px 24px; border-right: 1px solid var(--gold-line); transition: background 0.2s; }
+    .pillar-item { flex: 1; min-width: 120px; display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 32px 24px; border-right: 1px solid var(--gold-line); text-decoration: none; transition: background 0.2s; }
     .pillar-item:last-child { border-right: none; }
     .pillar-item:hover { background: var(--gold-dim); }
     .pillar-item svg { width: 28px; height: 28px; stroke: var(--gold); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
@@ -236,9 +225,9 @@
 
   <nav>
     <a class="nav-brand" href="/">
-      <span class="lrx">LRX ONE</span>
+      <span class="lrx">LRX</span>
       <span class="pipe">|</span>
-      <span class="one">CORE</span>
+      <span class="one">ONE</span>
     </a>
     <div class="nav-right">
       <a href="https://lrxtechgroup.com" class="nav-link">About</a>
@@ -250,22 +239,23 @@
   <section class="hero">
     <div class="hero-left">
       <p class="hero-badge coming-soon">Coming Soon</p>
-      <p class="hero-eyebrow">Enterprise Operating System</p>
+      <p class="hero-eyebrow">Product Sign-In</p>
       <h1 class="hero-headline">
-        One Platform.<br/>
-        <span class="gold">Endless</span><br/>
-        Possibilities.
+        One Account.<br/>
+        <span class="gold">Every</span><br/>
+        LRX Product.
       </h1>
-      <p class="hero-sub">Connect · Automate · Analyze · Scale · Secure</p>
+      <p class="hero-sub">LRX One Core · LRX One Billing</p>
       <p class="hero-desc">
-        LRX One Core is the intelligent operating system that connects, automates, analyzes,
-        and scales every aspect of your business — from a single platform.
+        LRX One is your single sign-in for LRX Tech Group's business software —
+        including LRX One Core, the intelligent enterprise operating system, and
+        LRX One Billing, ZAR-native subscription billing infrastructure.
       </p>
       <div class="hero-actions">
         <a href="https://app.lrxone.com/login" class="btn-gold">Sign In →</a>
         <a href="https://app.lrxone.com/register" class="btn-outline">Register</a>
       </div>
-      <p class="hero-note">Already have a workspace? Sign in above. New here? Register above, or <a href="https://lrxtechgroup.com/one.html">see the full pitch</a> first.</p>
+      <p class="hero-note">Already have an account? Sign in above. New here? Register above, or <a href="https://lrxtechgroup.com/#products">see what's included</a> first.</p>
     </div>
     <div class="hero-right">
       <div class="dashboard-mock">
@@ -275,40 +265,24 @@
             <div class="mock-dot"></div>
             <div class="mock-dot"></div>
           </div>
-          <div class="mock-url">app.lrxone.com/dashboard</div>
+          <div class="mock-url">app.lrxone.com</div>
         </div>
-        <div class="mock-body">
-          <div class="mock-sidebar">
-            <div class="mock-nav-item active">Dashboard</div>
-            <div class="mock-nav-item">Workflows</div>
-            <div class="mock-nav-item">Documents</div>
-            <div class="mock-nav-item">Analytics</div>
-            <div class="mock-nav-item">AI Coach</div>
-            <div class="mock-nav-item">Integrations</div>
-            <div class="mock-nav-item">Users</div>
-            <div class="mock-nav-item">Settings</div>
-          </div>
-          <div class="mock-content">
-            <div class="mock-row">
-              <div class="mock-card"><div class="mock-card-label">Workflows</div><div class="mock-card-value">24</div></div>
-              <div class="mock-card"><div class="mock-card-label">Users</div><div class="mock-card-value">12</div></div>
-              <div class="mock-card"><div class="mock-card-label">Today</div><div class="mock-card-value">98%</div></div>
+        <div class="mock-picker">
+          <div class="mock-picker-label">Choose a product</div>
+          <div class="mock-picker-grid">
+            <div class="mock-picker-card active">
+              <div class="mock-picker-icon">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6V21a2 2 0 1 1-4 0v-.2a1.7 1.7 0 0 0-1.1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.6-1H3a2 2 0 1 1 0-4h.2a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.6V3a2 2 0 1 1 4 0v.2a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.6 1H21a2 2 0 1 1 0 4h-.2a1.7 1.7 0 0 0-1.6 1z"/></svg>
+              </div>
+              <div class="mock-picker-name">LRX One Core</div>
+              <div class="mock-picker-desc">Workflows · AI Assistant · Analytics</div>
             </div>
-            <div class="mock-chart">
-              <div class="mock-bar" style="height:40%"></div>
-              <div class="mock-bar" style="height:65%"></div>
-              <div class="mock-bar" style="height:50%"></div>
-              <div class="mock-bar" style="height:80%"></div>
-              <div class="mock-bar" style="height:60%"></div>
-              <div class="mock-bar" style="height:90%"></div>
-              <div class="mock-bar" style="height:75%"></div>
-              <div class="mock-bar" style="height:95%"></div>
-            </div>
-            <div class="mock-table">
-              <div class="mock-tr header"><span>Workflow</span><span>Status</span><span>Last Run</span></div>
-              <div class="mock-tr"><span>Invoice Processing</span><span><span class="mock-status ok">Active</span></span><span>2m ago</span></div>
-              <div class="mock-tr"><span>Lead Scoring</span><span><span class="mock-status run">Running</span></span><span>Now</span></div>
-              <div class="mock-tr"><span>Report Generation</span><span><span class="mock-status ok">Active</span></span><span>1h ago</span></div>
+            <div class="mock-picker-card">
+              <div class="mock-picker-icon">
+                <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/></svg>
+              </div>
+              <div class="mock-picker-name">LRX One Billing</div>
+              <div class="mock-picker-desc">Invoicing · Payments · ZAR-native</div>
             </div>
           </div>
         </div>
@@ -317,26 +291,14 @@
   </section>
 
   <div class="pillars-band">
-    <div class="pillar-item">
-      <svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
-      <span>Connect</span>
-    </div>
-    <div class="pillar-item">
+    <a class="pillar-item" href="https://lrxtechgroup.com/one.html">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M4.93 19.07l1.41-1.41M19.07 19.07l-1.41-1.41M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>
-      <span>Automate</span>
-    </div>
-    <div class="pillar-item">
-      <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-      <span>Analyze</span>
-    </div>
-    <div class="pillar-item">
-      <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-      <span>Scale</span>
-    </div>
-    <div class="pillar-item">
-      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      <span>Secure</span>
-    </div>
+      <span>LRX One Core</span>
+    </a>
+    <a class="pillar-item" href="https://lrxtechgroup.com/billing.html">
+      <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/></svg>
+      <span>LRX One Billing</span>
+    </a>
   </div>
 
   <div class="learn-more">
@@ -346,13 +308,14 @@
   <footer>
     <div class="footer-top">
       <div class="footer-brand">
-        <div class="brand-mark"><span class="gold">LRX ONE</span> | CORE</div>
-        <p>The intelligent enterprise operating system. Built in South Africa for businesses everywhere.</p>
+        <div class="brand-mark"><span class="gold">LRX</span> | ONE</div>
+        <p>Your single sign-in for LRX Tech Group's business software. Built in South Africa for businesses everywhere.</p>
       </div>
       <ul class="footer-links">
         <li><a href="https://app.lrxone.com/login">Sign In</a></li>
-        <li><a href="mailto:sales@lrxtechgroup.com?subject=LRX%20One%20Core%20-%20Register%20Interest">Register Interest</a></li>
-        <li><a href="https://lrxtechgroup.com/one.html">Features &amp; Pricing</a></li>
+        <li><a href="mailto:sales@lrxtechgroup.com?subject=LRX%20One%20-%20Register%20Interest">Register Interest</a></li>
+        <li><a href="https://lrxtechgroup.com/one.html">LRX One Core</a></li>
+        <li><a href="https://lrxtechgroup.com/billing.html">LRX One Billing</a></li>
         <li><a href="https://lrxtechgroup.com">LRX Tech Group</a></li>
         <li><a href="mailto:sales@lrxtechgroup.com">Contact</a></li>
         <li><a href="/privacy.html">Privacy Policy</a></li>

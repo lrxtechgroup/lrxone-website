@@ -6,6 +6,78 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-07-28 (design follow-up) — Reworked hero and nav brand for both products
+
+Follow-up to the correction below, which fixed the legal pages and left
+the hero pitch, dashboard mockup, and nav/footer brand mark alone as an
+open question ("visible design/positioning choice, not a compliance
+fix"). User asked for it directly: rework the hero and nav brand to
+cover both products.
+
+**Nav/footer brand mark**: "LRX ONE | CORE" → "LRX | ONE". Incidentally
+fixes a standalone inconsistency this surfaced — the site's own legal
+pages (`terms.html` etc.) already used "LRX | ONE" in their nav, so
+`index.html` had been visually inconsistent with its own sibling pages
+even before the dual-product question came up.
+
+**Hero copy**, rewritten end to end from Core's specific pitch to a
+shared-account framing:
+- Eyebrow: "Enterprise Operating System" → "Product Sign-In"
+- Headline: "One Platform. Endless Possibilities." (Core's exact
+  tagline, reused verbatim from `lrxtechgroup-website`'s one.html) →
+  "One Account. Every LRX Product." — deliberately a different line, not
+  a genericised version of Core's, so it can't be mistaken for
+  representing Core specifically.
+- Sub: "Connect · Automate · Analyze · Scale · Secure" (Core's 5
+  pillars) → "LRX One Core · LRX One Billing"
+- Desc: rewritten to name both products and what each is, instead of
+  describing only Core.
+
+**Dashboard mockup**: this was the biggest actual dishonesty in the old
+page — it depicted Core's own internal dashboard (a Workflows sidebar
+item, an "AI Coach" nav entry, a workflow status table with "Invoice
+Processing" / "Lead Scoring" rows) as if that's what any shared-login
+user lands on. Replaced with a "Choose a product" picker showing two
+tiles — LRX One Core and LRX One Billing, each with an icon and a
+one-line feature summary — which is what a real shared login for two
+products should show after authentication. `mock-url` changed from
+"app.lrxone.com/dashboard" to "app.lrxone.com" to match (there's no
+longer a single product's dashboard being implied). The old markup's
+CSS classes (`.mock-body`, `.mock-sidebar`, `.mock-nav-item`,
+`.mock-content`, `.mock-row`, `.mock-card`, `.mock-chart`, `.mock-bar`,
+`.mock-table`, `.mock-tr`, `.mock-status`) became fully unused once the
+markup changed — grepped to confirm before deleting rather than leaving
+dead CSS, replaced with a smaller `.mock-picker*` set.
+
+**Pillars band**: Core's five-pillar framework (Connect / Automate /
+Analyze / Scale / Secure — the same specific value-prop pillars used on
+Core's own marketing page) replaced with two clickable tiles, one per
+product, linking out to each one's page on lrxtechgroup.com. Changed the
+markup from `<div class="pillar-item">` to `<a class="pillar-item">` to
+make them real links, which meant adding `text-decoration: none` to the
+`.pillar-item` rule (wasn't needed on a div, is needed on an anchor).
+
+**Footer**: brand mark and tagline updated to match the nav; the single
+"Features & Pricing" link (pointed only at Core's page) split into
+separate "LRX One Core" and "LRX One Billing" links; "Register Interest"
+mailto subject line de-Core'd.
+
+**Verification**: ran this through an actual browser screenshot
+(Playwright + the pre-installed Chromium at `/opt/pw-browsers/chromium`,
+via Node since no Python `playwright` package was installed) rather than
+relying on HTML-validity checks alone, since this was a real visual
+change. First attempt used a 500ms wait and caught the page mid
+entrance-animation — several elements looked missing that were actually
+just still at `opacity: 0` partway through their `fadeUp` animation
+delay/duration. Recalculated the longest delay+duration in the page
+(hero-note: 0.9s delay + 0.7s duration = 1.6s) and re-ran with a 2.5s
+wait, which rendered correctly. Confirmed the full page — hero, product
+picker mockup, pillars band, learn-more strip, and footer — all read
+coherently as a dual-product page with no leftover Core-exclusive
+framing.
+
+---
+
 ## 2026-07-28 (correction) — app.lrxone.com is the shared login for both products
 
 Direct correction to the entry immediately below, from the same
