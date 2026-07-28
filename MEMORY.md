@@ -6,6 +6,19 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-07-27 (later same day) — Contact email changed info → sales
+
+User request, same change applied to `lrxtechgroup-website`. Every
+`mailto:` link in `index.html` (Register Interest, Contact Sales, Talk
+to Sales, footer links, the visible email text) and the one reference
+in `terms.html`'s contact section now goes to `sales@lrxtechgroup.com`
+instead of `info@lrxtechgroup.com`. Deliberately left `privacy.html`
+untouched — its Information Officer contact is `brandon@lrxtechgroup.com`,
+a different, specific address for POPIA purposes, not `info@`. Verified
+both changed files still parse cleanly.
+
+---
+
 ## 2026-07-27 (later same day) — Marked the whole site "Coming Soon"
 
 Same treatment just applied to `lrxtechgroup-website`'s product cards
