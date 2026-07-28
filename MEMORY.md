@@ -6,6 +6,43 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-07-28 (second correction) — LRX One is the umbrella product, not just a login
+
+Second correction in the same thread of work. The first correction fixed
+a real product-scope bug (this site's legal pages exclusively describing
+LRX One Core when the login serves Billing too) by introducing "LRX One"
+as a name for "the shared account system." That got the scope right but
+the framing wrong: the user clarified LRX One isn't just plumbing behind
+the two products — it's LRX Tech Group's actual umbrella product/brand,
+a suite, with LRX One Core and LRX One Billing as the two products
+within it. Signing in once is a consequence of that structure, not the
+definition of it.
+
+Every place that said "LRX One is the shared account system..." or
+"...your single sign-in for..." rewritten to "LRX One is LRX Tech
+Group's product suite, comprising...":
+- `index.html`: meta description, hero-desc, footer tagline, and the
+  `.mock-picker` CSS comment (not user-facing, but was written with the
+  same wrong framing and worth keeping accurate).
+- `terms.html`: meta description, the doc-intro paragraph, and Section 1
+  ("The service").
+- `privacy.html`: the doc-intro paragraph.
+- `refund-policy.html` and `cancellation-policy.html` needed no changes
+  — neither ever asserted what LRX One *is*, only used the name.
+
+**Flagged, not acted on**: `lrxtechgroup-website`'s own `index.html` —
+the actual corporate homepage — shows LRX One Core and LRX One Billing
+as two independent, equal product cards with zero "LRX One" umbrella
+mentions anywhere (checked via grep before flagging, not assumed). If
+the umbrella-product framing is real, that site's product section might
+warrant restructuring, not just new copy — a materially bigger,
+more visible change to the primary marketing site than fixing wording on
+the sign-in page. Asked the user how far to take it rather than
+redesigning that page's information architecture without confirming
+intent first.
+
+---
+
 ## 2026-07-28 (design follow-up) — Reworked hero and nav brand for both products
 
 Follow-up to the correction below, which fixed the legal pages and left

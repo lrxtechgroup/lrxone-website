@@ -3,6 +3,28 @@
 Living backlog. Check items off (or move to MEMORY.md as a dated entry) as they're
 done — don't just accumulate; keep this reflecting real, current state.
 
+## Fixed 2026-07-28 (second correction) — LRX One is the umbrella product, not just a login
+
+- [x] User corrected the framing from the two entries directly below:
+      "LRX One" isn't merely the shared account system/login behind
+      Core and Billing — it's LRX Tech Group's actual umbrella product
+      (a suite), with Core and Billing as its two products/modules,
+      sign-in being one thing it does, not what it *is*. Every
+      "shared account system" / "single sign-in for..." description
+      across `index.html`, `terms.html`, and `privacy.html` rewritten to
+      "LRX One is LRX Tech Group's product suite, comprising..." instead.
+      `refund-policy.html`/`cancellation-policy.html` needed no change —
+      they never defined what LRX One *is*, only referenced it by name.
+- [ ] **Flagged, not decided**: `lrxtechgroup-website`'s main site
+      (`index.html`) presents LRX One Core and LRX One Billing as two
+      independent, equal product cards with no "LRX One" umbrella
+      framing anywhere — checked, confirmed zero mentions. If LRX One is
+      genuinely the umbrella brand, that site's product section may need
+      restructuring (a shared "LRX One" heading above both cards, or
+      merging them into one section with two modules) rather than just a
+      wording fix — asked the user how far to take that rather than
+      redesigning the primary marketing site's IA unilaterally.
+
 ## Fixed 2026-07-28 (correction) — app.lrxone.com is the shared login for both products
 
 - [x] User corrected an assumption from the entry directly below this
