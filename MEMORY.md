@@ -6,6 +6,35 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-07-28 (yet later same day) — Renamed to "LRX One Core"
+
+Same rename applied on `lrxtechgroup-website` (see that repo's own
+MEMORY.md for the naming rationale): "LRX One" → "LRX One Core", so
+"LRX One" is a pure house mark and every product — including the
+flagship — carries its own suffix.
+
+- Nav-brand wordmark: `LRX | ONE` → `LRX ONE | CORE` (reused the
+  existing `.lrx`/`.pipe`/`.one` CSS classes, just changed which text
+  goes in which span — gold "LRX ONE", plain "CORE").
+- Footer brand-mark: same swap.
+- `<title>`, meta description, hero desc paragraph, the learn-more
+  strip's "See LRX One on lrxtechgroup.com" link text, and the footer's
+  mailto subject line.
+- `privacy.html` and `terms.html`: every occurrence of "LRX One" as the
+  defined product name in the legal text (title, meta, and body —
+  roughly 10 and 15 occurrences respectively) updated via a scripted
+  find/replace that protected "LRX One Billing" from being touched
+  (temporarily placeholder-swapped it out, replaced bare "LRX One",
+  swapped it back), then hand-verified no stray "LRX One" without
+  "Core" or "Billing" remained.
+- Also renamed the small set of literal "LRX One" UI strings in the app
+  frontend itself (`lrxone/frontend`) for the same reason — see that
+  repo's own commit/MEMORY.md.
+- Verified `index.html`, `privacy.html`, and `terms.html` all still
+  parse cleanly.
+
+---
+
 ## 2026-07-28 (later same day) — Nav/hero "Register Interest" → real "Register" link
 
 User request: at the top of the page, replace "Register Interest"

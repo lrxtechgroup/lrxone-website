@@ -3,6 +3,13 @@
 Living backlog. Check items off (or move to MEMORY.md as a dated entry) as they're
 done — don't just accumulate; keep this reflecting real, current state.
 
+## Fixed 2026-07-28 (later same day) — Renamed to "LRX One Core"
+
+- [x] Flagship product renamed "LRX One" → "LRX One Core" everywhere on
+      this site (nav-brand wordmark, footer brand-mark, title/meta,
+      hero desc, learn-more strip, footer mailto subject) and in
+      `privacy.html`/`terms.html`'s legal text. See MEMORY.md.
+
 ## Fixed 2026-07-28 — Nav/hero "Register Interest" → real "Register" link
 
 - [x] User request: nav and hero top-level CTAs now read "Register" /
