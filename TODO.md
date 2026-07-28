@@ -3,6 +3,23 @@
 Living backlog. Check items off (or move to MEMORY.md as a dated entry) as they're
 done — don't just accumulate; keep this reflecting real, current state.
 
+## Fixed 2026-07-28 (last one today) — Refund Policy + Cancellation Policy (PayFast merchant verification)
+
+- [x] Built `refund-policy.html` and `cancellation-policy.html` — PayFast's
+      merchant account verification asked for dedicated Terms and
+      Conditions, Refund Policy, and Cancellation Policy pages. Terms was
+      satisfied by the existing `terms.html`; the other two didn't exist
+      as standalone pages (only a brief clause inside terms.html). See
+      MEMORY.md — the actual policy stance (no refunds except billed-after-
+      cancellation) was confirmed with the user, not invented.
+- [x] Linked both from `index.html`'s footer and cross-referenced from
+      `terms.html`'s payment section.
+- [ ] Confirm with PayFast that these two pages (plus the existing
+      terms.html) actually satisfy their verification checklist — built to
+      a reasonable, standard interpretation of what a payment processor
+      checks for, not against PayFast's own written requirements
+      (not available in this session).
+
 ## Fixed 2026-07-28 (later same day) — Renamed to "LRX One Core"
 
 - [x] Flagship product renamed "LRX One" → "LRX One Core" everywhere on

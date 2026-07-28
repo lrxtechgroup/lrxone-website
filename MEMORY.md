@@ -6,6 +6,61 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-07-28 (last one today) — Built Refund Policy + Cancellation Policy for PayFast merchant verification
+
+User relayed a real request from PayFast (confirmed mid-conversation:
+"this is from payfast"), phrased as a prerequisite for completing
+merchant account verification: dedicated Terms and Conditions, Refund
+Policy, and Cancellation Policy pages. Checked what already existed
+first — `terms.html` already covers subscriptions/payment with a brief
+non-refundable + cancel-anytime clause, but there was no standalone
+Refund Policy or Cancellation Policy page, which is very likely
+specifically what a payment processor's verification checklist looks
+for (a clause buried in a general ToS usually doesn't satisfy this kind
+of check).
+
+Deliberately did NOT invent the actual refund/cancellation terms — this
+is a real legal/financial document going to a payment processor's
+underwriting team, not ordinary marketing copy, so asked the user
+directly (via structured questions) rather than guessing: which product
+(LRX One Core), what the refund stance should be, and whether to reuse
+the existing Terms page. Confirmed: **no refunds, except when a customer
+has cancelled and is still billed afterward** (a billing-error case) —
+that's the one policy decision that actually mattered here, and it came
+from the user, not from me.
+
+- New `refund-policy.html`: states the no-refunds-by-default policy,
+  the billed-after-cancellation exception (full refund, proactively),
+  how to request one (contact sales@, 5 business day response — a
+  standard operational timeframe, not a negotiated term), and how
+  refunds are processed (original payment method, via PayFast, up to
+  10 business days to reflect).
+- New `cancellation-policy.html`: how to cancel (workspace settings or
+  email, no reason required, no fee), when it takes effect (end of
+  current billing period — matches the existing terms.html clause
+  exactly, not contradicting it), the distinction between downgrading
+  and cancelling, and what happens to Customer Data afterward
+  (cross-referencing the existing Privacy Policy's retention periods
+  rather than restating them).
+- Both pages match `terms.html`/`privacy.html`'s existing legal-page
+  template exactly (same nav, same CSS, same footer) — not a new visual
+  treatment.
+- `terms.html`'s payment section now cross-references both new pages
+  ("incorporated into these Terms by reference") rather than leaving
+  its own brief clause to stand alone and potentially read as the only
+  word on the subject.
+- `index.html`'s footer links to both new pages alongside the existing
+  Privacy Policy / Terms of Service.
+- Verified all four touched/created files parse cleanly.
+
+Not verified: whether these two pages plus the existing terms.html
+actually satisfy PayFast's specific verification checklist — built to a
+reasonable, standard interpretation of what a payment processor checks
+for, since PayFast's own written requirements weren't available in this
+session. Flagged in TODO.md.
+
+---
+
 ## 2026-07-28 (yet later same day) — Renamed to "LRX One Core"
 
 Same rename applied on `lrxtechgroup-website` (see that repo's own
