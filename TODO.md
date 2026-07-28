@@ -3,6 +3,19 @@
 Living backlog. Check items off (or move to MEMORY.md as a dated entry) as they're
 done — don't just accumulate; keep this reflecting real, current state.
 
+## Fixed 2026-07-27 (later same day) — Whole site marked "Coming Soon"
+
+- [x] Nav, hero, pricing, CTA banner, and footer signup/sign-in CTAs all
+      replaced with `mailto:` "Register Interest" links; added a
+      "Coming Soon" hero badge. See MEMORY.md.
+
+## Note for later
+
+- [ ] When LRX One actually goes live (real production infra deployed),
+      restore the direct signup/sign-in CTAs and remove the "Coming
+      Soon" badge — don't forget this is currently deliberately
+      understated.
+
 ## Fixed 2026-07-27 — Real Privacy Policy / Terms of Service pages
 
 - [x] Built `privacy.html` and `terms.html` (real, user-supplied POPIA

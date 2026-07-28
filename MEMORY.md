@@ -6,6 +6,39 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-07-27 (later same day) — Marked the whole site "Coming Soon"
+
+Same treatment just applied to `lrxtechgroup-website`'s product cards
+(user's explicit follow-up request), adapted to this site's single-
+product layout — there's no card/badge system here, this whole site
+*is* the one product's landing page, so "coming soon" had to be woven
+through the nav, hero, pricing, CTA banner, and footer rather than
+applied to one component.
+
+- New `.hero-badge.coming-soon` pill ("Coming Soon") added above the
+  existing hero eyebrow — same muted grey treatment
+  (`background: var(--mid)`) as the sibling site's coming-soon badge.
+- Nav: removed "Sign In" entirely (nothing to sign into yet) and changed
+  "Get Started" to a single "Register Interest" `mailto:` CTA.
+- Hero "Start Free →" → "Register Interest →", same `mailto:` pattern.
+- Pricing cards' "Get Started Free"/"Start Business Trial" → "Register
+  Interest" (kept Enterprise's "Contact Sales" — already `mailto:`,
+  already consistent).
+- CTA banner's "Start Free Today →" → "Register Interest →"; also fixed
+  the banner copy itself ("Join the businesses using LRX One..." implied
+  existing live customers — replaced with forward-looking copy that
+  doesn't claim current availability).
+- Footer's "Free Trial"/"Sign In" links replaced with a single
+  "Register Interest" link.
+- Left alone (correctly informational, not availability claims): the
+  dashboard mockup's decorative `app.lrxone.com/dashboard` URL bar (not
+  a real link), "See Platform"/`#features` and "Talk to Sales"/`mailto:`
+  (already appropriately low-commitment).
+- Removed the now-unused `.nav-signin` CSS rules along with the button.
+- Verified `index.html` still parses cleanly.
+
+---
+
 ## 2026-07-27 — Built real Privacy Policy and Terms of Service pages
 
 Part of working through a rediscovered planning doc (`lrxtechgroup/lrxone`'s

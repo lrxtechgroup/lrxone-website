@@ -57,11 +57,16 @@
 
     .nav-right { display: flex; align-items: center; gap: 16px; }
 
-    .nav-signin { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); text-decoration: none; border: 1px solid var(--gold-line); padding: 9px 20px; border-radius: 2px; transition: border-color 0.2s, background 0.2s; }
-    .nav-signin:hover { border-color: var(--gold); background: var(--gold-dim); }
-
     .nav-start { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--black); background: linear-gradient(135deg, var(--gold), var(--gold-dark)); padding: 10px 22px; border-radius: 2px; text-decoration: none; transition: opacity 0.2s; }
     .nav-start:hover { opacity: 0.85; }
+
+    .hero-badge {
+      display: inline-block;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase;
+      padding: 6px 14px; border-radius: 2px; margin-bottom: 16px;
+      animation: fadeUp 0.7s 0.1s both;
+    }
+    .hero-badge.coming-soon { background: var(--mid); color: var(--light-grey); border: 1px solid rgba(255,255,255,0.08); }
 
     /* ── HERO — always visible ────────────────────────────────────────────── */
     .hero {
@@ -281,13 +286,13 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-right">
-      <a href="https://app.lrxone.com/login" class="nav-signin">Sign In</a>
-      <a href="https://app.lrxone.com/register" class="nav-start">Get Started</a>
+      <a href="mailto:info@lrxtechgroup.com?subject=LRX%20One%20-%20Register%20Interest" class="nav-start">Register Interest</a>
     </div>
   </nav>
 
   <section class="hero">
     <div class="hero-left">
+      <p class="hero-badge coming-soon">Coming Soon</p>
       <p class="hero-eyebrow">Enterprise Operating System</p>
       <h1 class="hero-headline">
         One Platform.<br/>
@@ -300,7 +305,7 @@
         and scales every aspect of your business — from a single platform.
       </p>
       <div class="hero-actions">
-        <a href="https://app.lrxone.com/register" class="btn-gold">Start Free →</a>
+        <a href="mailto:info@lrxtechgroup.com?subject=LRX%20One%20-%20Register%20Interest" class="btn-gold">Register Interest →</a>
         <a href="#features" class="btn-outline">See Platform</a>
       </div>
     </div>
@@ -431,7 +436,7 @@
           <li>Basic analytics</li>
           <li>Email support</li>
         </ul>
-        <a href="https://app.lrxone.com/register" class="pricing-cta secondary">Get Started Free</a>
+        <a href="mailto:info@lrxtechgroup.com?subject=LRX%20One%20-%20Register%20Interest%20(Starter)" class="pricing-cta secondary">Register Interest</a>
       </div>
       <div class="pricing-card featured">
         <div class="pricing-tier">Business</div>
@@ -445,7 +450,7 @@
           <li>All integrations</li>
           <li>Priority support</li>
         </ul>
-        <a href="https://app.lrxone.com/register?plan=business" class="pricing-cta primary">Start Business Trial</a>
+        <a href="mailto:info@lrxtechgroup.com?subject=LRX%20One%20-%20Register%20Interest%20(Business)" class="pricing-cta primary">Register Interest</a>
       </div>
       <div class="pricing-card">
         <div class="pricing-tier">Enterprise</div>
@@ -467,9 +472,9 @@
 
   <section class="cta-banner" id="contact">
     <h2>Ready to <span style="color:var(--gold)">elevate</span> your business?</h2>
-    <p>Join the businesses using LRX One to automate their operations and move faster. Free to start.</p>
+    <p>Register your interest and we'll let you know the moment LRX One is ready to onboard your business.</p>
     <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
-      <a href="https://app.lrxone.com/register" class="btn-gold">Start Free Today →</a>
+      <a href="mailto:info@lrxtechgroup.com?subject=LRX%20One%20-%20Register%20Interest" class="btn-gold">Register Interest →</a>
       <a href="mailto:info@lrxtechgroup.com" class="btn-outline">Talk to Sales</a>
     </div>
   </section>
@@ -503,8 +508,7 @@
       <div class="footer-col">
         <h4>Get Started</h4>
         <ul>
-          <li><a href="https://app.lrxone.com/register">Free Trial</a></li>
-          <li><a href="https://app.lrxone.com/login">Sign In</a></li>
+          <li><a href="mailto:info@lrxtechgroup.com?subject=LRX%20One%20-%20Register%20Interest">Register Interest</a></li>
           <li><a href="#pricing">Pricing</a></li>
           <li><a href="mailto:info@lrxtechgroup.com">Sales</a></li>
         </ul>
