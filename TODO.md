@@ -3,18 +3,31 @@
 Living backlog. Check items off (or move to MEMORY.md as a dated entry) as they're
 done — don't just accumulate; keep this reflecting real, current state.
 
+## Fixed 2026-07-27 (yet later same day) — Restructured into a dedicated sign-in page
+
+- [x] Site rebuilt around Sign In as the primary CTA (site's stated
+      purpose per user direction), full features/pricing/CTA-banner
+      sections removed in favor of pointing visitors at
+      `lrxtechgroup.com` for the complete pitch. See MEMORY.md.
+- [x] Sign In restored as a real link (`app.lrxone.com/login`) since a
+      page whose whole purpose is signing in shouldn't have a dead
+      sign-in button — "Coming Soon" badge stays for honesty about
+      current deploy state, "Register Interest" stays as the CTA for
+      people without a workspace yet.
+
 ## Fixed 2026-07-27 (later same day) — Whole site marked "Coming Soon"
 
 - [x] Nav, hero, pricing, CTA banner, and footer signup/sign-in CTAs all
       replaced with `mailto:` "Register Interest" links; added a
-      "Coming Soon" hero badge. See MEMORY.md.
+      "Coming Soon" hero badge. See MEMORY.md. **Superseded above** —
+      Sign In itself is real again now that this page's whole purpose is
+      signing in; Register Interest remains for everyone else.
 
 ## Note for later
 
 - [ ] When LRX One actually goes live (real production infra deployed),
-      restore the direct signup/sign-in CTAs and remove the "Coming
-      Soon" badge — don't forget this is currently deliberately
-      understated.
+      remove the "Coming Soon" badge and the hero note about it — the
+      Sign In link itself needs no further change, it's already real.
 
 ## Fixed 2026-07-27 — Real Privacy Policy / Terms of Service pages
 

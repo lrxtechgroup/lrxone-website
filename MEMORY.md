@@ -6,6 +6,51 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-07-27 (yet later same day) — Restructured this whole site into a dedicated sign-in page
+
+User's explicit direction: `lrxtechgroup.com` becomes where both
+products (LRX One, LRX One Billing) are fully advertised — features,
+pricing, the works — and this site (`lrxone.com`) becomes a dedicated
+sign-in gateway with only light product advertising on the landing
+page, not a full competing marketing funnel.
+
+Cut from ~528 lines to ~373. **Removed entirely**: the full features
+grid section (6 detailed feature cards), the pricing section (3-tier
+cards with feature lists), and the CTA banner (redundant with the
+hero once Sign In is the hero's own primary action). Verified no
+orphaned CSS/HTML references were left behind after the cut.
+
+**Kept**: the hero (headline, short pitch, dashboard mockup) and the
+pillars band (Connect/Automate/Analyze/Scale/Secure) — compact, still
+genuinely "some advertising of the actual product" without duplicating
+the full pitch that now lives on the corporate site.
+
+**Sign In restored as the real, primary CTA** (`https://app.lrxone.com/login`,
+in both the nav and the hero) — reasoned through this carefully rather
+than just flipping it back on reflex: a page whose *entire stated
+purpose* is "sign in" contradicts itself if the sign-in button doesn't
+actually work, in a way that "coming soon, register your interest"
+elsewhere on a general marketing page doesn't. The link is real and
+structurally correct (it'll just start working the moment the app is
+actually deployed — no code change needed then), while the "Coming
+Soon" badge stays in the hero so the page is still honest about
+current state. "Register Interest" stays as the secondary CTA for
+people who don't have a workspace yet.
+
+Added a "Looking for features, pricing, and the full product tour?"
+strip linking to `lrxtechgroup.com/#products`, and a matching footer
+link — the site now actively points visitors at the corporate site for
+the full pitch rather than trying to also be that page.
+
+Footer trimmed from 4 columns (Platform/Company/Get Started, several
+linking to the now-removed `#features`/`#pricing` anchors) to a single
+flat link list, since there's no longer a multi-section page to
+sub-navigate.
+
+Verified `index.html` still parses cleanly.
+
+---
+
 ## 2026-07-27 (even later same day) — Added Deputy Information Officer to privacy.html
 
 User confirmed `brandon@lrxtechgroup.com` should stay as the Information
