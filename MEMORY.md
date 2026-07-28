@@ -6,6 +6,17 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-07-27 (even later same day) — Added Deputy Information Officer to privacy.html
+
+User confirmed `brandon@lrxtechgroup.com` should stay as the Information
+Officer contact (not swapped to `sales@` like the marketing CTAs) and
+asked to add Jessica Le Roux as Deputy Information Officer instead —
+`jessica@lrxtechgroup.com`, added to the same info-card in `privacy.html`
+Section 1. Left the two other in-body references to "our Information
+Officer" (Sections 7 and 9) pointing at Brandon specifically — the
+info-card disclosure at the top already surfaces both contacts, no need
+to duplicate the deputy's address in every mention.
+
 ## 2026-07-27 (later same day) — Contact email changed info → sales
 
 User request, same change applied to `lrxtechgroup-website`. Every
