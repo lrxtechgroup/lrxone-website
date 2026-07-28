@@ -3,6 +3,30 @@
 Living backlog. Check items off (or move to MEMORY.md as a dated entry) as they're
 done — don't just accumulate; keep this reflecting real, current state.
 
+## Fixed 2026-07-28 (final one today) — Reconciled legal pages with lrxtechgroup-website
+
+- [x] `cancellation-policy.html` Section 3 still said "or to the free
+      Starter tier" — the STARTER-pricing pass a few commits back only
+      touched `terms.html`, missing this one. Fixed, and added an
+      explicit "we don't offer a free tier" statement so it can't drift
+      back silently. See MEMORY.md.
+- [x] `terms.html`, `refund-policy.html`, `cancellation-policy.html` all
+      routed every contact point to `sales@lrxtechgroup.com` — brought in
+      line with `lrxtechgroup-website`'s now-current pages, which split
+      billing/finance-related contact (refund requests, cancellation
+      requests, each policy's general contact section) to
+      `billing@lrxtechgroup.com`. `terms.html`'s general "Contact us"
+      section now explicitly splits general vs. billing questions, same
+      as the other site.
+- [ ] **Not changed, deliberately**: this site's pages stay LRX One
+      Core-specific (product name, `app.lrxone.com` references, nav
+      branding) rather than being generalised to also cover LRX One
+      Billing the way `lrxtechgroup-website`'s versions are — that's a
+      legitimate difference given this domain is the single-product
+      sign-in site, not the corporate umbrella. Only the underlying
+      *rules* (no free tier, refund window, cancellation timing, contact
+      routing) needed to match; the copy scope doesn't.
+
 ## Fixed 2026-07-28 (very last one today) — STARTER tier wording updated (no longer free)
 
 - [x] `terms.html`'s payment clause no longer calls STARTER "free" — see

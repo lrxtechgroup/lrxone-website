@@ -6,6 +6,55 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-07-28 (final one today) — Reconciled legal pages with lrxtechgroup-website
+
+User asked to make sure the policies on lrxone.com and lrxtechgroup.com
+are consistent — reasonable, since `lrxtechgroup-website` had just been
+through three passes of legal-page work (Terms/Refund/Cancellation, then
+Privacy, then a billing@ email-routing change) that this site never
+picked up, having built its own versions of these pages earlier and not
+been touched since.
+
+Diffed both sites' `terms.html`/`refund-policy.html`/
+`cancellation-policy.html`/`privacy.html` against each other and found
+two real, substantive drifts (not just branding, which is expected to
+differ — see below):
+
+1. **Stale free-tier reference.** `cancellation-policy.html` Section 3
+   still said "Switching to a lower-tier paid plan, or to the free
+   Starter tier, is a plan change..." — the STARTER-pricing pass
+   (2026-07-28, R0 → R199/mo) only updated `terms.html`'s payment clause
+   and missed this file. Fixed, and added an explicit "we don't offer a
+   free tier" line matching the one just added to
+   `lrxtechgroup-website`'s cancellation-policy.html, so a reader can't
+   assume otherwise from context.
+2. **Contact routing.** All three pages sent every contact point —
+   general questions, refund requests, cancellation requests — to
+   `sales@lrxtechgroup.com`. `lrxtechgroup-website`'s pages now split
+   billing/finance-related contact to `billing@lrxtechgroup.com` (refund
+   requests, cancellation requests, each policy's own "Contact us"
+   section) while leaving general/legal questions on `sales@`. Made the
+   same split here: `terms.html` Section 11 now explicitly names both
+   addresses and what each is for; `refund-policy.html` and
+   `cancellation-policy.html` moved their operative contact points to
+   `billing@`.
+
+**Deliberately not changed**: this site's pages stay LRX One
+Core-specific — product name, `app.lrxone.com` references, the "LRX |
+ONE" nav branding — rather than being generalised to also cover LRX One
+Billing the way `lrxtechgroup-website`'s versions now are. That's the
+correct scope for this domain (a single-product sign-in site, not the
+corporate umbrella that hosts both products); consistency was about the
+underlying rules (no free tier, the refund window, when cancellation
+takes effect, who gets contacted about what), not about making the copy
+byte-for-byte identical across two sites with different jobs.
+
+- Bumped `terms.html`'s "Last updated" date to 28 July 2026 to match the
+  other three pages, since its content changed.
+- Verified all HTML files on the site still parse cleanly.
+
+---
+
 ## 2026-07-28 (last one today) — STARTER tier no longer free (R199/mo)
 
 User decision, confirmed as an exact number (R199/mo) rather than left
