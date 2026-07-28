@@ -3,6 +3,12 @@
 Living backlog. Check items off (or move to MEMORY.md as a dated entry) as they're
 done — don't just accumulate; keep this reflecting real, current state.
 
+## Fixed 2026-07-28 (very last one today) — STARTER tier wording updated (no longer free)
+
+- [x] `terms.html`'s payment clause no longer calls STARTER "free" — see
+      MEMORY.md and `lrxone`'s own MEMORY.md for the real pricing change
+      (R199/mo).
+
 ## Fixed 2026-07-28 (last one today) — Refund Policy + Cancellation Policy (PayFast merchant verification)
 
 - [x] Built `refund-policy.html` and `cancellation-policy.html` — PayFast's

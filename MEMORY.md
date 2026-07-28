@@ -6,6 +6,16 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-07-28 (last one today) — STARTER tier no longer free (R199/mo)
+
+User decision, confirmed as an exact number (R199/mo) rather than left
+vague — see `lrxone`'s own MEMORY.md for the full billing-config change.
+`terms.html`'s payment clause updated: "including a free Starter tier" →
+"including a low-cost Starter tier", so this page doesn't contradict the
+real pricing. Verified the file still parses cleanly.
+
+---
+
 ## 2026-07-28 (last one today) — Built Refund Policy + Cancellation Policy for PayFast merchant verification
 
 User relayed a real request from PayFast (confirmed mid-conversation:
