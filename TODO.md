@@ -23,6 +23,14 @@ done — don't just accumulate; keep this reflecting real, current state.
       Sign In itself is real again now that this page's whole purpose is
       signing in; Register Interest remains for everyone else.
 
+## Fixed 2026-07-28
+
+- [x] The two "full pitch" outbound links (hero note, footer "Features
+      & Pricing") pointed at `lrxtechgroup.com/#products` (a summary
+      card) instead of real dedicated content. Now point at
+      `lrxtechgroup.com/one.html`, a real product page built there
+      today. See MEMORY.md.
+
 ## Note for later
 
 - [ ] When LRX One actually goes live (real production infra deployed),

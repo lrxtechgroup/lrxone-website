@@ -6,6 +6,20 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-07-28 — Fixed outbound links to point at the real LRX One product page
+
+Follow-up to the restructure below: this site's "full pitch" links
+(hero note, footer "Features & Pricing") pointed at
+`lrxtechgroup.com/#products` — the summary card, not the actual full
+content. `lrxtechgroup-website` now has a real dedicated `one.html`
+page (built there today, mirroring `billing.html`'s pattern, with the
+features grid/pricing/dashboard mockup that used to live on this page
+before the restructure). Both links here updated to
+`lrxtechgroup.com/one.html`. See that repo's own MEMORY.md for the
+full page build.
+
+---
+
 ## 2026-07-27 (yet later same day) — Restructured this whole site into a dedicated sign-in page
 
 User's explicit direction: `lrxtechgroup.com` becomes where both
