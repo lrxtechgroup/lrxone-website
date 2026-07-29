@@ -6,6 +6,47 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-07-29 (brand/copy pass) — Logo colour, hero copy, colour scheme, dashes, and arrow fixed
+
+User caught six issues from a live screenshot of the reworked lrxone.com
+hero:
+
+- **Nav/footer logo**: `.nav-brand .one` was white against a gold `LRX`
+  - inconsistent with the umbrella "LRX One" always being gold sitewide.
+  Changed to gold. Footer's `brand-mark` had the same split (`LRX` gold,
+  `| ONE` unstyled/white) - wrapped the whole mark in one gold span.
+- **"Product Sign-In" eyebrow removed**: this sat next to the "Coming
+  Soon" badge with its own little gold line (`.hero-eyebrow::before`).
+  Removed the element entirely (text + line together, since the line was
+  a pseudo-element on the eyebrow itself, not a separate thing).
+- **Headline copy fix**: "Every LRX Product." was missing "One" - now
+  reads "Every LRX One Product.", matching the product suite's actual
+  name.
+- **Colour scheme matched to lrxtechgroup.com**: applied the sitewide
+  gold-"LRX One"/white-product-name split to the hero subtitle and
+  hero description's "LRX One Core"/"LRX One Billing" mentions, and to
+  the footer brand paragraph. Left the pillar-band labels, dashboard
+  mockup's picker card names, and footer nav links as plain uniform
+  text - those are UI chrome/navigation, not body copy, matching how
+  lrxtechgroup-website itself treats its own nav and footer links.
+- **Em dashes removed, grammar fixed as a result**: the hero description
+  ("product suite — LRX One Core, ... and LRX One Billing, ... —
+  accessible") became "...product suite, comprising LRX One Core (...)
+  and LRX One Billing (...), accessible..." - matches the wording
+  already used in the page's own meta description. Also fixed the
+  `<title>` tag ("Sign In — LRX One" → "Sign In - LRX One") and the
+  footer brand paragraph's dash. Left the "on lrxtechgroup.com →" arrow
+  in the learn-more strip alone - user only asked about the Sign In
+  arrow, and that's a different, unrelated element.
+- **Arrow removed from Sign In**: `Sign In →` in the hero actions is now
+  just `Sign In`, matching the nav's own arrow-free Sign In button.
+
+**Verified**: local `http.server` + Playwright screenshots, desktop and
+mobile, full page - zero horizontal overflow, all six fixes visually
+confirmed.
+
+---
+
 ## 2026-07-28 (mobile audit) — Fixed nav crowding on the reworked hero
 
 Part of the same cross-repo mobile audit as `lrxtechgroup-website`'s

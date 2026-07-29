@@ -3,6 +3,21 @@
 Living backlog. Check items off (or move to MEMORY.md as a dated entry) as they're
 done — don't just accumulate; keep this reflecting real, current state.
 
+## Fixed 2026-07-29 (brand/copy pass) — Logo colour, hero copy, colour scheme, dashes, arrow
+
+- [x] Nav/footer "LRX | ONE" logo now fully gold (was gold `LRX` + white
+      `ONE`). See MEMORY.md.
+- [x] Removed "Product Sign-In" eyebrow + its line from next to the
+      "Coming Soon" badge.
+- [x] Hero headline fixed: "Every LRX Product." → "Every LRX One
+      Product."
+- [x] Applied lrxtechgroup.com's gold-"LRX One"/white-product-name
+      colour scheme to hero subtitle, hero description, and footer
+      brand paragraph.
+- [x] Removed em dashes from hero description, `<title>`, and footer
+      brand paragraph; rewrote hero description grammar as a result.
+- [x] Removed the arrow from the hero's "Sign In →" button.
+
 ## Fixed 2026-07-28 (mobile audit) — Nav crowding on the reworked hero at phone widths
 
 - [x] Ran the same mobile overflow sweep done on `lrxtechgroup-website`

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sign In — LRX One</title>
+  <title>Sign In - LRX One</title>
   <meta name="description" content="Sign in to LRX One, LRX Tech Group's product suite, comprising LRX One Core (the intelligent enterprise operating system) and LRX One Billing." />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect width='36' height='36' rx='6' fill='%230E0E0E'/%3E%3Ctext x='18' y='24' text-anchor='middle' font-family='Arial,sans-serif' font-size='13' font-weight='900' fill='%23D4AF37'%3ELRX%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -49,7 +49,7 @@
     .nav-brand { display: flex; align-items: baseline; text-decoration: none; }
     .nav-brand .lrx { font-size: 20px; font-weight: 900; letter-spacing: 0.05em; color: var(--gold); }
     .nav-brand .pipe { font-size: 20px; font-weight: 200; color: var(--gold); margin: 0 6px; }
-    .nav-brand .one { font-size: 20px; font-weight: 300; letter-spacing: 0.2em; color: var(--white); }
+    .nav-brand .one { font-size: 20px; font-weight: 300; letter-spacing: 0.2em; color: var(--gold); }
 
     .nav-right { display: flex; align-items: center; gap: 20px; }
     .nav-link { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--light-grey); text-decoration: none; transition: color 0.2s; }
@@ -88,22 +88,6 @@
     }
 
     .hero-left { position: relative; z-index: 1; }
-
-    /* Visible by default — animation is progressive enhancement */
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 28px;
-      animation: fadeUp 0.7s 0.2s both;
-    }
-
-    .hero-eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--gold); }
 
     .hero-headline {
       font-size: clamp(40px, 5.5vw, 72px);
@@ -243,21 +227,21 @@
   <section class="hero">
     <div class="hero-left">
       <p class="hero-badge coming-soon">Coming Soon</p>
-      <p class="hero-eyebrow">Product Sign-In</p>
       <h1 class="hero-headline">
         One Account.<br/>
         <span class="gold">Every</span><br/>
-        LRX Product.
+        LRX One Product.
       </h1>
-      <p class="hero-sub">LRX One Core · LRX One Billing</p>
+      <p class="hero-sub"><span style="color:var(--gold)">LRX One</span> <span style="color:var(--white)">Core</span> · <span style="color:var(--gold)">LRX One</span> <span style="color:var(--white)">Billing</span></p>
       <p class="hero-desc">
-        LRX One is LRX Tech Group's product suite — LRX One Core, the
-        intelligent enterprise operating system, and LRX One Billing,
-        ZAR-native subscription billing infrastructure — accessible
-        through a single sign-in.
+        <span style="color:var(--gold)">LRX One</span> is LRX Tech Group's product suite, comprising
+        <span style="color:var(--gold)">LRX One</span> <span style="color:var(--white)">Core</span> (the
+        intelligent enterprise operating system) and <span style="color:var(--gold)">LRX One</span>
+        <span style="color:var(--white)">Billing</span> (ZAR-native subscription billing infrastructure),
+        accessible through a single sign-in.
       </p>
       <div class="hero-actions">
-        <a href="https://app.lrxone.com/login" class="btn-gold">Sign In →</a>
+        <a href="https://app.lrxone.com/login" class="btn-gold">Sign In</a>
         <a href="https://app.lrxone.com/register" class="btn-outline">Register</a>
       </div>
       <p class="hero-note">Already have an account? Sign in above. New here? Register above, or <a href="https://lrxtechgroup.com/#products">see what's included</a> first.</p>
@@ -313,8 +297,8 @@
   <footer>
     <div class="footer-top">
       <div class="footer-brand">
-        <div class="brand-mark"><span class="gold">LRX</span> | ONE</div>
-        <p>LRX Tech Group's product suite — LRX One Core and LRX One Billing. Built in South Africa for businesses everywhere.</p>
+        <div class="brand-mark"><span class="gold">LRX | ONE</span></div>
+        <p>LRX Tech Group's product suite, comprising LRX One Core and LRX One Billing. Built in South Africa for businesses everywhere.</p>
       </div>
       <ul class="footer-links">
         <li><a href="https://app.lrxone.com/login">Sign In</a></li>
