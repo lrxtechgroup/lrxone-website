@@ -6,6 +6,27 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-07-30 (nav wordmark weight matched to footer) — "One" in the nav logo is now bold, matching the footer's "LRX One" mark
+
+Follow-up to the same-day separator removal below: once the pipe was
+gone, the nav wordmark's "One" was left at `font-weight: 300` with
+`letter-spacing: 0.1em` — a leftover from when the thin weight helped
+visually separate it from "LRX" without the pipe. The user compared it
+directly against `index.html`'s own footer `brand-mark` (`LRX One` at
+`font-weight: 900`, no extra letter-spacing) and asked for the nav to
+match that design.
+
+Changed `.nav-brand .one` from `font-weight: 300; letter-spacing: 0.1em`
+to `font-weight: 900` (letter-spacing removed) on all 5 pages — same
+scope as the separator fix, since all 5 share the identical nav markup.
+Color was left untouched: `index.html`'s nav "One" is gold (matching its
+gold footer mark), the 4 legal pages' nav "One" stays white (their own
+pre-existing, intentional gold-`LRX`/white-`One` split) — this request
+was about weight/spacing consistency with the footer design, not a
+color change.
+
+---
+
 ## 2026-07-30 (branding + footer cleanup) — Separator removed from "LRX | ONE" wordmark, arrow dropped, sales email removed, Contact re-pointed
 
 User flagged four issues from a live screenshot of `index.html` (the

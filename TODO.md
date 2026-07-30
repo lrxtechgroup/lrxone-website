@@ -3,6 +3,12 @@
 Living backlog. Check items off (or move to MEMORY.md as a dated entry) as they're
 done — don't just accumulate; keep this reflecting real, current state.
 
+## Fixed 2026-07-30 (nav wordmark weight matched to footer)
+
+- [x] Nav wordmark's "One" changed from thin (300, letter-spaced) to
+      bold (900, no extra letter-spacing) on all 5 pages, matching
+      `index.html`'s footer "LRX One" brand-mark design. See MEMORY.md.
+
 ## Fixed 2026-07-30 (branding + footer cleanup)
 
 - [x] Removed the "LRX | ONE" pipe separator sitewide (5 pages) — now
