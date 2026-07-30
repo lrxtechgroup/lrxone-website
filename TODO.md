@@ -3,6 +3,18 @@
 Living backlog. Check items off (or move to MEMORY.md as a dated entry) as they're
 done — don't just accumulate; keep this reflecting real, current state.
 
+## Fixed 2026-07-30 (branding + footer cleanup)
+
+- [x] Removed the "LRX | ONE" pipe separator sitewide (5 pages) — now
+      reads "LRX One". See MEMORY.md.
+- [x] Removed the trailing arrow (→) from `index.html`'s "learn more"
+      strip sentence.
+- [x] Removed the bare `sales@lrxtechgroup.com` line from
+      `index.html`'s footer bottom.
+- [x] Footer "Contact" link on `index.html` now points to
+      `https://lrxtechgroup.com/contact.html` instead of a bare
+      `mailto:sales@...` link.
+
 ## Fixed 2026-07-29 (footer links trimmed) — "Sign In"/"Register Interest" removed
 
 - [x] Removed "Sign In" and "Register Interest" from the footer link

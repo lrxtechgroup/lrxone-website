@@ -6,6 +6,54 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-07-30 (branding + footer cleanup) — Separator removed from "LRX | ONE" wordmark, arrow dropped, sales email removed, Contact re-pointed
+
+User flagged four issues from a live screenshot of `index.html` (the
+`app.lrxone.com` sign-in page):
+
+- **"LRX | ONE" separator removed sitewide**: the product's actual name
+  is "LRX One" (two words, no pipe) — the `|` divider was a leftover
+  from an earlier wordmark iteration (see 2026-07-28 entries below,
+  where it replaced "LRX ONE | CORE"). Removed the `<span class="pipe">`
+  element and its CSS rule from all 5 pages (`index.html`, `terms.html`,
+  `privacy.html`, `refund-policy.html`, `cancellation-policy.html` — all
+  five shared byte-identical nav markup), changed `ONE` → `One` to match
+  the product name's actual casing everywhere else on these sites, and
+  added `gap: 6px` to `.nav-brand` so "LRX" and "One" keep a visible gap
+  now that the pipe (which supplied the spacing via its margin) is gone.
+  `index.html`'s footer `brand-mark` had the same "LRX | ONE" text —
+  fixed to "LRX One" there too.
+- **Arrow removed from the "learn more" strip**: `index.html`'s
+  "Looking for features, pricing, and the full product tour? ... on
+  lrxtechgroup.com →" line had a trailing arrow the user wanted gone.
+  Removed the `→` character only, left the rest of the sentence and its
+  links unchanged.
+- **Sales email removed from the footer**: `index.html`'s `footer-bottom`
+  had a bare `sales@lrxtechgroup.com` line sitting under the copyright
+  line, with no context (no "Contact:" label, not a mailto). Removed
+  that `<p>` entirely — the same address is still reachable properly
+  through the footer's "Contact" link (see next item).
+- **Footer "Contact" link re-pointed to a real contact page**: it was a
+  bare `mailto:sales@lrxtechgroup.com`, which only ever offered one of
+  the several ways to reach LRX Tech Group. Changed to
+  `https://lrxtechgroup.com/contact.html` — the corporate site's actual
+  Contact page (Sales/Support/Billing emails, WhatsApp, phone), matching
+  what the user wanted: "all relevant contact methods as is on
+  lrxtechgroup website."
+
+**Scope note**: the pipe/separator fix applies to all 5 pages (user
+confirmed sitewide rather than `index.html`-only after being asked,
+since the nav wordmark markup turned out to be identical across all of
+them). The arrow, sales-email, and Contact-link fixes only existed on
+`index.html` to begin with — the other 4 pages have a much simpler
+single-link nav/footer with no equivalent elements.
+
+`terms.html`'s legal-content mention of `sales@lrxtechgroup.com` (in its
+Terms body copy, not a footer/nav element) was deliberately left
+untouched — out of scope for a footer/nav cosmetic fix.
+
+---
+
 ## 2026-07-29 (footer links trimmed) — "Sign In" and "Register Interest" removed from footer link list
 
 User asked to remove "Sign In" and "Register Interest" from the footer.
