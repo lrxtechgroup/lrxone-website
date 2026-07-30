@@ -3,6 +3,11 @@
 Living backlog. Check items off (or move to MEMORY.md as a dated entry) as they're
 done — don't just accumulate; keep this reflecting real, current state.
 
+## Fixed 2026-07-29 (footer links trimmed) — "Sign In"/"Register Interest" removed
+
+- [x] Removed "Sign In" and "Register Interest" from the footer link
+      list on `index.html`. See MEMORY.md.
+
 ## Fixed 2026-07-29 (brand/copy pass) — Logo colour, hero copy, colour scheme, dashes, arrow
 
 - [x] Nav/footer "LRX | ONE" logo now fully gold (was gold `LRX` + white

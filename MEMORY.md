@@ -6,6 +6,17 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-07-29 (footer links trimmed) — "Sign In" and "Register Interest" removed from footer link list
+
+User asked to remove "Sign In" and "Register Interest" from the footer.
+Removed both `<li>` entries from `.footer-links` in `index.html` - the
+nav bar's own "Sign In" button (top right, unrelated element) was left
+untouched since only the footer was in scope. No other page on this
+site repeats this footer link list (it's a lean single-page site; the
+legal pages have their own simpler footer).
+
+---
+
 ## 2026-07-29 (brand/copy pass) — Logo colour, hero copy, colour scheme, dashes, and arrow fixed
 
 User caught six issues from a live screenshot of the reworked lrxone.com
