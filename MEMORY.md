@@ -6,6 +6,17 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-08-04 (nav logo enlarged) — icon bumped 26px → 38px, heading kept vertically centered beside it
+
+Same request as `lrxtechgroup-website`'s matching entry today: nav logo
+bigger, heading text ("LRX One") centered to its right. `.nav-brand`
+already used `display: flex; align-items: center`, so bumping
+`.nav-brand-icon`'s height doesn't disturb the centering — it
+re-derives against the new (taller) icon automatically. Applied
+`height: 26px` → `38px` across all 5 pages (identical rule on each).
+Nav bar is 70px tall, so 38px leaves plenty of room, no clipping.
+Verified via headless-Chromium screenshot before committing.
+
 ## 2026-08-04 (logo recolored to match brand gold, all 5 LRX repos)
 
 Same fix as `lrxtechgroup-website` — full details and the exact colour
