@@ -3,6 +3,12 @@
 Living backlog. Check items off (or move to MEMORY.md as a dated entry) as they're
 done — don't just accumulate; keep this reflecting real, current state.
 
+## Fixed 2026-08-04 (LRX/One word spacing tightened)
+
+- [x] "LRX"/"One" wrapped in a new `.nav-brand-text` span with its own
+      8px gap, decoupled from the 18px icon-to-text gap. See
+      MEMORY.md.
+
 ## Fixed 2026-08-04 (nav logo/text gap widened)
 
 - [x] `.nav-brand` gap 8px → 18px across all 5 pages, matching

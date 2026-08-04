@@ -52,6 +52,7 @@
 
     .nav-brand { display: flex; align-items: center; gap: 18px; text-decoration: none; }
     .nav-brand-icon { height: 52px; width: auto; }
+    .nav-brand-text { display: flex; align-items: center; gap: 8px; }
     .nav-brand .lrx { font-size: 33px; font-weight: 900; letter-spacing: 0.02em; color: var(--gold); }
     .nav-brand .one { font-size: 33px; font-weight: 900; color: var(--white); }
 
@@ -218,8 +219,10 @@
   <nav>
     <a class="nav-brand" href="/">
       <img class="nav-brand-icon" src="/images/logo-mark.png" alt="LRX" />
-      <span class="lrx">LRX</span>
-      <span class="one">One</span>
+      <span class="nav-brand-text">
+        <span class="lrx">LRX</span>
+        <span class="one">One</span>
+      </span>
     </a>
     <div class="nav-right">
       <a href="https://lrxtechgroup.com" class="nav-link">About</a>

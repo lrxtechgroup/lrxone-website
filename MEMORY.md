@@ -6,6 +6,20 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-08-04 (LRX/One word spacing tightened, decoupled from icon-text gap) — new .nav-brand-text wrapper
+
+Widening `.nav-brand`'s gap to 18px in the previous entry had an
+unintended side effect: "LRX" and "One" are direct flex siblings of
+the icon under `.nav-brand`, so that one `gap` value applied uniformly
+to *both* the icon-to-text gap *and* the LRX-One word gap — pushing
+the two words apart just as much as the logo moved from the text.
+User asked to tighten the LRX/One spacing specifically.
+
+Wrapped `<span class="lrx">`/`<span class="one">` in a new
+`<span class="nav-brand-text">` with its own `gap: 8px`, so it's
+independent of `.nav-brand`'s 18px icon-to-text gap now. Applied
+across all 5 pages.
+
 ## 2026-08-04 (nav logo/text gap widened) — 8px → 18px, matching lrxtechgroup-website
 
 Same request as `lrxtechgroup-website`'s matching entry today, applied
