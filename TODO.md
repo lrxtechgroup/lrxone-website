@@ -3,6 +3,11 @@
 Living backlog. Check items off (or move to MEMORY.md as a dated entry) as they're
 done — don't just accumulate; keep this reflecting real, current state.
 
+## Fixed 2026-08-04 (footer wordmark "One" recolored to white)
+
+- [x] Footer's `.brand-mark` ("LRX One") split into gold "LRX" + white
+      "One", matching the nav. See MEMORY.md.
+
 ## Fixed 2026-08-04 (nav wordmark "One" recolored to white)
 
 - [x] `index.html`'s `.nav-brand .one` was `var(--gold)` (all-gold nav,

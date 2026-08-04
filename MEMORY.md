@@ -6,6 +6,18 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-08-04 (footer wordmark "One" recolored to white too) — same gold/white split now applied at the bottom of the page
+
+Follow-up to the nav fix above — user asked for the same treatment on
+"the One at the bottom," i.e. the footer's `.brand-mark` ("LRX One"),
+which was a single `<span class="gold">LRX One</span>` (all gold, no
+split, since it predates the nav-brand pattern and was never wired to
+it). Split into `<span class="gold">LRX</span>` +
+`<span style="color:var(--white)">One</span>`, matching the nav.
+Confirmed via grep this is the only `.brand-mark` on the site (the
+legal pages use a simpler footer with no brand-mark). Verified via
+screenshot.
+
 ## 2026-08-04 (nav wordmark "One" recolored to white on index.html) — fixes an inconsistency, breaks up the all-gold nav block
 
 User flagged the logo + "LRX One" nav looking "too yellow." Explored
