@@ -3,6 +3,12 @@
 Living backlog. Check items off (or move to MEMORY.md as a dated entry) as they're
 done — don't just accumulate; keep this reflecting real, current state.
 
+## Fixed 2026-08-04 (nav wordmark "One" recolored to white)
+
+- [x] `index.html`'s `.nav-brand .one` was `var(--gold)` (all-gold nav,
+      inconsistent with the other 4 pages) — now `var(--white)`,
+      matching everywhere else. See MEMORY.md.
+
 ## Fixed 2026-08-04 (nav heading optically re-centered)
 
 - [x] `.nav-brand .lrx` and `.nav-brand .one` given

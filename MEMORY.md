@@ -6,6 +6,24 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-08-04 (nav wordmark "One" recolored to white on index.html) — fixes an inconsistency, breaks up the all-gold nav block
+
+User flagged the logo + "LRX One" nav looking "too yellow." Explored
+recoloring the logo itself first (mocked up 4 muted/bronze/amber
+alternatives), but the user clarified they want to *keep* the logo's
+gold and instead break up the monochrome gold block in the top-left
+corner by varying the wordmark's own coloring.
+
+Turned out this was already inconsistent across the site: `index.html`
+had `.nav-brand .one { color: var(--gold); }` (both "LRX" and "One"
+solid gold, matching the icon — hence the "all yellow" read), while
+`cancellation-policy.html`, `privacy.html`, `refund-policy.html`, and
+`terms.html` already had `.one` set to `var(--white)`. Fixed
+`index.html` to match the other four pages: "LRX" stays gold (echoing
+the icon), "One" is now white — same two-tone treatment used
+everywhere else on the site (e.g. "LRX One Hive" gold+white
+pattern on lrxtechgroup-website). Verified via screenshot.
+
 ## 2026-08-04 (nav heading optically re-centered against the logo) — text nudged +9px down from bounding-box center
 
 Same fix as `lrxtechgroup-website`'s matching entry today, same root
