@@ -6,6 +6,14 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-08-04 (nav horizontal padding capped) — same fix as lrxtechgroup-website, logo was drifting too far from the left edge on large monitors
+
+Same root cause and fix as `lrxtechgroup-website`'s matching entry
+today: `nav { padding: 0 5%; }` grows unbounded on wide viewports.
+Changed to `padding: 0 clamp(20px, 3vw, 56px);` across all 5 pages.
+Verified: logo's left edge at a 1920px viewport went from 96px (old
+5%) to 56px (capped), matching the sibling site exactly.
+
 ## 2026-08-04 (nav wordmark scaled to match logo height) — "LRX One" text now spans the 38px icon height, kept as a single line
 
 Same request as `lrxtechgroup-website`'s matching entry today: nav text

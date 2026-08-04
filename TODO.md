@@ -3,6 +3,12 @@
 Living backlog. Check items off (or move to MEMORY.md as a dated entry) as they're
 done — don't just accumulate; keep this reflecting real, current state.
 
+## Fixed 2026-08-04 (nav horizontal padding capped for large monitors)
+
+- [x] `nav { padding: 0 5%; }` → `padding: 0 clamp(20px, 3vw, 56px);`
+      across all 5 pages, same fix as `lrxtechgroup-website`. See
+      MEMORY.md.
+
 ## Fixed 2026-08-04 (nav wordmark scaled to match logo height)
 
 - [x] `.nav-brand .lrx`/`.one` ("LRX One") scaled to 54px so it spans
