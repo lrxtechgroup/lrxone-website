@@ -6,6 +6,29 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-08-04 (nav wordmark scaled to match logo height) — "LRX One" text now spans the 38px icon height, kept as a single line
+
+Same request as `lrxtechgroup-website`'s matching entry today: nav text
+should match the logo's height instead of looking small beside it.
+Since "LRX One" here is a single line (not a two-line stack like
+lrxtechgroup's "LRX TECH / GROUP"), used the same measured-cap-height
+method from earlier in the session (render at a known font-size,
+pixel-scan the actual ink height, scale to the target) rather than
+guessing: at 20px, "LRX One"'s cap-height measured 14px; scaling to hit
+the 38px icon height gave **54px** font-size (verified: renders at
+~37.75px ink height, effectively exact). `.nav-brand .lrx`/`.one`
+20px → 54px, letter-spacing eased 0.05em → 0.02em, and the old
+`translateY(9px)` optical-correction hack removed (no longer needed at
+matching size). Applied across all 5 pages.
+
+**Explored and reverted**: also tried stacking "LRX" over "One" (two
+lines, mirroring lrxtechgroup's TECH/GROUP layout) at a measured 22px
+each (ink height ~37px) — implemented and screenshotted across all 5
+pages, but the user decided against it ("let's not do the stacking")
+and asked to go back to the single-line 54px version, which is what
+shipped. Mentioning this so a future session doesn't re-propose the
+stacked variant as if it's new.
+
 ## 2026-08-04 (footer wordmark "One" recolored to white too) — same gold/white split now applied at the bottom of the page
 
 Follow-up to the nav fix above — user asked for the same treatment on

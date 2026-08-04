@@ -3,6 +3,13 @@
 Living backlog. Check items off (or move to MEMORY.md as a dated entry) as they're
 done — don't just accumulate; keep this reflecting real, current state.
 
+## Fixed 2026-08-04 (nav wordmark scaled to match logo height)
+
+- [x] `.nav-brand .lrx`/`.one` ("LRX One") scaled to 54px so it spans
+      the same 38px height as the logo icon, across all 5 pages.
+      Stacked (two-line) variant was tried and explicitly rejected —
+      single line is final. See MEMORY.md.
+
 ## Fixed 2026-08-04 (footer wordmark "One" recolored to white)
 
 - [x] Footer's `.brand-mark` ("LRX One") split into gold "LRX" + white
