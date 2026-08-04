@@ -6,6 +6,20 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-08-04 (nav heading optically re-centered against the logo) — text nudged +9px down from bounding-box center
+
+Same fix as `lrxtechgroup-website`'s matching entry today, same root
+cause: `.nav-brand`'s `align-items: center` already puts the icon and
+"LRX One" text at the same geometric bounding-box center, but the
+logo's ink is visually weighter lower in its box than the single-line
+text is, so it still read as off-center. Measured ink centroids (icon
+≈39.1 vs text ≈33.4, a smaller gap than the two-line lrxtechgroup-website
+case since this is single-line text) via the same screenshot-and-analyze
+method, mocked up 0px/+3px/+6px variants, got sign-off on the +6px
+variant, then two more explicit nudges (+2px, +1px) to land on
+`transform: translateY(9px)` applied to both `.nav-brand .lrx` and
+`.nav-brand .one` across all 5 pages.
+
 ## 2026-08-04 (nav logo enlarged) — icon bumped 26px → 38px, heading kept vertically centered beside it
 
 Same request as `lrxtechgroup-website`'s matching entry today: nav logo
