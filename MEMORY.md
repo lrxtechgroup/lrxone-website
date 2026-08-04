@@ -6,6 +6,22 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-08-04 (logo recolored to match brand gold, all 5 LRX repos)
+
+Same fix as `lrxtechgroup-website` — full details and the exact colour
+values/method are in that repo's MEMORY.md (shared source asset,
+identical fix applied everywhere). Short version: the extracted logo's
+own gradient (mean `~#C7974A`) was measurably warmer than this site's
+actual `--gold`/`--gold-dark` (`#D4AF37`/`#B8922E`, confirmed identical
+to the sibling sites before recoloring). Recolored the icon's gradient
+in place (luminosity-driven interpolation across the brand palette,
+keeping the original highlight/shadow shading), regenerated the
+favicon set and `logo-mark.png`, redeployed over the previous
+versions. Verified visually against this site's own nav (icon now
+matches the "SIGN IN" button gold and "LRX One" text gold).
+
+---
+
 ## 2026-08-02 (real logo added, both sites) — favicon added, icon mark added to the previously text-only nav
 
 User uploaded the real LRX Tech Group logo artwork and asked to use

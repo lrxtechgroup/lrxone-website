@@ -3,6 +3,13 @@
 Living backlog. Check items off (or move to MEMORY.md as a dated entry) as they're
 done — don't just accumulate; keep this reflecting real, current state.
 
+## Fixed 2026-08-04 (logo recolored to match brand gold, all 5 repos)
+
+- [x] Recolored the logo mark to the site's actual `--gold`/
+      `--gold-dark` palette instead of its original off-brand warm
+      gradient. Same fix across all 5 LRX repos. See MEMORY.md and
+      `lrxtechgroup-website`'s MEMORY.md for the method.
+
 ## Fixed 2026-08-02 (real logo added, both sites)
 
 - [x] Added the real LRX Tech Group icon mark to the favicon
