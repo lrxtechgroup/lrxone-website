@@ -3,6 +3,11 @@
 Living backlog. Check items off (or move to MEMORY.md as a dated entry) as they're
 done — don't just accumulate; keep this reflecting real, current state.
 
+## Fixed 2026-08-04 (nav logo/text gap widened)
+
+- [x] `.nav-brand` gap 8px → 18px across all 5 pages, matching
+      lrxtechgroup-website. See MEMORY.md.
+
 ## Fixed 2026-08-04 (nav logo + text sized to match lrxtechgroup-website)
 
 - [x] `.nav-brand-icon` 38px → 52px, `.nav-brand .lrx`/`.one` → 33px —

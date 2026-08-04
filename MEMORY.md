@@ -6,6 +6,12 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-08-04 (nav logo/text gap widened) — 8px → 18px, matching lrxtechgroup-website
+
+Same request as `lrxtechgroup-website`'s matching entry today, applied
+identically for consistency: `.nav-brand` gap 8px → 18px across all 5
+pages.
+
 ## 2026-08-04 (nav logo + wordmark sized to exactly match lrxtechgroup-website) — 38px icon → 52px, 20px text → 33px
 
 User flagged that this site's nav logo/text was visibly smaller than
