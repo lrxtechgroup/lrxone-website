@@ -3,6 +3,15 @@
 Living backlog. Check items off (or move to MEMORY.md as a dated entry) as they're
 done — don't just accumulate; keep this reflecting real, current state.
 
+## Fixed 2026-08-02 (real logo added, both sites)
+
+- [x] Added the real LRX Tech Group icon mark to the favicon
+      (`/favicon.ico` + `/images/favicon-*.png` + `apple-touch-icon.png`)
+      and to the nav (`.nav-brand-icon` image, new — this nav was
+      text-only before) across all 5 pages. See this file's and
+      `lrxtechgroup-website`'s MEMORY.md for extraction details and
+      verification.
+
 ## Fixed 2026-07-30 (nav wordmark weight matched to footer)
 
 - [x] Nav wordmark's "One" changed from thin (300, letter-spaced) to

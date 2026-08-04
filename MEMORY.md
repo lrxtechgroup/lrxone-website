@@ -6,6 +6,37 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-08-02 (real logo added, both sites) — favicon added, icon mark added to the previously text-only nav
+
+User uploaded the real LRX Tech Group logo artwork and asked to use
+just the icon mark (not the full "LRX TECH GROUP" + tagline lockup) as
+the favicon and nav logo, on this site and `lrxtechgroup-website`. Full
+extraction/processing details are in `lrxtechgroup-website`'s
+MEMORY.md (same source image, same generated asset set, shared across
+both repos) — this entry covers what's specific to this site.
+
+**Difference from `lrxtechgroup-website`**: this site's nav
+(`.nav-brand`) never had an icon graphic at all — just the "LRX"/"One"
+text spans, `align-items: baseline`. So this was an addition, not a
+swap: added `<img class="nav-brand-icon" src="/images/logo-mark.png">`
+before the text spans, changed `.nav-brand`'s `align-items` from
+`baseline` to `center` (baseline alignment doesn't make sense once
+there's an image in the flex row), and added a new `.nav-brand-icon`
+rule (`height: 26px; width: auto` — smaller than
+`lrxtechgroup-website`'s 36px nav icon since this nav is visually
+lighter/more compact to begin with).
+
+Applied identically across all 5 pages (`index.html`, `privacy.html`,
+`terms.html`, `refund-policy.html`, `cancellation-policy.html`) —
+confirmed byte-identical favicon `<link>` and `.nav-brand` markup/CSS
+across all 5 before scripting the replacement.
+
+**Verified**: same method as the sibling repo — local `http.server` +
+Playwright screenshot of the nav bar, `curl` 200-check on every new
+asset URL.
+
+---
+
 ## 2026-07-30 (nav wordmark weight matched to footer) — "One" in the nav logo is now bold, matching the footer's "LRX One" mark
 
 Follow-up to the same-day separator removal below: once the pipe was
