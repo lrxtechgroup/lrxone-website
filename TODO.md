@@ -3,6 +3,12 @@
 Living backlog. Check items off (or move to MEMORY.md as a dated entry) as they're
 done — don't just accumulate; keep this reflecting real, current state.
 
+## Fixed 2026-08-04 (nav logo + text sized to match lrxtechgroup-website)
+
+- [x] `.nav-brand-icon` 38px → 52px, `.nav-brand .lrx`/`.one` → 33px —
+      now identical to lrxtechgroup-website's nav sizing, across all 5
+      pages. See MEMORY.md.
+
 ## Fixed 2026-08-04 (nav wordmark text size reverted)
 
 - [x] Reverted the "match logo height" text scaling — "LRX One" back

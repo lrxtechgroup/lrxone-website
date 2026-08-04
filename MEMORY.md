@@ -6,6 +6,26 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-08-04 (nav logo + wordmark sized to exactly match lrxtechgroup-website) — 38px icon → 52px, 20px text → 33px
+
+User flagged that this site's nav logo/text was visibly smaller than
+`lrxtechgroup-website`'s and asked for them to match exactly, not just
+proportionally. Previously each site's icon/text had been scaled up
+independently by its own ratio (this site's icon 26px→38px vs.
+lrxtechgroup's 36px→52px earlier in the session), so they were
+never actually the same absolute size.
+
+Set `.nav-brand-icon` to `height: 52px` (was 38px) and both
+`.nav-brand .lrx`/`.one` to `font-size: 33px` (was 20px, plus the
+earlier 54px single-line attempt that got reverted) — both values now
+identical to `lrxtechgroup-website`'s `.nav-logo-icon`/`.nav-logo-text
+.lrx`. Removed the old `transform: translateY(9px)` optical-correction
+hack (was tuned for the smaller 20px text against a 38px icon; at the
+new sizes flexbox's default `align-items: center` reads as
+well-centered without it — confirmed via screenshot rather than
+assumed). Kept single-line (the stacked variant was explicitly
+rejected earlier). Applied across all 5 pages.
+
 ## 2026-08-04 (nav wordmark text size reverted) — "leave the wording where it was"
 
 Same revert as `lrxtechgroup-website`'s matching entry today: "LRX
