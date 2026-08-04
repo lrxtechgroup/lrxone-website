@@ -12,6 +12,12 @@ done — don't just accumulate; keep this reflecting real, current state.
       `lrxtechgroup-website`'s MEMORY.md for extraction details and
       verification.
 
+## Fixed 2026-07-31 (org-wide rename) — "LRX One Core" → "LRX One Hive"
+
+- [x] Renamed across all 5 pages (`index.html`, `terms.html`,
+      `privacy.html`, `refund-policy.html`, `cancellation-policy.html`),
+      including the split gold/white span styling. See MEMORY.md.
+
 ## Fixed 2026-07-30 (nav wordmark weight matched to footer)
 
 - [x] Nav wordmark's "One" changed from thin (300, letter-spaced) to

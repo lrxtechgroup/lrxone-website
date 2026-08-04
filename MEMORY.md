@@ -37,6 +37,26 @@ asset URL.
 
 ---
 
+## 2026-07-31 (org-wide rename) — "LRX One Core" → "LRX One Hive" across all 5 pages
+
+Same org-wide rename requested across all `lrxtechgroup` repos: "Core"
+as part of the product name "LRX One Core" becomes "LRX One Hive".
+
+Updated `index.html`, `terms.html`, `privacy.html`, `refund-policy.html`,
+`cancellation-policy.html` — plain-text mentions plus the split gold/
+white span styling (`<span style="color:var(--gold)">LRX One</span>
+<span style="color:var(--white)">Core</span>`) used in the hero/product-
+picker copy, which a plain "LRX One Core" string search would have
+missed since the word "Core" sits in its own span.
+
+Left `MEMORY.md`/`TODO.md` history untouched, same reasoning as always
+— it's a changelog of what was true at the time, not live copy.
+
+**Verified**: `grep -rn '\bCore\b\|\bCORE\b' *.html` returns nothing
+after the change.
+
+---
+
 ## 2026-07-30 (nav wordmark weight matched to footer) — "One" in the nav logo is now bold, matching the footer's "LRX One" mark
 
 Follow-up to the same-day separator removal below: once the pipe was
