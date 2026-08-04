@@ -6,6 +6,15 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-08-04 (nav wordmark text size reverted) — "leave the wording where it was"
+
+Same revert as `lrxtechgroup-website`'s matching entry today: "LRX
+One" text next to the logo goes back to its original 20px, letter-
+spacing 0.05em, and the `transform: translateY(9px)` optical-
+centering approach — undoing the earlier "match logo height" 54px
+scale-up. The nav padding cap from the entry below is unrelated and
+was kept. Applied across all 5 pages, verified via screenshot.
+
 ## 2026-08-04 (nav horizontal padding capped) — same fix as lrxtechgroup-website, logo was drifting too far from the left edge on large monitors
 
 Same root cause and fix as `lrxtechgroup-website`'s matching entry
