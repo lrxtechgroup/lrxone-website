@@ -3,6 +3,12 @@
 Living backlog. Check items off (or move to MEMORY.md as a dated entry) as they're
 done — don't just accumulate; keep this reflecting real, current state.
 
+## Fixed 2026-08-05 (FAQ keyword search)
+
+- [x] Same as lrxtechgroup-website: live search box on `faq.html`,
+      filters/auto-opens matching questions, shows a no-results
+      state. See MEMORY.md.
+
 ## Fixed 2026-08-05 (FAQ page added; hosting copy South Africa + EU)
 
 - [x] New `faq.html`, styled with this site's legal-doc chrome, linked

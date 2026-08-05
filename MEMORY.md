@@ -6,6 +6,17 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-08-05 (FAQ keyword search added) — "let's have a key word search function in faq", same fix as lrxtechgroup-website
+
+Same feature added to `faq.html` here, identical implementation to the
+sibling repo: a live `#faqSearch` input above the accordion groups,
+vanilla JS substring-matching each `.faq-item`'s text on every
+keystroke, hiding non-matching items/groups, auto-opening matches, and
+showing a no-results message (linking to
+`mailto:sales@lrxtechgroup.com` since this site has no contact page)
+when nothing matches. Verified via Playwright screenshots (match,
+no-match, cleared states) before pushing.
+
 ## 2026-08-05 (new FAQ page added; hosting copy updated to South Africa + EU) — "do the same for lrxone-website"
 
 Same two changes just completed on the sibling repo (`lrxtechgroup-
