@@ -3,6 +3,20 @@
 Living backlog. Check items off (or move to MEMORY.md as a dated entry) as they're
 done — don't just accumulate; keep this reflecting real, current state.
 
+## Fixed 2026-08-05 (hero height hard-capped on touch devices)
+
+- [x] `--vh` fix alone didn't resolve it per fresh real-device
+      screenshots. Added a `@media (pointer: coarse)` rule capping
+      `.hero` to `min(calc(var(--vh,1vh)*100), 820px)` — targets real
+      touchscreens specifically (survives Request Desktop Site,
+      unlike viewport-width-based checks), leaves real desktop
+      untouched. See MEMORY.md.
+- [ ] **Unverified**: could not confirm from this environment whether
+      the live site has picked up any of today's hero-height commits
+      (curl/WebFetch both blocked by the site's own WAF). Asked user
+      to hard-refresh / test in a private tab in case they were
+      seeing a stale cached copy.
+
 ## Fixed 2026-08-05 (hero empty-space bug — desktop-site-on-mobile case)
 
 - [x] The `100dvh` fix didn't necessarily cover "Request Desktop

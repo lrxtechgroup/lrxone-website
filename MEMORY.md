@@ -6,6 +6,56 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-08-05 (hero height hard-capped on touch devices) — "still like this on request desktop view"
+
+User re-tested after the `--vh` fix and sent fresh real-device
+screenshots showing the gap unchanged, still specifically under
+Request Desktop Site. Investigation:
+
+- Confirmed via `git log`/`git show origin/main:index.html` that the
+  `--vh` fix genuinely was on `main` for both repos — not a failed
+  push.
+- Tried to fetch the live site directly (curl and WebFetch) to check
+  whether it had actually deployed; both got HTTP 403 from the site's
+  own bot/WAF protection, so deployment status couldn't be confirmed
+  from this environment either way. Flagged to the user that a stale
+  cached copy is plausible: toggling Request Desktop Site changes the
+  User-Agent header, but most HTTP caches key on URL only (no `Vary:
+  User-Agent`), so a browser or CDN cache populated before the fix
+  can keep being served afterward.
+- Independent of the caching question, hardened the fix itself so it
+  no longer depends on getting viewport-height measurement right at
+  all in this mode. Added a `@media (pointer: coarse)` rule — matches
+  real touchscreens specifically (phones/tablets), which stays true
+  even under Request Desktop Site (that mode fakes the reported
+  viewport width and UA string, but not the actual input hardware) —
+  that caps `.hero`'s `min-height` to
+  `min(calc(var(--vh, 1vh) * 100), 820px)`. Real desktop (mouse/
+  trackpad, `pointer: fine`) is completely unaffected by this rule and
+  keeps the full-bleed 100dvh/--vh behavior confirmed working earlier
+  today; any touch device is now hard-bounded to 820px regardless of
+  what value vh/dvh/innerHeight report in whatever rendering mode.
+
+Verified via Playwright with real device/pointer emulation (not just
+viewport size, which was the gap in earlier verification passes):
+- `pointer:fine` desktop context, 1440×1080 → hero height 1080
+  (uncapped, matches viewport, full-bleed intact).
+- `pointer:coarse` touch context at 980×700 (a plausible real
+  Request-Desktop-Site geometry) → hero height ~700-747, well under
+  the 820px cap, no gap.
+- `pointer:coarse` touch context at 980×2200 (deliberately extreme,
+  simulating whatever inflated value the real bug might be producing)
+  → hero height capped to exactly 820px; screenshot confirms content
+  fills the section and flows straight into the pillars band and
+  footer with no black void, regardless of how wrong the underlying
+  vh measurement is.
+
+Same fix applied to lrxtechgroup-website — see that repo's MEMORY.md.
+Still unresolved: whether the live site the user is testing has
+actually picked up any of today's commits yet, since it couldn't be
+verified from this environment. Asked the user to hard-refresh / test
+in a private tab to rule out a stale cache.
+
 ## 2026-08-05 (hero viewport-height fix upgraded to JS-measured `--vh`) — "it is on the desktop view on mobile"
 
 User confirmed the empty-gap bug reported earlier today only shows up
