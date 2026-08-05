@@ -3,6 +3,15 @@
 Living backlog. Check items off (or move to MEMORY.md as a dated entry) as they're
 done — don't just accumulate; keep this reflecting real, current state.
 
+## Fixed 2026-08-05 (hero empty-space bug — desktop-site-on-mobile case)
+
+- [x] The `100dvh` fix didn't necessarily cover "Request Desktop
+      Site" mode on a phone (which is where the user confirmed the
+      gap actually shows). Replaced with a JS-measured `--vh` custom
+      property driving `.hero`'s `min-height` — sidesteps CSS
+      viewport-unit quirks entirely by using the real
+      `window.innerHeight`. See MEMORY.md.
+
 ## Fixed 2026-08-05 (hero mobile empty-space bug)
 
 - [x] `.hero`'s `min-height: 100vh` computed taller than the visible

@@ -3,6 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    (function () {
+      function setVH() { document.documentElement.style.setProperty('--vh', window.innerHeight * 0.01 + 'px'); }
+      setVH();
+      window.addEventListener('resize', setVH);
+      window.addEventListener('orientationchange', setVH);
+    })();
+  </script>
   <title>Sign In - LRX One</title>
   <meta name="description" content="Sign in to LRX One, LRX Tech Group's product suite, comprising LRX One Hive (the intelligent enterprise operating system) and LRX One Billing." />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -75,6 +83,7 @@
     .hero {
       min-height: 100vh;
       min-height: 100dvh;
+      min-height: calc(var(--vh, 1vh) * 100);
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;

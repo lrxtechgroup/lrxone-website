@@ -6,6 +6,39 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-08-05 (hero viewport-height fix upgraded to JS-measured `--vh`) — "it is on the desktop view on mobile"
+
+User confirmed the empty-gap bug reported earlier today only shows up
+under Chrome's "Request Desktop Site" on a phone, not in normal
+mobile view — matching cause #1 from the earlier investigation. The
+`100dvh` fix added right before this wasn't guaranteed to cover that
+case: `dvh`'s live-tracking behavior is a mobile-viewport-adaptive
+feature, and there's no guarantee a browser applies the same dynamic
+recalculation once it's rendering in a desktop-site emulation
+context — CSS viewport units alone can't be trusted to correctly
+reflect the visible screen in that mode.
+
+Replaced the CSS-only approach with the standard, more bulletproof
+technique: measure the real `window.innerHeight` with a small inline
+script in `<head>` (runs before first paint) and store it as a
+`--vh` custom property (`1% of innerHeight`, re-measured on resize/
+orientation change), then set `.hero`'s `min-height` to
+`calc(var(--vh, 1vh) * 100)` as the final (highest-priority)
+declaration — `100vh` and `100dvh` stay as earlier declarations so
+anything without JS or before the script fires still gets a sane
+fallback. Because this measures the browser's actual current
+`innerHeight` via JS rather than relying on how any given browser
+mode computes CSS viewport units, it holds regardless of normal
+mobile rendering, desktop-site emulation, or any future quirk in
+between. Verified via Playwright across mobile (390×844) and two
+desktop-site-style viewports (980×844, 980×700) — `--vh` matched
+`window.innerHeight` exactly in all three, and the 700px-tall
+desktop-site case (closest match to what a real phone would report)
+showed no gap, hero content filling the section correctly.
+
+Same fix applied to lrxtechgroup-website's homepage hero — see that
+repo's MEMORY.md.
+
 ## 2026-08-05 (hero 100vh mobile-empty-space bug fixed) — "is there that much empty black space on normal website view or only desktop view on mobile"
 
 Diagnosed root cause of a real-device screenshot showing a huge black
