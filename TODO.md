@@ -3,6 +3,13 @@
 Living backlog. Check items off (or move to MEMORY.md as a dated entry) as they're
 done — don't just accumulate; keep this reflecting real, current state.
 
+## Fixed 2026-08-05 (index.html footer matches lrxtechgroup-website)
+
+- [x] `index.html`'s footer rebuilt from the two-row `footer-top`/
+      `footer-bottom` layout to the same single-row `footer-logo`/
+      `footer-copy`/`footer-links` structure lrxtechgroup-website
+      uses everywhere. See MEMORY.md.
+
 ## Fixed 2026-08-05 (FAQ contact links)
 
 - [x] `faq.html`'s three "get in touch"/"Contact Us" links changed

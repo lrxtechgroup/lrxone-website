@@ -6,6 +6,33 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-08-05 (index.html footer rebuilt to match lrxtechgroup-website) — "let's make lrx one the same as lrx tech group"
+
+User sent side-by-side mobile screenshots of `lrxtechgroup.com/faq`'s
+footer (simple single row: wordmark, copyright, link list, all inline
+and wrapping together) versus `lrxone.com`'s homepage footer (a
+two-part `footer-top`/`footer-bottom` layout with a brand paragraph
+above a separate links block above a separate copyright row) — visibly
+inconsistent between the two sites.
+
+Rebuilt `index.html`'s footer to use the exact same structure, classes,
+and CSS as `lrxtechgroup-website`'s footer (`footer-logo` / `footer-copy`
+/ `footer-links`, single flex row that wraps as needed): dropped the old
+`footer-top`/`footer-brand`/`footer-bottom` two-row layout and the
+descriptive brand paragraph (lrxtechgroup-website's footer doesn't carry
+one either). Kept all 9 existing footer-links entries and the
+copyright's "· lrxtechgroup.com" link (already an established pattern
+on this site's other pages). `footer-logo` uses the same gold/white
+two-tone "LRX One" as the nav brand. Verified via Playwright at 1280px
+and 360px — link row wraps cleanly at both widths, matches the sibling
+site's rhythm.
+
+Note: this only touched `index.html` — lrxone-website's legal
+subpages (`terms.html`, `privacy.html`, `refund-policy.html`,
+`cancellation-policy.html`, `faq.html`) already use a simple centered
+single-line footer of their own (no `footer-links` list at all), which
+was untouched since it wasn't part of what the screenshots flagged.
+
 ## 2026-08-05 (FAQ "get in touch" links point to Contact page) — "the get in touch should take person to contact page"
 
 All three "get in touch"/"Contact Us" links in `faq.html` (intro

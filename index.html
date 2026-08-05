@@ -180,18 +180,23 @@
     .learn-more a:hover { text-decoration: underline; }
 
     /* ── FOOTER ───────────────────────────────────────────────────────────── */
-    footer { background: var(--dark); border-top: 1px solid var(--gold-line); }
-    .footer-top { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 32px; padding: 48px 5%; }
-    .footer-brand .brand-mark { font-size: 22px; font-weight: 900; }
-    .footer-brand .brand-mark .gold { color: var(--gold); }
-    .footer-brand p { font-size: 14px; line-height: 1.7; color: var(--light-grey); margin-top: 12px; max-width: 320px; }
+    footer {
+      padding: 40px 5%;
+      border-top: 1px solid var(--gold-line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-logo { font-size: 16px; font-weight: 900; letter-spacing: 0.1em; color: var(--gold); }
+    .footer-copy { font-size: 12px; color: var(--grey); }
+    .footer-copy a { color: var(--grey); text-decoration: none; }
+    .footer-copy a:hover { color: var(--gold); }
     .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
-    .footer-links a { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--light-grey); text-decoration: none; transition: color 0.2s; }
+    .footer-links a { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey); text-decoration: none; transition: color 0.2s; }
     .footer-links a:hover { color: var(--gold); }
-    .footer-bottom { padding: 20px 5%; border-top: 1px solid rgba(212,175,55,0.1); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-    .footer-bottom p { font-size: 12px; color: var(--grey); }
-    .footer-bottom a { font-size: 12px; color: var(--grey); text-decoration: none; }
-    .footer-bottom a:hover { color: var(--gold); }
 
     /* ── ANIMATIONS — 'both' fill-mode ensures always visible ────────────── */
     @keyframes fadeUp {
@@ -308,26 +313,19 @@
   </div>
 
   <footer>
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="brand-mark"><span class="gold">LRX</span> <span style="color:var(--white)">One</span></div>
-        <p>LRX Tech Group's product suite, comprising LRX One Hive and LRX One Billing. Built in South Africa for businesses everywhere.</p>
-      </div>
-      <ul class="footer-links">
-        <li><a href="https://lrxtechgroup.com/one.html">LRX One Hive</a></li>
-        <li><a href="https://lrxtechgroup.com/billing.html">LRX One Billing</a></li>
-        <li><a href="https://lrxtechgroup.com">LRX Tech Group</a></li>
-        <li><a href="https://lrxtechgroup.com/contact.html">Contact</a></li>
-        <li><a href="/privacy.html">Privacy Policy</a></li>
-        <li><a href="/terms.html">Terms of Service</a></li>
-        <li><a href="/refund-policy.html">Refund Policy</a></li>
-        <li><a href="/cancellation-policy.html">Cancellation Policy</a></li>
-        <li><a href="/faq.html">FAQ</a></li>
-      </ul>
-    </div>
-    <div class="footer-bottom">
-      <p>© <span id="footer-year">2025</span> LRX Tech Group (Pty) Ltd · South Africa · <a href="https://lrxtechgroup.com">lrxtechgroup.com</a></p>
-    </div>
+    <span class="footer-logo"><span style="color:var(--gold)">LRX</span> <span style="color:var(--white)">One</span></span>
+    <span class="footer-copy">© <span id="footer-year">2025</span> LRX Tech Group (Pty) Ltd · South Africa · <a href="https://lrxtechgroup.com">lrxtechgroup.com</a></span>
+    <ul class="footer-links">
+      <li><a href="https://lrxtechgroup.com/one.html">LRX One Hive</a></li>
+      <li><a href="https://lrxtechgroup.com/billing.html">LRX One Billing</a></li>
+      <li><a href="https://lrxtechgroup.com">LRX Tech Group</a></li>
+      <li><a href="https://lrxtechgroup.com/contact.html">Contact</a></li>
+      <li><a href="/privacy.html">Privacy Policy</a></li>
+      <li><a href="/terms.html">Terms of Service</a></li>
+      <li><a href="/refund-policy.html">Refund Policy</a></li>
+      <li><a href="/cancellation-policy.html">Cancellation Policy</a></li>
+      <li><a href="/faq.html">FAQ</a></li>
+    </ul>
   </footer>
 
   <script>
