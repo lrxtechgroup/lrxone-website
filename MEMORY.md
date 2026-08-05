@@ -6,6 +6,20 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-08-04 (nav wordmark scaled back down on mobile) — same fix as lrxtechgroup-website, "lrxone.com is the same"
+
+User sent a phone screenshot showing this site had the identical
+issue just fixed on `lrxtechgroup-website`: the desktop nav sizing
+(33px text, 52px icon, fixed px, no responsive scaling) looks
+oversized next to the logo on phone screens. Added the same mobile
+override pattern: icon 52px→38px, `.lrx`/`.one` 33px→24px, `.nav-
+brand` gap 18px→12px, `.nav-brand-text`'s internal LRX/One gap
+8px→4px. `index.html` already had a `@media (max-width: 768px)` block
+(for hiding `.nav-link`); the 4 legal pages use `@media (max-width:
+600px)` instead, matched that breakpoint there too, same as the
+sibling site. Verified via 412px-wide screenshots on `index.html` and
+`terms.html`.
+
 ## 2026-08-04 (LRX/One word spacing tightened, decoupled from icon-text gap) — new .nav-brand-text wrapper
 
 Widening `.nav-brand`'s gap to 18px in the previous entry had an

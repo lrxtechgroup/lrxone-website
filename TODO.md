@@ -3,6 +3,13 @@
 Living backlog. Check items off (or move to MEMORY.md as a dated entry) as they're
 done — don't just accumulate; keep this reflecting real, current state.
 
+## Fixed 2026-08-04 (nav wordmark scaled down on mobile)
+
+- [x] Same fix as lrxtechgroup-website: mobile override for nav icon/
+      text sizing (52px→38px icon, 33px→24px text) across all 5
+      pages, in each page's existing responsive breakpoint. See
+      MEMORY.md.
+
 ## Fixed 2026-08-04 (LRX/One word spacing tightened)
 
 - [x] "LRX"/"One" wrapped in a new `.nav-brand-text` span with its own
