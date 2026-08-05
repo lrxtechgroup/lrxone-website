@@ -3,6 +3,15 @@
 Living backlog. Check items off (or move to MEMORY.md as a dated entry) as they're
 done — don't just accumulate; keep this reflecting real, current state.
 
+## Fixed 2026-08-05 (mobile nav-back wrap; FAQ intro trimmed)
+
+- [x] `.nav-back` on narrow real phones (~360px) wrapped and
+      overlapped the logo — fixed with a short "← Back" mobile
+      variant across `faq.html`, `terms.html`, `privacy.html`,
+      `refund-policy.html`, `cancellation-policy.html`. See MEMORY.md.
+- [x] `faq.html`'s intro paragraph trimmed from 3 sentences to 2 —
+      less scroll before reaching the search box. See MEMORY.md.
+
 ## Fixed 2026-08-05 (FAQ keyword search)
 
 - [x] Same as lrxtechgroup-website: live search box on `faq.html`,

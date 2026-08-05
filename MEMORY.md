@@ -6,6 +6,40 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-08-05 (mobile nav-back wrap fixed; FAQ intro trimmed) — "check the search on mobile too", real-device screenshot from lrxone.com/faq
+
+User checked the search feature on an actual phone (not just a
+simulated viewport) and sent two screenshots. Found two real bugs the
+1280px/390px checks so far hadn't caught:
+
+**Nav-back wrapping onto the logo.** On narrower real phones (~360px
+CSS width — common on budget/mid Android, versus the 390-412px range
+tested earlier) `.nav-back`'s full text, "← Back to lrxone.com", didn't
+fit next to the mobile-sized `.nav-brand` and wrapped to a second line
+that visually overlapped the "LRX One" wordmark. Reproduced by testing
+at a real 360px viewport (the earlier 390px checks happened to just
+barely fit, which is why this was missed). Fixed by splitting the link
+text into `.nav-back-full`/`.nav-back-short` spans and swapping which
+is visible inside the existing `@media (max-width: 600px)` block —
+mobile now shows a short "← Back" that always fits on one line,
+desktop is unaffected (still shows the full text). Applied identically
+across all 5 pages that carry this nav pattern: `faq.html`, `terms.html`,
+`privacy.html`, `refund-policy.html`, `cancellation-policy.html`.
+
+**FAQ intro too wordy.** User also flagged "too much writing under
+faq" — `faq.html`'s intro paragraph was 3 sentences / ~40 words,
+pushing the search box and first question further down the page than
+necessary, especially on mobile where every line costs more scroll.
+Trimmed to two short sentences ("Answers to the questions we hear most
+often about LRX One. Can't find what you're looking for? Get in touch
+with our team."), dropping the redundant middle clause pointing to
+lrxtechgroup.com (the search box now handles discovery) while keeping
+a contact link.
+
+Verified via Playwright at a real 360px viewport (all 5 pages, closed
+state) and at 1280px desktop (faq.html, to confirm no regression on
+the full-text nav-back).
+
 ## 2026-08-05 (FAQ keyword search added) — "let's have a key word search function in faq", same fix as lrxtechgroup-website
 
 Same feature added to `faq.html` here, identical implementation to the

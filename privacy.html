@@ -52,8 +52,9 @@
     .nav-brand .lrx { font-size: 33px; font-weight: 900; letter-spacing: 0.02em; color: var(--gold); }
     .nav-brand .one { font-size: 33px; font-weight: 900; color: var(--white); }
 
-    .nav-back { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--light-grey); text-decoration: none; transition: color 0.2s; }
+    .nav-back { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--light-grey); text-decoration: none; transition: color 0.2s; white-space: nowrap; }
     .nav-back:hover { color: var(--gold); }
+    .nav-back-short { display: none; }
 
     main { max-width: 760px; margin: 0 auto; padding: 150px 5% 100px; }
 
@@ -103,6 +104,9 @@
     @media (max-width: 600px) {
       main { padding-top: 130px; }
 
+      .nav-back-full { display: none; }
+      .nav-back-short { display: inline; }
+
       .nav-brand { gap: 12px; }
       .nav-brand-icon { height: 38px; }
       .nav-brand-text { gap: 4px; }
@@ -122,7 +126,10 @@
         <span class="one">One</span>
       </span>
     </a>
-    <a class="nav-back" href="/">← Back to lrxone.com</a>
+    <a class="nav-back" href="/">
+      <span class="nav-back-full">← Back to lrxone.com</span>
+      <span class="nav-back-short">← Back</span>
+    </a>
   </nav>
 
   <main>
