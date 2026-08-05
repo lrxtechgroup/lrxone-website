@@ -6,6 +6,42 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-08-05 (hero 100vh mobile-empty-space bug fixed) — "is there that much empty black space on normal website view or only desktop view on mobile"
+
+Diagnosed root cause of a real-device screenshot showing a huge black
+gap between the nav and the "One Account. Every LRX One Product."
+hero content on `index.html`. Two things were compounding:
+
+1. The screenshot's nav showed "ABOUT / REGISTER / SIGN IN" all
+   inline plus the two-column product mockup — both are desktop-only
+   (`.nav-link { display:none }` below 768px, `.hero-right { display:
+   none }` below 900px), so the browser was rendering at a desktop-
+   width viewport on a phone (almost certainly Chrome's "Request
+   Desktop Site", which reports ~980px width).
+2. Independently of that, `.hero { min-height: 100vh; ... align-items:
+   center }` — confirmed via Playwright at a real 390×844 mobile
+   viewport that this alone is fine (content fits with normal
+   spacing). But mobile browsers compute `100vh` against the
+   *largest* possible viewport (chrome collapsed), which is taller
+   than what's actually visible when the address bar is showing —
+   reproduced the exact reported gap shape by rendering at an
+   artificially tall viewport height, confirming `.hero`'s content
+   gets vertically centered inside a section taller than the visible
+   screen, pushing it down off-screen with empty black space above.
+
+Fixed by adding `min-height: 100dvh;` after the existing `min-height:
+100vh;` (dvh = dynamic viewport height, tracks the *currently*-visible
+viewport rather than the collapsed-chrome maximum; kept as a second
+declaration so older browsers without `dvh` support silently fall
+back to the existing `100vh` value — no regression). Same
+`min-height: 100vh` pattern existed only on this one hero section
+(grepped the whole site, one match). Verified via Playwright at
+390×844 (real mobile) — renders identically, no layout change, before
+and after.
+
+Same bug (and same fix) also existed on the sibling
+`lrxtechgroup-website`'s homepage hero — see that repo's MEMORY.md.
+
 ## 2026-08-05 (index.html footer rebuilt to match lrxtechgroup-website) — "let's make lrx one the same as lrx tech group"
 
 User sent side-by-side mobile screenshots of `lrxtechgroup.com/faq`'s

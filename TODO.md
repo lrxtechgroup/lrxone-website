@@ -3,6 +3,14 @@
 Living backlog. Check items off (or move to MEMORY.md as a dated entry) as they're
 done — don't just accumulate; keep this reflecting real, current state.
 
+## Fixed 2026-08-05 (hero mobile empty-space bug)
+
+- [x] `.hero`'s `min-height: 100vh` computed taller than the visible
+      mobile viewport (browser-chrome quirk), centering hero content
+      inside a section taller than the screen and pushing it below a
+      big black gap. Added a `100dvh` override. See MEMORY.md — same
+      fix applied on lrxtechgroup-website too.
+
 ## Fixed 2026-08-05 (index.html footer matches lrxtechgroup-website)
 
 - [x] `index.html`'s footer rebuilt from the two-row `footer-top`/
