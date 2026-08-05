@@ -6,6 +6,42 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-08-05 (new FAQ page added; hosting copy updated to South Africa + EU) — "do the same for lrxone-website"
+
+Same two changes just completed on the sibling repo (`lrxtechgroup-
+website`), applied here to match.
+
+**FAQ page.** Added `faq.html`, reusing this site's legal-doc chrome
+(`.nav-brand`/`.nav-back`, simple centered single-line footer — this
+site has no `footer-links` list on its subpages, confirmed by reading
+`terms.html`). Three `<details>` accordion groups (Products & account /
+Pricing & billing / Data & compliance), content adapted for the
+lrxone.com context: registration/sign-in links point to
+`app.lrxone.com/register` and `app.lrxone.com/login`, pricing detail
+links out to `lrxtechgroup.com/one.html#pricing` and
+`.../billing.html#pricing` (pricing lives on the sibling site, not
+here), and the closing CTA uses `mailto:sales@lrxtechgroup.com` since
+this site has no `/contact.html`. All content pulled from existing site
+copy (`terms.html`, `privacy.html`, `refund-policy.html`,
+`cancellation-policy.html`) — nothing speculative. Verified via
+Playwright screenshots (desktop closed/open state, mobile 390px) before
+pushing: nav, accordion open/close, and footer all render correctly.
+Linked from `index.html`'s `footer-links` list (the only page on this
+site that has one) — inserted after "Cancellation Policy".
+
+**Hosting copy.** `privacy.html` was the only file with an exclusivity
+claim (`index.html` has none). Processor table's AWS row and the
+infrastructure paragraph both changed from "AWS's af-south-1 (Cape
+Town) region" / South-Africa-only framing to "AWS South Africa and EU
+regions", matching the sibling site's wording exactly.
+
+Known pre-existing inconsistency, deliberately NOT touched this pass
+(out of the requested scope): `privacy.html`'s processor table still
+lists `Stitch` and `Stripe` as payment processors, which was already
+found inaccurate on the sibling site earlier this session (only PayFast
+is actually implemented in lrxone's billing-service) and removed there.
+Would need explicit confirmation before fixing here too.
+
 ## 2026-08-04 (nav wordmark scaled back down on mobile) — same fix as lrxtechgroup-website, "lrxone.com is the same"
 
 User sent a phone screenshot showing this site had the identical

@@ -3,6 +3,22 @@
 Living backlog. Check items off (or move to MEMORY.md as a dated entry) as they're
 done — don't just accumulate; keep this reflecting real, current state.
 
+## Fixed 2026-08-05 (FAQ page added; hosting copy South Africa + EU)
+
+- [x] New `faq.html`, styled with this site's legal-doc chrome, linked
+      from `index.html`'s footer. See MEMORY.md.
+- [x] `privacy.html` processor table + infrastructure paragraph updated
+      from South-Africa-only to "AWS South Africa and EU regions",
+      matching lrxtechgroup-website. See MEMORY.md.
+
+## Known issue (not yet fixed) — stale payment processors in privacy.html
+
+- [ ] `privacy.html`'s processor table still lists `Stitch` and
+      `Stripe` as payment processors; only PayFast is actually
+      implemented in lrxone's billing-service (already corrected on
+      the sibling site). Needs explicit confirmation before fixing
+      here — out of scope for the 2026-08-05 FAQ/hosting-copy pass.
+
 ## Fixed 2026-08-04 (nav wordmark scaled down on mobile)
 
 - [x] Same fix as lrxtechgroup-website: mobile override for nav icon/
