@@ -3,6 +3,14 @@
 Living backlog. Check items off (or move to MEMORY.md as a dated entry) as they're
 done — don't just accumulate; keep this reflecting real, current state.
 
+## Fixed 2026-08-05 (FAQ contact links)
+
+- [x] `faq.html`'s three "get in touch"/"Contact Us" links changed
+      from `mailto:sales@lrxtechgroup.com` to
+      `https://lrxtechgroup.com/contact.html`, matching the Contact
+      link pattern already used in `index.html`'s footer. See
+      MEMORY.md.
+
 ## Fixed 2026-08-05 (mobile nav-back wrap; FAQ intro trimmed)
 
 - [x] `.nav-back` on narrow real phones (~360px) wrapped and

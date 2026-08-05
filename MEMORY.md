@@ -6,6 +6,16 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-08-05 (FAQ "get in touch" links point to Contact page) — "the get in touch should take person to contact page"
+
+All three "get in touch"/"Contact Us" links in `faq.html` (intro
+paragraph, no-results message, bottom CTA) were pointing to
+`mailto:sales@lrxtechgroup.com`. Changed all three to
+`https://lrxtechgroup.com/contact.html`, matching the pattern this
+site already uses elsewhere — `index.html`'s footer links "Contact" to
+the same URL, since this site has no contact page of its own and
+lrxtechgroup.com's is the shared one for the whole product suite.
+
 ## 2026-08-05 (mobile nav-back wrap fixed; FAQ intro trimmed) — "check the search on mobile too", real-device screenshot from lrxone.com/faq
 
 User checked the search feature on an actual phone (not just a
