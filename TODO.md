@@ -3,6 +3,12 @@
 Living backlog. Check items off (or move to MEMORY.md as a dated entry) as they're
 done — don't just accumulate; keep this reflecting real, current state.
 
+## Fixed 2026-08-13 — Footer rewritten to match lrxtechgroup-website wording
+
+- [x] Removed "LRX One Core"/"LRX One Billing" from `index.html`'s
+      footer link list and rewrote the whole list to match `one.html`'s
+      wording and order exactly (Home -> LRX Tech Group). See MEMORY.md.
+
 ## Fixed 2026-07-29 (footer links trimmed) — "Sign In"/"Register Interest" removed
 
 - [x] Removed "Sign In" and "Register Interest" from the footer link

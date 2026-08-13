@@ -6,6 +6,37 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-08-13 — Footer link list rewritten to match lrxtechgroup-website's wording
+
+User asked to remove "LRX One Core" and "LRX One Billing" from the
+footer link list (they duplicated the page's own "learn more" links
+just above the footer), then followed up asking to match the footer on
+this site to `one.html`'s footer on lrxtechgroup-website — same
+wording, but with "Home" swapped for "LRX Tech Group" (this site has no
+home page of its own to link to).
+
+`.footer-links` in `index.html` went from `LRX One Core / LRX One
+Billing / LRX Tech Group / Contact / Privacy Policy / Terms of Service
+/ Refund Policy / Cancellation Policy` to `LRX Tech Group / Terms /
+Privacy / Refund Policy / Cancellation Policy / FAQ / Contact` -
+matching `one.html`'s exact wording ("Terms" not "Terms of Service",
+"Privacy" not "Privacy Policy") and item order. `Terms`, `Privacy`,
+`Refund Policy`, and `Cancellation Policy` keep linking to this site's
+own local copies of those pages (`/terms.html` etc., already present
+per the 2026-XX-XX legal-pages reconciliation work); `FAQ` has no local
+equivalent here so it points to `https://lrxtechgroup.com/faq.html`;
+`Contact` keeps the existing `mailto:sales@lrxtechgroup.com` link
+(functionally equivalent to a contact page, and avoids a dead
+cross-domain link since this site has none). The footer-brand paragraph
+above the link list (still mentioning "LRX One Core and LRX One
+Billing") and the two `pillar-item` links elsewhere on the page were
+left as-is - only the `.footer-links` list itself was in scope. Only
+`index.html` has this link-list footer; `privacy.html`, `terms.html`,
+`refund-policy.html`, and `cancellation-policy.html` each have a
+simpler one-line footer with no link list, so nothing else needed
+changing. Verified via Playwright screenshot + a DOM check of every
+link's text and href.
+
 ## 2026-07-29 (footer links trimmed) — "Sign In" and "Register Interest" removed from footer link list
 
 User asked to remove "Sign In" and "Register Interest" from the footer.
