@@ -5,9 +5,193 @@ done — don't just accumulate; keep this reflecting real, current state.
 
 ## Fixed 2026-08-13 — Footer rewritten to match lrxtechgroup-website wording
 
-- [x] Removed "LRX One Core"/"LRX One Billing" from `index.html`'s
+- [x] Removed "LRX One Hive"/"LRX One Billing" from `index.html`'s
       footer link list and rewrote the whole list to match `one.html`'s
-      wording and order exactly (Home -> LRX Tech Group). See MEMORY.md.
+      wording and order exactly (Home -> LRX Tech Group). Merged with a
+      concurrent session's footer-structure rebuild (2026-08-05 entry
+      below) rather than clobbering it. See MEMORY.md.
+
+## Fixed 2026-08-05 (hero height hard-capped on touch devices)
+
+- [x] `--vh` fix alone didn't resolve it per fresh real-device
+      screenshots. Added a `@media (pointer: coarse)` rule capping
+      `.hero` to `min(calc(var(--vh,1vh)*100), 820px)` — targets real
+      touchscreens specifically (survives Request Desktop Site,
+      unlike viewport-width-based checks), leaves real desktop
+      untouched. See MEMORY.md.
+- [ ] **Unverified**: could not confirm from this environment whether
+      the live site has picked up any of today's hero-height commits
+      (curl/WebFetch both blocked by the site's own WAF). Asked user
+      to hard-refresh / test in a private tab in case they were
+      seeing a stale cached copy.
+
+## Fixed 2026-08-05 (hero empty-space bug — desktop-site-on-mobile case)
+
+- [x] The `100dvh` fix didn't necessarily cover "Request Desktop
+      Site" mode on a phone (which is where the user confirmed the
+      gap actually shows). Replaced with a JS-measured `--vh` custom
+      property driving `.hero`'s `min-height` — sidesteps CSS
+      viewport-unit quirks entirely by using the real
+      `window.innerHeight`. See MEMORY.md.
+
+## Fixed 2026-08-05 (hero mobile empty-space bug)
+
+- [x] `.hero`'s `min-height: 100vh` computed taller than the visible
+      mobile viewport (browser-chrome quirk), centering hero content
+      inside a section taller than the screen and pushing it below a
+      big black gap. Added a `100dvh` override. See MEMORY.md — same
+      fix applied on lrxtechgroup-website too.
+
+## Fixed 2026-08-05 (index.html footer matches lrxtechgroup-website)
+
+- [x] `index.html`'s footer rebuilt from the two-row `footer-top`/
+      `footer-bottom` layout to the same single-row `footer-logo`/
+      `footer-copy`/`footer-links` structure lrxtechgroup-website
+      uses everywhere. See MEMORY.md.
+
+## Fixed 2026-08-05 (FAQ contact links)
+
+- [x] `faq.html`'s three "get in touch"/"Contact Us" links changed
+      from `mailto:sales@lrxtechgroup.com` to
+      `https://lrxtechgroup.com/contact.html`, matching the Contact
+      link pattern already used in `index.html`'s footer. See
+      MEMORY.md.
+
+## Fixed 2026-08-05 (mobile nav-back wrap; FAQ intro trimmed)
+
+- [x] `.nav-back` on narrow real phones (~360px) wrapped and
+      overlapped the logo — fixed with a short "← Back" mobile
+      variant across `faq.html`, `terms.html`, `privacy.html`,
+      `refund-policy.html`, `cancellation-policy.html`. See MEMORY.md.
+- [x] `faq.html`'s intro paragraph trimmed from 3 sentences to 2 —
+      less scroll before reaching the search box. See MEMORY.md.
+
+## Fixed 2026-08-05 (FAQ keyword search)
+
+- [x] Same as lrxtechgroup-website: live search box on `faq.html`,
+      filters/auto-opens matching questions, shows a no-results
+      state. See MEMORY.md.
+
+## Fixed 2026-08-05 (FAQ page added; hosting copy South Africa + EU)
+
+- [x] New `faq.html`, styled with this site's legal-doc chrome, linked
+      from `index.html`'s footer. See MEMORY.md.
+- [x] `privacy.html` processor table + infrastructure paragraph updated
+      from South-Africa-only to "AWS South Africa and EU regions",
+      matching lrxtechgroup-website. See MEMORY.md.
+
+## Known issue (not yet fixed) — stale payment processors in privacy.html
+
+- [ ] `privacy.html`'s processor table still lists `Stitch` and
+      `Stripe` as payment processors; only PayFast is actually
+      implemented in lrxone's billing-service (already corrected on
+      the sibling site). Needs explicit confirmation before fixing
+      here — out of scope for the 2026-08-05 FAQ/hosting-copy pass.
+
+## Fixed 2026-08-04 (nav wordmark scaled down on mobile)
+
+- [x] Same fix as lrxtechgroup-website: mobile override for nav icon/
+      text sizing (52px→38px icon, 33px→24px text) across all 5
+      pages, in each page's existing responsive breakpoint. See
+      MEMORY.md.
+
+## Fixed 2026-08-04 (LRX/One word spacing tightened)
+
+- [x] "LRX"/"One" wrapped in a new `.nav-brand-text` span with its own
+      8px gap, decoupled from the 18px icon-to-text gap. See
+      MEMORY.md.
+
+## Fixed 2026-08-04 (nav logo/text gap widened)
+
+- [x] `.nav-brand` gap 8px → 18px across all 5 pages, matching
+      lrxtechgroup-website. See MEMORY.md.
+
+## Fixed 2026-08-04 (nav logo + text sized to match lrxtechgroup-website)
+
+- [x] `.nav-brand-icon` 38px → 52px, `.nav-brand .lrx`/`.one` → 33px —
+      now identical to lrxtechgroup-website's nav sizing, across all 5
+      pages. See MEMORY.md.
+
+## Fixed 2026-08-04 (nav wordmark text size reverted)
+
+- [x] Reverted the "match logo height" text scaling — "LRX One" back
+      to its original 20px sizing across all 5 pages. See MEMORY.md.
+
+## Fixed 2026-08-04 (nav horizontal padding capped for large monitors)
+
+- [x] `nav { padding: 0 5%; }` → `padding: 0 clamp(20px, 3vw, 56px);`
+      across all 5 pages, same fix as `lrxtechgroup-website`. See
+      MEMORY.md.
+
+## Fixed 2026-08-04 (nav wordmark scaled to match logo height)
+
+- [x] `.nav-brand .lrx`/`.one` ("LRX One") scaled to 54px so it spans
+      the same 38px height as the logo icon, across all 5 pages.
+      Stacked (two-line) variant was tried and explicitly rejected —
+      single line is final. See MEMORY.md.
+
+## Fixed 2026-08-04 (footer wordmark "One" recolored to white)
+
+- [x] Footer's `.brand-mark` ("LRX One") split into gold "LRX" + white
+      "One", matching the nav. See MEMORY.md.
+
+## Fixed 2026-08-04 (nav wordmark "One" recolored to white)
+
+- [x] `index.html`'s `.nav-brand .one` was `var(--gold)` (all-gold nav,
+      inconsistent with the other 4 pages) — now `var(--white)`,
+      matching everywhere else. See MEMORY.md.
+
+## Fixed 2026-08-04 (nav heading optically re-centered)
+
+- [x] `.nav-brand .lrx` and `.nav-brand .one` given
+      `transform: translateY(9px)` across all 5 pages so the heading's
+      visual weight lines up with the logo's. See MEMORY.md.
+
+## Fixed 2026-08-04 (nav logo enlarged, heading kept centered)
+
+- [x] `.nav-brand-icon` height 26px → 38px across all 5 pages; heading
+      text stays vertically centered beside it via the existing
+      `align-items: center` on `.nav-brand`. See MEMORY.md.
+
+## Fixed 2026-08-04 (logo recolored to match brand gold, all 5 repos)
+
+- [x] Recolored the logo mark to the site's actual `--gold`/
+      `--gold-dark` palette instead of its original off-brand warm
+      gradient. Same fix across all 5 LRX repos. See MEMORY.md and
+      `lrxtechgroup-website`'s MEMORY.md for the method.
+
+## Fixed 2026-08-02 (real logo added, both sites)
+
+- [x] Added the real LRX Tech Group icon mark to the favicon
+      (`/favicon.ico` + `/images/favicon-*.png` + `apple-touch-icon.png`)
+      and to the nav (`.nav-brand-icon` image, new — this nav was
+      text-only before) across all 5 pages. See this file's and
+      `lrxtechgroup-website`'s MEMORY.md for extraction details and
+      verification.
+
+## Fixed 2026-07-31 (org-wide rename) — "LRX One Core" → "LRX One Hive"
+
+- [x] Renamed across all 5 pages (`index.html`, `terms.html`,
+      `privacy.html`, `refund-policy.html`, `cancellation-policy.html`),
+      including the split gold/white span styling. See MEMORY.md.
+
+## Fixed 2026-07-30 (nav wordmark weight matched to footer)
+
+- [x] Nav wordmark's "One" changed from thin (300, letter-spaced) to
+      bold (900, no extra letter-spacing) on all 5 pages, matching
+      `index.html`'s footer "LRX One" brand-mark design. See MEMORY.md.
+
+## Fixed 2026-07-30 (branding + footer cleanup)
+
+- [x] Removed the "LRX | ONE" pipe separator sitewide (5 pages) — now
+      reads "LRX One". See MEMORY.md.
+- [x] Removed the trailing arrow (→) from `index.html`'s "learn more"
+      strip sentence.
+- [x] Removed the bare `sales@lrxtechgroup.com` line from
+      `index.html`'s footer bottom.
+- [x] Footer "Contact" link on `index.html` now points to
+      `https://lrxtechgroup.com/contact.html` instead of a bare
+      `mailto:sales@...` link.
 
 ## Fixed 2026-07-29 (footer links trimmed) — "Sign In"/"Register Interest" removed
 

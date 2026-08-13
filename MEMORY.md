@@ -8,34 +8,566 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ## 2026-08-13 — Footer link list rewritten to match lrxtechgroup-website's wording
 
-User asked to remove "LRX One Core" and "LRX One Billing" from the
+User asked to remove "LRX One Hive" and "LRX One Billing" from the
 footer link list (they duplicated the page's own "learn more" links
 just above the footer), then followed up asking to match the footer on
 this site to `one.html`'s footer on lrxtechgroup-website — same
 wording, but with "Home" swapped for "LRX Tech Group" (this site has no
 home page of its own to link to).
 
-`.footer-links` in `index.html` went from `LRX One Core / LRX One
+Started this edit before pulling latest `main` and only discovered on
+push that another session had, in the meantime, already rebuilt this
+same footer from the old two-row `footer-top`/`footer-bottom` layout to
+the current single-row `footer-logo`/`footer-copy`/`footer-links`
+structure (see the 2026-08-05 "index.html footer matches
+lrxtechgroup-website" entry below) and renamed the product to "LRX One
+Hive" — so my first draft of this change was built against a stale
+base. Resolved via `git merge origin/main`: kept the current single-row
+structure (my old two-row markup no longer has matching CSS - those
+rules were removed in the 08-05 rebuild) and re-applied the link-list
+simplification on top of it.
+
+`.footer-links` in `index.html` went from `LRX One Hive / LRX One
 Billing / LRX Tech Group / Contact / Privacy Policy / Terms of Service
-/ Refund Policy / Cancellation Policy` to `LRX Tech Group / Terms /
-Privacy / Refund Policy / Cancellation Policy / FAQ / Contact` -
+/ Refund Policy / Cancellation Policy / FAQ` to `LRX Tech Group / Terms
+/ Privacy / Refund Policy / Cancellation Policy / FAQ / Contact` -
 matching `one.html`'s exact wording ("Terms" not "Terms of Service",
 "Privacy" not "Privacy Policy") and item order. `Terms`, `Privacy`,
-`Refund Policy`, and `Cancellation Policy` keep linking to this site's
-own local copies of those pages (`/terms.html` etc., already present
-per the 2026-XX-XX legal-pages reconciliation work); `FAQ` has no local
-equivalent here so it points to `https://lrxtechgroup.com/faq.html`;
-`Contact` keeps the existing `mailto:sales@lrxtechgroup.com` link
-(functionally equivalent to a contact page, and avoids a dead
-cross-domain link since this site has none). The footer-brand paragraph
-above the link list (still mentioning "LRX One Core and LRX One
-Billing") and the two `pillar-item` links elsewhere on the page were
-left as-is - only the `.footer-links` list itself was in scope. Only
-`index.html` has this link-list footer; `privacy.html`, `terms.html`,
-`refund-policy.html`, and `cancellation-policy.html` each have a
-simpler one-line footer with no link list, so nothing else needed
-changing. Verified via Playwright screenshot + a DOM check of every
-link's text and href.
+`Refund Policy`, `Cancellation Policy`, and `FAQ` all keep linking to
+this site's own local copies of those pages; `Contact` keeps the
+existing `https://lrxtechgroup.com/contact.html` link (this site has no
+local contact page, and that's the convention already established here
+- see the 2026-08-05 "FAQ contact links" entry, which deliberately
+moved away from a `mailto:` link toward this same URL). The
+footer-brand paragraph above the link list (still mentioning "LRX One
+Core and LRX One Billing" - itself now stale wording predating the
+Hive rename, out of scope here) and the two `pillar-item` links
+elsewhere on the page were left as-is - only `.footer-links` was in
+scope. Verified via Playwright screenshot + a DOM check of every link's
+text and href, then re-verified after the merge that the resolved
+markup matched.
+
+## 2026-08-05 (hero height hard-capped on touch devices) — "still like this on request desktop view"
+
+User re-tested after the `--vh` fix and sent fresh real-device
+screenshots showing the gap unchanged, still specifically under
+Request Desktop Site. Investigation:
+
+- Confirmed via `git log`/`git show origin/main:index.html` that the
+  `--vh` fix genuinely was on `main` for both repos — not a failed
+  push.
+- Tried to fetch the live site directly (curl and WebFetch) to check
+  whether it had actually deployed; both got HTTP 403 from the site's
+  own bot/WAF protection, so deployment status couldn't be confirmed
+  from this environment either way. Flagged to the user that a stale
+  cached copy is plausible: toggling Request Desktop Site changes the
+  User-Agent header, but most HTTP caches key on URL only (no `Vary:
+  User-Agent`), so a browser or CDN cache populated before the fix
+  can keep being served afterward.
+- Independent of the caching question, hardened the fix itself so it
+  no longer depends on getting viewport-height measurement right at
+  all in this mode. Added a `@media (pointer: coarse)` rule — matches
+  real touchscreens specifically (phones/tablets), which stays true
+  even under Request Desktop Site (that mode fakes the reported
+  viewport width and UA string, but not the actual input hardware) —
+  that caps `.hero`'s `min-height` to
+  `min(calc(var(--vh, 1vh) * 100), 820px)`. Real desktop (mouse/
+  trackpad, `pointer: fine`) is completely unaffected by this rule and
+  keeps the full-bleed 100dvh/--vh behavior confirmed working earlier
+  today; any touch device is now hard-bounded to 820px regardless of
+  what value vh/dvh/innerHeight report in whatever rendering mode.
+
+Verified via Playwright with real device/pointer emulation (not just
+viewport size, which was the gap in earlier verification passes):
+- `pointer:fine` desktop context, 1440×1080 → hero height 1080
+  (uncapped, matches viewport, full-bleed intact).
+- `pointer:coarse` touch context at 980×700 (a plausible real
+  Request-Desktop-Site geometry) → hero height ~700-747, well under
+  the 820px cap, no gap.
+- `pointer:coarse` touch context at 980×2200 (deliberately extreme,
+  simulating whatever inflated value the real bug might be producing)
+  → hero height capped to exactly 820px; screenshot confirms content
+  fills the section and flows straight into the pillars band and
+  footer with no black void, regardless of how wrong the underlying
+  vh measurement is.
+
+Same fix applied to lrxtechgroup-website — see that repo's MEMORY.md.
+Still unresolved: whether the live site the user is testing has
+actually picked up any of today's commits yet, since it couldn't be
+verified from this environment. Asked the user to hard-refresh / test
+in a private tab to rule out a stale cache.
+
+## 2026-08-05 (hero viewport-height fix upgraded to JS-measured `--vh`) — "it is on the desktop view on mobile"
+
+User confirmed the empty-gap bug reported earlier today only shows up
+under Chrome's "Request Desktop Site" on a phone, not in normal
+mobile view — matching cause #1 from the earlier investigation. The
+`100dvh` fix added right before this wasn't guaranteed to cover that
+case: `dvh`'s live-tracking behavior is a mobile-viewport-adaptive
+feature, and there's no guarantee a browser applies the same dynamic
+recalculation once it's rendering in a desktop-site emulation
+context — CSS viewport units alone can't be trusted to correctly
+reflect the visible screen in that mode.
+
+Replaced the CSS-only approach with the standard, more bulletproof
+technique: measure the real `window.innerHeight` with a small inline
+script in `<head>` (runs before first paint) and store it as a
+`--vh` custom property (`1% of innerHeight`, re-measured on resize/
+orientation change), then set `.hero`'s `min-height` to
+`calc(var(--vh, 1vh) * 100)` as the final (highest-priority)
+declaration — `100vh` and `100dvh` stay as earlier declarations so
+anything without JS or before the script fires still gets a sane
+fallback. Because this measures the browser's actual current
+`innerHeight` via JS rather than relying on how any given browser
+mode computes CSS viewport units, it holds regardless of normal
+mobile rendering, desktop-site emulation, or any future quirk in
+between. Verified via Playwright across mobile (390×844) and two
+desktop-site-style viewports (980×844, 980×700) — `--vh` matched
+`window.innerHeight` exactly in all three, and the 700px-tall
+desktop-site case (closest match to what a real phone would report)
+showed no gap, hero content filling the section correctly.
+
+Same fix applied to lrxtechgroup-website's homepage hero — see that
+repo's MEMORY.md.
+
+## 2026-08-05 (hero 100vh mobile-empty-space bug fixed) — "is there that much empty black space on normal website view or only desktop view on mobile"
+
+Diagnosed root cause of a real-device screenshot showing a huge black
+gap between the nav and the "One Account. Every LRX One Product."
+hero content on `index.html`. Two things were compounding:
+
+1. The screenshot's nav showed "ABOUT / REGISTER / SIGN IN" all
+   inline plus the two-column product mockup — both are desktop-only
+   (`.nav-link { display:none }` below 768px, `.hero-right { display:
+   none }` below 900px), so the browser was rendering at a desktop-
+   width viewport on a phone (almost certainly Chrome's "Request
+   Desktop Site", which reports ~980px width).
+2. Independently of that, `.hero { min-height: 100vh; ... align-items:
+   center }` — confirmed via Playwright at a real 390×844 mobile
+   viewport that this alone is fine (content fits with normal
+   spacing). But mobile browsers compute `100vh` against the
+   *largest* possible viewport (chrome collapsed), which is taller
+   than what's actually visible when the address bar is showing —
+   reproduced the exact reported gap shape by rendering at an
+   artificially tall viewport height, confirming `.hero`'s content
+   gets vertically centered inside a section taller than the visible
+   screen, pushing it down off-screen with empty black space above.
+
+Fixed by adding `min-height: 100dvh;` after the existing `min-height:
+100vh;` (dvh = dynamic viewport height, tracks the *currently*-visible
+viewport rather than the collapsed-chrome maximum; kept as a second
+declaration so older browsers without `dvh` support silently fall
+back to the existing `100vh` value — no regression). Same
+`min-height: 100vh` pattern existed only on this one hero section
+(grepped the whole site, one match). Verified via Playwright at
+390×844 (real mobile) — renders identically, no layout change, before
+and after.
+
+Same bug (and same fix) also existed on the sibling
+`lrxtechgroup-website`'s homepage hero — see that repo's MEMORY.md.
+
+## 2026-08-05 (index.html footer rebuilt to match lrxtechgroup-website) — "let's make lrx one the same as lrx tech group"
+
+User sent side-by-side mobile screenshots of `lrxtechgroup.com/faq`'s
+footer (simple single row: wordmark, copyright, link list, all inline
+and wrapping together) versus `lrxone.com`'s homepage footer (a
+two-part `footer-top`/`footer-bottom` layout with a brand paragraph
+above a separate links block above a separate copyright row) — visibly
+inconsistent between the two sites.
+
+Rebuilt `index.html`'s footer to use the exact same structure, classes,
+and CSS as `lrxtechgroup-website`'s footer (`footer-logo` / `footer-copy`
+/ `footer-links`, single flex row that wraps as needed): dropped the old
+`footer-top`/`footer-brand`/`footer-bottom` two-row layout and the
+descriptive brand paragraph (lrxtechgroup-website's footer doesn't carry
+one either). Kept all 9 existing footer-links entries and the
+copyright's "· lrxtechgroup.com" link (already an established pattern
+on this site's other pages). `footer-logo` uses the same gold/white
+two-tone "LRX One" as the nav brand. Verified via Playwright at 1280px
+and 360px — link row wraps cleanly at both widths, matches the sibling
+site's rhythm.
+
+Note: this only touched `index.html` — lrxone-website's legal
+subpages (`terms.html`, `privacy.html`, `refund-policy.html`,
+`cancellation-policy.html`, `faq.html`) already use a simple centered
+single-line footer of their own (no `footer-links` list at all), which
+was untouched since it wasn't part of what the screenshots flagged.
+
+## 2026-08-05 (FAQ "get in touch" links point to Contact page) — "the get in touch should take person to contact page"
+
+All three "get in touch"/"Contact Us" links in `faq.html` (intro
+paragraph, no-results message, bottom CTA) were pointing to
+`mailto:sales@lrxtechgroup.com`. Changed all three to
+`https://lrxtechgroup.com/contact.html`, matching the pattern this
+site already uses elsewhere — `index.html`'s footer links "Contact" to
+the same URL, since this site has no contact page of its own and
+lrxtechgroup.com's is the shared one for the whole product suite.
+
+## 2026-08-05 (mobile nav-back wrap fixed; FAQ intro trimmed) — "check the search on mobile too", real-device screenshot from lrxone.com/faq
+
+User checked the search feature on an actual phone (not just a
+simulated viewport) and sent two screenshots. Found two real bugs the
+1280px/390px checks so far hadn't caught:
+
+**Nav-back wrapping onto the logo.** On narrower real phones (~360px
+CSS width — common on budget/mid Android, versus the 390-412px range
+tested earlier) `.nav-back`'s full text, "← Back to lrxone.com", didn't
+fit next to the mobile-sized `.nav-brand` and wrapped to a second line
+that visually overlapped the "LRX One" wordmark. Reproduced by testing
+at a real 360px viewport (the earlier 390px checks happened to just
+barely fit, which is why this was missed). Fixed by splitting the link
+text into `.nav-back-full`/`.nav-back-short` spans and swapping which
+is visible inside the existing `@media (max-width: 600px)` block —
+mobile now shows a short "← Back" that always fits on one line,
+desktop is unaffected (still shows the full text). Applied identically
+across all 5 pages that carry this nav pattern: `faq.html`, `terms.html`,
+`privacy.html`, `refund-policy.html`, `cancellation-policy.html`.
+
+**FAQ intro too wordy.** User also flagged "too much writing under
+faq" — `faq.html`'s intro paragraph was 3 sentences / ~40 words,
+pushing the search box and first question further down the page than
+necessary, especially on mobile where every line costs more scroll.
+Trimmed to two short sentences ("Answers to the questions we hear most
+often about LRX One. Can't find what you're looking for? Get in touch
+with our team."), dropping the redundant middle clause pointing to
+lrxtechgroup.com (the search box now handles discovery) while keeping
+a contact link.
+
+Verified via Playwright at a real 360px viewport (all 5 pages, closed
+state) and at 1280px desktop (faq.html, to confirm no regression on
+the full-text nav-back).
+
+## 2026-08-05 (FAQ keyword search added) — "let's have a key word search function in faq", same fix as lrxtechgroup-website
+
+Same feature added to `faq.html` here, identical implementation to the
+sibling repo: a live `#faqSearch` input above the accordion groups,
+vanilla JS substring-matching each `.faq-item`'s text on every
+keystroke, hiding non-matching items/groups, auto-opening matches, and
+showing a no-results message (linking to
+`mailto:sales@lrxtechgroup.com` since this site has no contact page)
+when nothing matches. Verified via Playwright screenshots (match,
+no-match, cleared states) before pushing.
+
+## 2026-08-05 (new FAQ page added; hosting copy updated to South Africa + EU) — "do the same for lrxone-website"
+
+Same two changes just completed on the sibling repo (`lrxtechgroup-
+website`), applied here to match.
+
+**FAQ page.** Added `faq.html`, reusing this site's legal-doc chrome
+(`.nav-brand`/`.nav-back`, simple centered single-line footer — this
+site has no `footer-links` list on its subpages, confirmed by reading
+`terms.html`). Three `<details>` accordion groups (Products & account /
+Pricing & billing / Data & compliance), content adapted for the
+lrxone.com context: registration/sign-in links point to
+`app.lrxone.com/register` and `app.lrxone.com/login`, pricing detail
+links out to `lrxtechgroup.com/one.html#pricing` and
+`.../billing.html#pricing` (pricing lives on the sibling site, not
+here), and the closing CTA uses `mailto:sales@lrxtechgroup.com` since
+this site has no `/contact.html`. All content pulled from existing site
+copy (`terms.html`, `privacy.html`, `refund-policy.html`,
+`cancellation-policy.html`) — nothing speculative. Verified via
+Playwright screenshots (desktop closed/open state, mobile 390px) before
+pushing: nav, accordion open/close, and footer all render correctly.
+Linked from `index.html`'s `footer-links` list (the only page on this
+site that has one) — inserted after "Cancellation Policy".
+
+**Hosting copy.** `privacy.html` was the only file with an exclusivity
+claim (`index.html` has none). Processor table's AWS row and the
+infrastructure paragraph both changed from "AWS's af-south-1 (Cape
+Town) region" / South-Africa-only framing to "AWS South Africa and EU
+regions", matching the sibling site's wording exactly.
+
+Known pre-existing inconsistency, deliberately NOT touched this pass
+(out of the requested scope): `privacy.html`'s processor table still
+lists `Stitch` and `Stripe` as payment processors, which was already
+found inaccurate on the sibling site earlier this session (only PayFast
+is actually implemented in lrxone's billing-service) and removed there.
+Would need explicit confirmation before fixing here too.
+
+## 2026-08-04 (nav wordmark scaled back down on mobile) — same fix as lrxtechgroup-website, "lrxone.com is the same"
+
+User sent a phone screenshot showing this site had the identical
+issue just fixed on `lrxtechgroup-website`: the desktop nav sizing
+(33px text, 52px icon, fixed px, no responsive scaling) looks
+oversized next to the logo on phone screens. Added the same mobile
+override pattern: icon 52px→38px, `.lrx`/`.one` 33px→24px, `.nav-
+brand` gap 18px→12px, `.nav-brand-text`'s internal LRX/One gap
+8px→4px. `index.html` already had a `@media (max-width: 768px)` block
+(for hiding `.nav-link`); the 4 legal pages use `@media (max-width:
+600px)` instead, matched that breakpoint there too, same as the
+sibling site. Verified via 412px-wide screenshots on `index.html` and
+`terms.html`.
+
+## 2026-08-04 (LRX/One word spacing tightened, decoupled from icon-text gap) — new .nav-brand-text wrapper
+
+Widening `.nav-brand`'s gap to 18px in the previous entry had an
+unintended side effect: "LRX" and "One" are direct flex siblings of
+the icon under `.nav-brand`, so that one `gap` value applied uniformly
+to *both* the icon-to-text gap *and* the LRX-One word gap — pushing
+the two words apart just as much as the logo moved from the text.
+User asked to tighten the LRX/One spacing specifically.
+
+Wrapped `<span class="lrx">`/`<span class="one">` in a new
+`<span class="nav-brand-text">` with its own `gap: 8px`, so it's
+independent of `.nav-brand`'s 18px icon-to-text gap now. Applied
+across all 5 pages.
+
+## 2026-08-04 (nav logo/text gap widened) — 8px → 18px, matching lrxtechgroup-website
+
+Same request as `lrxtechgroup-website`'s matching entry today, applied
+identically for consistency: `.nav-brand` gap 8px → 18px across all 5
+pages.
+
+## 2026-08-04 (nav logo + wordmark sized to exactly match lrxtechgroup-website) — 38px icon → 52px, 20px text → 33px
+
+User flagged that this site's nav logo/text was visibly smaller than
+`lrxtechgroup-website`'s and asked for them to match exactly, not just
+proportionally. Previously each site's icon/text had been scaled up
+independently by its own ratio (this site's icon 26px→38px vs.
+lrxtechgroup's 36px→52px earlier in the session), so they were
+never actually the same absolute size.
+
+Set `.nav-brand-icon` to `height: 52px` (was 38px) and both
+`.nav-brand .lrx`/`.one` to `font-size: 33px` (was 20px, plus the
+earlier 54px single-line attempt that got reverted) — both values now
+identical to `lrxtechgroup-website`'s `.nav-logo-icon`/`.nav-logo-text
+.lrx`. Removed the old `transform: translateY(9px)` optical-correction
+hack (was tuned for the smaller 20px text against a 38px icon; at the
+new sizes flexbox's default `align-items: center` reads as
+well-centered without it — confirmed via screenshot rather than
+assumed). Kept single-line (the stacked variant was explicitly
+rejected earlier). Applied across all 5 pages.
+
+## 2026-08-04 (nav wordmark text size reverted) — "leave the wording where it was"
+
+Same revert as `lrxtechgroup-website`'s matching entry today: "LRX
+One" text next to the logo goes back to its original 20px, letter-
+spacing 0.05em, and the `transform: translateY(9px)` optical-
+centering approach — undoing the earlier "match logo height" 54px
+scale-up. The nav padding cap from the entry below is unrelated and
+was kept. Applied across all 5 pages, verified via screenshot.
+
+## 2026-08-04 (nav horizontal padding capped) — same fix as lrxtechgroup-website, logo was drifting too far from the left edge on large monitors
+
+Same root cause and fix as `lrxtechgroup-website`'s matching entry
+today: `nav { padding: 0 5%; }` grows unbounded on wide viewports.
+Changed to `padding: 0 clamp(20px, 3vw, 56px);` across all 5 pages.
+Verified: logo's left edge at a 1920px viewport went from 96px (old
+5%) to 56px (capped), matching the sibling site exactly.
+
+## 2026-08-04 (nav wordmark scaled to match logo height) — "LRX One" text now spans the 38px icon height, kept as a single line
+
+Same request as `lrxtechgroup-website`'s matching entry today: nav text
+should match the logo's height instead of looking small beside it.
+Since "LRX One" here is a single line (not a two-line stack like
+lrxtechgroup's "LRX TECH / GROUP"), used the same measured-cap-height
+method from earlier in the session (render at a known font-size,
+pixel-scan the actual ink height, scale to the target) rather than
+guessing: at 20px, "LRX One"'s cap-height measured 14px; scaling to hit
+the 38px icon height gave **54px** font-size (verified: renders at
+~37.75px ink height, effectively exact). `.nav-brand .lrx`/`.one`
+20px → 54px, letter-spacing eased 0.05em → 0.02em, and the old
+`translateY(9px)` optical-correction hack removed (no longer needed at
+matching size). Applied across all 5 pages.
+
+**Explored and reverted**: also tried stacking "LRX" over "One" (two
+lines, mirroring lrxtechgroup's TECH/GROUP layout) at a measured 22px
+each (ink height ~37px) — implemented and screenshotted across all 5
+pages, but the user decided against it ("let's not do the stacking")
+and asked to go back to the single-line 54px version, which is what
+shipped. Mentioning this so a future session doesn't re-propose the
+stacked variant as if it's new.
+
+## 2026-08-04 (footer wordmark "One" recolored to white too) — same gold/white split now applied at the bottom of the page
+
+Follow-up to the nav fix above — user asked for the same treatment on
+"the One at the bottom," i.e. the footer's `.brand-mark` ("LRX One"),
+which was a single `<span class="gold">LRX One</span>` (all gold, no
+split, since it predates the nav-brand pattern and was never wired to
+it). Split into `<span class="gold">LRX</span>` +
+`<span style="color:var(--white)">One</span>`, matching the nav.
+Confirmed via grep this is the only `.brand-mark` on the site (the
+legal pages use a simpler footer with no brand-mark). Verified via
+screenshot.
+
+## 2026-08-04 (nav wordmark "One" recolored to white on index.html) — fixes an inconsistency, breaks up the all-gold nav block
+
+User flagged the logo + "LRX One" nav looking "too yellow." Explored
+recoloring the logo itself first (mocked up 4 muted/bronze/amber
+alternatives), but the user clarified they want to *keep* the logo's
+gold and instead break up the monochrome gold block in the top-left
+corner by varying the wordmark's own coloring.
+
+Turned out this was already inconsistent across the site: `index.html`
+had `.nav-brand .one { color: var(--gold); }` (both "LRX" and "One"
+solid gold, matching the icon — hence the "all yellow" read), while
+`cancellation-policy.html`, `privacy.html`, `refund-policy.html`, and
+`terms.html` already had `.one` set to `var(--white)`. Fixed
+`index.html` to match the other four pages: "LRX" stays gold (echoing
+the icon), "One" is now white — same two-tone treatment used
+everywhere else on the site (e.g. "LRX One Hive" gold+white
+pattern on lrxtechgroup-website). Verified via screenshot.
+
+## 2026-08-04 (nav heading optically re-centered against the logo) — text nudged +9px down from bounding-box center
+
+Same fix as `lrxtechgroup-website`'s matching entry today, same root
+cause: `.nav-brand`'s `align-items: center` already puts the icon and
+"LRX One" text at the same geometric bounding-box center, but the
+logo's ink is visually weighter lower in its box than the single-line
+text is, so it still read as off-center. Measured ink centroids (icon
+≈39.1 vs text ≈33.4, a smaller gap than the two-line lrxtechgroup-website
+case since this is single-line text) via the same screenshot-and-analyze
+method, mocked up 0px/+3px/+6px variants, got sign-off on the +6px
+variant, then two more explicit nudges (+2px, +1px) to land on
+`transform: translateY(9px)` applied to both `.nav-brand .lrx` and
+`.nav-brand .one` across all 5 pages.
+
+## 2026-08-04 (nav logo enlarged) — icon bumped 26px → 38px, heading kept vertically centered beside it
+
+Same request as `lrxtechgroup-website`'s matching entry today: nav logo
+bigger, heading text ("LRX One") centered to its right. `.nav-brand`
+already used `display: flex; align-items: center`, so bumping
+`.nav-brand-icon`'s height doesn't disturb the centering — it
+re-derives against the new (taller) icon automatically. Applied
+`height: 26px` → `38px` across all 5 pages (identical rule on each).
+Nav bar is 70px tall, so 38px leaves plenty of room, no clipping.
+Verified via headless-Chromium screenshot before committing.
+
+## 2026-08-04 (logo recolored to match brand gold, all 5 LRX repos)
+
+Same fix as `lrxtechgroup-website` — full details and the exact colour
+values/method are in that repo's MEMORY.md (shared source asset,
+identical fix applied everywhere). Short version: the extracted logo's
+own gradient (mean `~#C7974A`) was measurably warmer than this site's
+actual `--gold`/`--gold-dark` (`#D4AF37`/`#B8922E`, confirmed identical
+to the sibling sites before recoloring). Recolored the icon's gradient
+in place (luminosity-driven interpolation across the brand palette,
+keeping the original highlight/shadow shading), regenerated the
+favicon set and `logo-mark.png`, redeployed over the previous
+versions. Verified visually against this site's own nav (icon now
+matches the "SIGN IN" button gold and "LRX One" text gold).
+
+---
+
+## 2026-08-02 (real logo added, both sites) — favicon added, icon mark added to the previously text-only nav
+
+User uploaded the real LRX Tech Group logo artwork and asked to use
+just the icon mark (not the full "LRX TECH GROUP" + tagline lockup) as
+the favicon and nav logo, on this site and `lrxtechgroup-website`. Full
+extraction/processing details are in `lrxtechgroup-website`'s
+MEMORY.md (same source image, same generated asset set, shared across
+both repos) — this entry covers what's specific to this site.
+
+**Difference from `lrxtechgroup-website`**: this site's nav
+(`.nav-brand`) never had an icon graphic at all — just the "LRX"/"One"
+text spans, `align-items: baseline`. So this was an addition, not a
+swap: added `<img class="nav-brand-icon" src="/images/logo-mark.png">`
+before the text spans, changed `.nav-brand`'s `align-items` from
+`baseline` to `center` (baseline alignment doesn't make sense once
+there's an image in the flex row), and added a new `.nav-brand-icon`
+rule (`height: 26px; width: auto` — smaller than
+`lrxtechgroup-website`'s 36px nav icon since this nav is visually
+lighter/more compact to begin with).
+
+Applied identically across all 5 pages (`index.html`, `privacy.html`,
+`terms.html`, `refund-policy.html`, `cancellation-policy.html`) —
+confirmed byte-identical favicon `<link>` and `.nav-brand` markup/CSS
+across all 5 before scripting the replacement.
+
+**Verified**: same method as the sibling repo — local `http.server` +
+Playwright screenshot of the nav bar, `curl` 200-check on every new
+asset URL.
+
+---
+
+## 2026-07-31 (org-wide rename) — "LRX One Core" → "LRX One Hive" across all 5 pages
+
+Same org-wide rename requested across all `lrxtechgroup` repos: "Core"
+as part of the product name "LRX One Core" becomes "LRX One Hive".
+
+Updated `index.html`, `terms.html`, `privacy.html`, `refund-policy.html`,
+`cancellation-policy.html` — plain-text mentions plus the split gold/
+white span styling (`<span style="color:var(--gold)">LRX One</span>
+<span style="color:var(--white)">Core</span>`) used in the hero/product-
+picker copy, which a plain "LRX One Core" string search would have
+missed since the word "Core" sits in its own span.
+
+Left `MEMORY.md`/`TODO.md` history untouched, same reasoning as always
+— it's a changelog of what was true at the time, not live copy.
+
+**Verified**: `grep -rn '\bCore\b\|\bCORE\b' *.html` returns nothing
+after the change.
+
+---
+
+## 2026-07-30 (nav wordmark weight matched to footer) — "One" in the nav logo is now bold, matching the footer's "LRX One" mark
+
+Follow-up to the same-day separator removal below: once the pipe was
+gone, the nav wordmark's "One" was left at `font-weight: 300` with
+`letter-spacing: 0.1em` — a leftover from when the thin weight helped
+visually separate it from "LRX" without the pipe. The user compared it
+directly against `index.html`'s own footer `brand-mark` (`LRX One` at
+`font-weight: 900`, no extra letter-spacing) and asked for the nav to
+match that design.
+
+Changed `.nav-brand .one` from `font-weight: 300; letter-spacing: 0.1em`
+to `font-weight: 900` (letter-spacing removed) on all 5 pages — same
+scope as the separator fix, since all 5 share the identical nav markup.
+Color was left untouched: `index.html`'s nav "One" is gold (matching its
+gold footer mark), the 4 legal pages' nav "One" stays white (their own
+pre-existing, intentional gold-`LRX`/white-`One` split) — this request
+was about weight/spacing consistency with the footer design, not a
+color change.
+
+---
+
+## 2026-07-30 (branding + footer cleanup) — Separator removed from "LRX | ONE" wordmark, arrow dropped, sales email removed, Contact re-pointed
+
+User flagged four issues from a live screenshot of `index.html` (the
+`app.lrxone.com` sign-in page):
+
+- **"LRX | ONE" separator removed sitewide**: the product's actual name
+  is "LRX One" (two words, no pipe) — the `|` divider was a leftover
+  from an earlier wordmark iteration (see 2026-07-28 entries below,
+  where it replaced "LRX ONE | CORE"). Removed the `<span class="pipe">`
+  element and its CSS rule from all 5 pages (`index.html`, `terms.html`,
+  `privacy.html`, `refund-policy.html`, `cancellation-policy.html` — all
+  five shared byte-identical nav markup), changed `ONE` → `One` to match
+  the product name's actual casing everywhere else on these sites, and
+  added `gap: 6px` to `.nav-brand` so "LRX" and "One" keep a visible gap
+  now that the pipe (which supplied the spacing via its margin) is gone.
+  `index.html`'s footer `brand-mark` had the same "LRX | ONE" text —
+  fixed to "LRX One" there too.
+- **Arrow removed from the "learn more" strip**: `index.html`'s
+  "Looking for features, pricing, and the full product tour? ... on
+  lrxtechgroup.com →" line had a trailing arrow the user wanted gone.
+  Removed the `→` character only, left the rest of the sentence and its
+  links unchanged.
+- **Sales email removed from the footer**: `index.html`'s `footer-bottom`
+  had a bare `sales@lrxtechgroup.com` line sitting under the copyright
+  line, with no context (no "Contact:" label, not a mailto). Removed
+  that `<p>` entirely — the same address is still reachable properly
+  through the footer's "Contact" link (see next item).
+- **Footer "Contact" link re-pointed to a real contact page**: it was a
+  bare `mailto:sales@lrxtechgroup.com`, which only ever offered one of
+  the several ways to reach LRX Tech Group. Changed to
+  `https://lrxtechgroup.com/contact.html` — the corporate site's actual
+  Contact page (Sales/Support/Billing emails, WhatsApp, phone), matching
+  what the user wanted: "all relevant contact methods as is on
+  lrxtechgroup website."
+
+**Scope note**: the pipe/separator fix applies to all 5 pages (user
+confirmed sitewide rather than `index.html`-only after being asked,
+since the nav wordmark markup turned out to be identical across all of
+them). The arrow, sales-email, and Contact-link fixes only existed on
+`index.html` to begin with — the other 4 pages have a much simpler
+single-link nav/footer with no equivalent elements.
+
+`terms.html`'s legal-content mention of `sales@lrxtechgroup.com` (in its
+Terms body copy, not a footer/nav element) was deliberately left
+untouched — out of scope for a footer/nav cosmetic fix.
+
+---
 
 ## 2026-07-29 (footer links trimmed) — "Sign In" and "Register Interest" removed from footer link list
 

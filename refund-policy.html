@@ -4,8 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Refund Policy — LRX One</title>
-  <meta name="description" content="LRX One Refund Policy — when subscription fees for LRX One Core and LRX One Billing are and aren't refunded, provided by LRX Tech Group (Pty) Ltd." />
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect width='36' height='36' rx='6' fill='%230E0E0E'/%3E%3Ctext x='18' y='24' text-anchor='middle' font-family='Arial,sans-serif' font-size='13' font-weight='900' fill='%23D4AF37'%3ELRX%3C/text%3E%3C/svg%3E" />
+  <meta name="description" content="LRX One Refund Policy — when subscription fees for LRX One Hive and LRX One Billing are and aren't refunded, provided by LRX Tech Group (Pty) Ltd." />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -35,20 +39,22 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 5%;
+      padding: 0 clamp(20px, 3vw, 56px);
       height: 70px;
       background: rgba(14,14,14,0.95);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--gold-line);
     }
 
-    .nav-brand { display: flex; align-items: baseline; text-decoration: none; }
-    .nav-brand .lrx { font-size: 20px; font-weight: 900; letter-spacing: 0.05em; color: var(--gold); }
-    .nav-brand .pipe { font-size: 20px; font-weight: 200; color: var(--gold); margin: 0 6px; }
-    .nav-brand .one { font-size: 20px; font-weight: 300; letter-spacing: 0.2em; color: var(--white); }
+    .nav-brand { display: flex; align-items: center; gap: 18px; text-decoration: none; }
+    .nav-brand-icon { height: 52px; width: auto; }
+    .nav-brand-text { display: flex; align-items: center; gap: 8px; }
+    .nav-brand .lrx { font-size: 33px; font-weight: 900; letter-spacing: 0.02em; color: var(--gold); }
+    .nav-brand .one { font-size: 33px; font-weight: 900; color: var(--white); }
 
-    .nav-back { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--light-grey); text-decoration: none; transition: color 0.2s; }
+    .nav-back { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--light-grey); text-decoration: none; transition: color 0.2s; white-space: nowrap; }
     .nav-back:hover { color: var(--gold); }
+    .nav-back-short { display: none; }
 
     main { max-width: 760px; margin: 0 auto; padding: 150px 5% 100px; }
 
@@ -89,6 +95,15 @@
 
     @media (max-width: 600px) {
       main { padding-top: 130px; }
+
+      .nav-back-full { display: none; }
+      .nav-back-short { display: inline; }
+
+      .nav-brand { gap: 12px; }
+      .nav-brand-icon { height: 38px; }
+      .nav-brand-text { gap: 4px; }
+      .nav-brand .lrx { font-size: 24px; }
+      .nav-brand .one { font-size: 24px; }
     }
   </style>
 </head>
@@ -96,11 +111,16 @@
 
   <nav>
     <a class="nav-brand" href="/">
-      <span class="lrx">LRX</span>
-      <span class="pipe">|</span>
-      <span class="one">ONE</span>
+      <img class="nav-brand-icon" src="/images/logo-mark.png" alt="LRX" />
+      <span class="nav-brand-text">
+        <span class="lrx">LRX</span>
+        <span class="one">One</span>
+      </span>
     </a>
-    <a class="nav-back" href="/">← Back to lrxone.com</a>
+    <a class="nav-back" href="/">
+      <span class="nav-back-full">← Back to lrxone.com</span>
+      <span class="nav-back-short">← Back</span>
+    </a>
   </nav>
 
   <main>
@@ -109,7 +129,7 @@
     <p class="doc-updated">Last updated: 28 July 2026</p>
 
     <p class="doc-intro">
-      This Refund Policy explains when fees paid for LRX One Core or LRX
+      This Refund Policy explains when fees paid for LRX One Hive or LRX
       One Billing are, and aren't, refunded. It forms part of, and should
       be read alongside, our <a href="/terms.html">Terms of Service</a>
       and <a href="/cancellation-policy.html">Cancellation Policy</a>. All
