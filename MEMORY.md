@@ -6,6 +6,20 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-08-25 (logo-mark.png replaced with color-matched vector render) — same fix applied from lrxtechgroup-website
+
+`images/logo-mark.png` (was the same 515x400px raster every copy of
+this logo shared across both repos) replaced with a 1200x930px
+transparent PNG rendered from a real vector source the user supplied
+for `lrxtechgroup-website`, recolored to match the original/site gold
+(`#D4AF37`/`#B8922E`) rather than the vector's own slightly more
+orange gradient. Full investigation, color-matching work, and
+before/after comparisons are documented in `lrxtechgroup-website`'s
+MEMORY.md — this repo just received the same drop-in replacement file
+(same transparent-background format, same display size/usage, just
+sharp instead of pixelated when scaled).
+
+
 ## 2026-08-13 (LinkedIn icon added to the social row, all 6 pages) — "add linkedin to socials as well please - https://www.linkedin.com/company/lrx-tech-group/"
 
 Same LinkedIn addition just made on `lrxtechgroup-website`: official
