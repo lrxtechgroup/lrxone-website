@@ -10,6 +10,14 @@ done — don't just accumulate; keep this reflecting real, current state.
       all 6 pages. Same feature as lrxtechgroup-website. See
       MEMORY.md.
 
+## Fixed 2026-08-13 — Footer rewritten to match lrxtechgroup-website wording
+
+- [x] Removed "LRX One Hive"/"LRX One Billing" from `index.html`'s
+      footer link list and rewrote the whole list to match `one.html`'s
+      wording and order exactly (Home -> LRX Tech Group). Merged with a
+      concurrent session's footer-structure rebuild (2026-08-05 entry
+      below) rather than clobbering it. See MEMORY.md.
+
 ## Fixed 2026-08-05 (hero height hard-capped on touch devices)
 
 - [x] `--vh` fix alone didn't resolve it per fresh real-device

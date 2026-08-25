@@ -26,6 +26,47 @@ is identical everywhere. Same Facebook/Instagram URLs and gradient id
 LRX Tech Group accounts. Verified via Playwright on `terms.html` (one
 of the simple-footer pages) — renders correctly above the footer.
 
+## 2026-08-13 — Footer link list rewritten to match lrxtechgroup-website's wording
+
+User asked to remove "LRX One Hive" and "LRX One Billing" from the
+footer link list (they duplicated the page's own "learn more" links
+just above the footer), then followed up asking to match the footer on
+this site to `one.html`'s footer on lrxtechgroup-website — same
+wording, but with "Home" swapped for "LRX Tech Group" (this site has no
+home page of its own to link to).
+
+Started this edit before pulling latest `main` and only discovered on
+push that another session had, in the meantime, already rebuilt this
+same footer from the old two-row `footer-top`/`footer-bottom` layout to
+the current single-row `footer-logo`/`footer-copy`/`footer-links`
+structure (see the 2026-08-05 "index.html footer matches
+lrxtechgroup-website" entry below) and renamed the product to "LRX One
+Hive" — so my first draft of this change was built against a stale
+base. Resolved via `git merge origin/main`: kept the current single-row
+structure (my old two-row markup no longer has matching CSS - those
+rules were removed in the 08-05 rebuild) and re-applied the link-list
+simplification on top of it.
+
+`.footer-links` in `index.html` went from `LRX One Hive / LRX One
+Billing / LRX Tech Group / Contact / Privacy Policy / Terms of Service
+/ Refund Policy / Cancellation Policy / FAQ` to `LRX Tech Group / Terms
+/ Privacy / Refund Policy / Cancellation Policy / FAQ / Contact` -
+matching `one.html`'s exact wording ("Terms" not "Terms of Service",
+"Privacy" not "Privacy Policy") and item order. `Terms`, `Privacy`,
+`Refund Policy`, `Cancellation Policy`, and `FAQ` all keep linking to
+this site's own local copies of those pages; `Contact` keeps the
+existing `https://lrxtechgroup.com/contact.html` link (this site has no
+local contact page, and that's the convention already established here
+- see the 2026-08-05 "FAQ contact links" entry, which deliberately
+moved away from a `mailto:` link toward this same URL). The
+footer-brand paragraph above the link list (still mentioning "LRX One
+Core and LRX One Billing" - itself now stale wording predating the
+Hive rename, out of scope here) and the two `pillar-item` links
+elsewhere on the page were left as-is - only `.footer-links` was in
+scope. Verified via Playwright screenshot + a DOM check of every link's
+text and href, then re-verified after the merge that the resolved
+markup matched.
+
 ## 2026-08-05 (hero height hard-capped on touch devices) — "still like this on request desktop view"
 
 User re-tested after the `--vh` fix and sent fresh real-device
