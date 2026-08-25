@@ -6,6 +6,17 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-08-13 (LinkedIn icon added to the social row, all 6 pages) — "add linkedin to socials as well please - https://www.linkedin.com/company/lrx-tech-group/"
+
+Same LinkedIn addition just made on `lrxtechgroup-website`: official
+brand-blue (`#0A66C2`) inline-SVG LinkedIn icon added as the fourth item
+in `.social-row`, after Instagram, across all 6 pages (`index.html`,
+`terms.html`, `privacy.html`, `refund-policy.html`,
+`cancellation-policy.html`, `faq.html`). Links to
+`https://www.linkedin.com/company/lrx-tech-group/` — same LRX Tech Group
+company page. Confirmed via `grep -c
+"linkedin.com/company/lrx-tech-group"` = 1 per file.
+
 ## 2026-08-13 (WhatsApp icon added to the social row, all 6 pages) — "lets remove this tile and put the whatsapp with the rest of the social media"
 
 Same WhatsApp relocation just done on `lrxtechgroup-website` (see that

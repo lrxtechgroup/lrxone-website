@@ -3,6 +3,14 @@
 Living backlog. Check items off (or move to MEMORY.md as a dated entry) as they're
 done — don't just accumulate; keep this reflecting real, current state.
 
+## Fixed 2026-08-13 (LinkedIn icon added to the social row)
+
+- [x] Added the official LinkedIn glyph (brand blue, inline SVG) as the
+      fourth icon in `.social-row`, after Instagram, across all 6
+      pages, linking to
+      `https://www.linkedin.com/company/lrx-tech-group/`. Same change
+      as lrxtechgroup-website. See MEMORY.md.
+
 ## Fixed 2026-08-13 (WhatsApp icon added to the social row)
 
 - [x] Added the official WhatsApp glyph (brand green, inline SVG) as
