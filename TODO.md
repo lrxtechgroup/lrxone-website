@@ -3,6 +3,13 @@
 Living backlog. Check items off (or move to MEMORY.md as a dated entry) as they're
 done — don't just accumulate; keep this reflecting real, current state.
 
+## Fixed 2026-08-13 (Facebook/Instagram row above the footer)
+
+- [x] Added a centered `.social-row` strip (Facebook/Instagram icons,
+      22px) between each page's main content and `<footer>`, across
+      all 6 pages. Same feature as lrxtechgroup-website. See
+      MEMORY.md.
+
 ## Fixed 2026-08-05 (hero height hard-capped on touch devices)
 
 - [x] `--vh` fix alone didn't resolve it per fresh real-device

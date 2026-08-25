@@ -6,6 +6,26 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-08-13 (Facebook/Instagram row above the footer, all 6 pages) — "do the same for lrxone website"
+
+Same feature just built on `lrxtechgroup-website` (see that repo's
+MEMORY.md for the full "wrong place" back-and-forth that led to this
+design): a centered `.social-row` strip — Facebook (official blue "f")
+and Instagram (official gradient) icons, 22px, inline SVG, own
+`border-top` divider — sitting between each page's main content and
+`<footer>`.
+
+Applied to all 6 pages. `index.html` has the same footer-logo/copy/
+links structure as the sibling site; the other 5
+(terms/privacy/refund-policy/cancellation-policy/faq) use this site's
+simpler single-line centered footer (`footer { text-align: center }`,
+no `footer-links` list) — the CSS anchor was `footer a:hover` on those
+instead of `.footer-links a:hover`, but the `.social-row` block itself
+is identical everywhere. Same Facebook/Instagram URLs and gradient id
+(`igGradientSocialRow`) as the sibling site, since these are the same
+LRX Tech Group accounts. Verified via Playwright on `terms.html` (one
+of the simple-footer pages) — renders correctly above the footer.
+
 ## 2026-08-05 (hero height hard-capped on touch devices) — "still like this on request desktop view"
 
 User re-tested after the `--vh` fix and sent fresh real-device
