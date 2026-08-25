@@ -6,6 +6,20 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-08-13 (WhatsApp icon added to the social row, all 6 pages) — "lets remove this tile and put the whatsapp with the rest of the social media"
+
+Same WhatsApp relocation just done on `lrxtechgroup-website` (see that
+repo's MEMORY.md for the full back-and-forth: started as "use the real
+WhatsApp logo," redirected mid-turn to "remove the tile, put it in the
+social row instead"). This site never had a standalone WhatsApp contact
+tile to remove — it only ever had the Facebook/Instagram `.social-row`
+built in the entry below — so the only change here is adding the
+official WhatsApp glyph (brand green `#25D366`, inline SVG, no external
+request) as the first icon in `.social-row`, before Facebook, across all
+6 pages (`index.html`, `terms.html`, `privacy.html`,
+`refund-policy.html`, `cancellation-policy.html`, `faq.html`). Confirmed
+via `grep -c "wa.me/27620498603"` = 1 per file.
+
 ## 2026-08-13 (Facebook/Instagram row above the footer, all 6 pages) — "do the same for lrxone website"
 
 Same feature just built on `lrxtechgroup-website` (see that repo's

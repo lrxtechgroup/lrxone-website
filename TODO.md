@@ -3,6 +3,13 @@
 Living backlog. Check items off (or move to MEMORY.md as a dated entry) as they're
 done — don't just accumulate; keep this reflecting real, current state.
 
+## Fixed 2026-08-13 (WhatsApp icon added to the social row)
+
+- [x] Added the official WhatsApp glyph (brand green, inline SVG) as
+      the first icon in `.social-row`, before Facebook, across all 6
+      pages. Same change as lrxtechgroup-website (which also removed a
+      standalone WhatsApp tile this site never had). See MEMORY.md.
+
 ## Fixed 2026-08-13 (Facebook/Instagram row above the footer)
 
 - [x] Added a centered `.social-row` strip (Facebook/Instagram icons,
