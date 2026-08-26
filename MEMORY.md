@@ -6,6 +6,15 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-08-25 (favicons and apple-touch-icon regenerated from vector) — same fix applied from lrxtechgroup-website
+
+Same regeneration as `lrxtechgroup-website`: `favicon.ico`,
+`images/favicon-16/32/192/512.png`, and
+`images/apple-touch-icon.png` replaced with versions rendered from the
+color-matched vector logo, same crop/padding as the originals. Full
+detail in `lrxtechgroup-website`'s MEMORY.md.
+
+
 ## 2026-08-25 (logo-mark.png replaced with color-matched vector render) — same fix applied from lrxtechgroup-website
 
 `images/logo-mark.png` (was the same 515x400px raster every copy of

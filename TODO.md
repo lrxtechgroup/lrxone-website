@@ -3,6 +3,11 @@
 Living backlog. Check items off (or move to MEMORY.md as a dated entry) as they're
 done — don't just accumulate; keep this reflecting real, current state.
 
+## Fixed 2026-08-25 (favicons and apple-touch-icon regenerated from vector)
+
+- [x] Same favicon regeneration as `lrxtechgroup-website`. See that
+      repo's MEMORY.md.
+
 ## Fixed 2026-08-25 (logo-mark.png replaced with color-matched vector render)
 
 - [x] Replaced the 515x400px raster with a 1200x930px transparent PNG
