@@ -6,6 +6,37 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-08-29 — Dead-asset audit: removed one orphaned favicon
+
+Part of a comprehensive dead-code sweep across all 5 lrxone repos, done
+at the user's request. This repo is a small static HTML site (6 pages,
+6 images, no build step, no JS/CSS bundler, no test framework), so the
+audit was: cross-reference every image in `images/` against every
+`.html`/`.xml` file, and confirm every non-index page is actually
+linked from somewhere.
+
+**Removed**: `images/favicon-512.png` (43KB) — zero references anywhere
+in the repo. Confirmed there's no `manifest.json`/webmanifest that
+might reference it indirectly (none exists here at all), so this
+wasn't a "referenced by a file this grep can't see" false positive —
+genuinely dead.
+
+**Confirmed NOT dead** (real inbound links, not orphaned): all 5 other
+images (`apple-touch-icon.png`, `favicon-16.png`, `favicon-32.png`,
+`favicon-192.png`, `logo-mark.png` — each referenced from all 6 HTML
+pages) and all 5 non-index pages (`cancellation-policy.html`,
+`faq.html`, `privacy.html`, `refund-policy.html`, `terms.html` — each
+linked from at least one other page).
+
+**Found but not fixed** (different category — missing content, not
+dead code): `sitemap.xml` only lists the homepage, missing the other 5
+real pages. Flagged in TODO.md rather than fixed silently, since it's
+outside a dead-code pass's scope.
+
+**No test-relocation work needed**: this repo has no test framework or
+test files at all (static HTML, no build step) — nothing to
+consolidate.
+
 ## 2026-08-25 (favicons and apple-touch-icon regenerated from vector) — same fix applied from lrxtechgroup-website
 
 Same regeneration as `lrxtechgroup-website`: `favicon.ico`,
