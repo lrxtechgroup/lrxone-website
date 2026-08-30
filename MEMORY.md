@@ -6,6 +6,28 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-08-29 — privacy.html's processor table was listing two payment processors that were never actually implemented
+
+Follow-up to a 2026-08-05 finding left deliberately unfixed at the
+time, since public-facing privacy-policy accuracy needed explicit
+confirmation rather than a silent correction. `Stitch` and `Stripe`
+were both listed as payment processors, but only `PayFast` was ever
+actually wired into `lrxone`'s billing-service — the sibling site
+(`lrxtechgroup-website`) already had the correct, PayFast-only version.
+
+Asked the user directly rather than guessing, since `lrxone`'s
+billing-service also gained a second real processor this same
+session (`Paystack`, wired in as primary with PayFast as fallback —
+see that repo's own MEMORY.md) — meaning "just match the sibling
+site" wasn't actually the right fix here, unlike a simpler stale-copy
+case. Confirmed: list both `Paystack` and `PayFast`, Paystack first
+(matching the code's own primary/fallback order). Removed `Stitch`
+and `Stripe`, added the `Paystack` row. Verified no other page on this
+site mentions either removed processor, and that the table's `<tr>`
+tag count stays balanced (7 open, 7 close) after the edit.
+
+---
+
 ## 2026-08-29 — sitemap.xml was missing 5 of the site's 6 real pages
 
 Follow-up to this repo's dead-code/asset audit, which flagged (but

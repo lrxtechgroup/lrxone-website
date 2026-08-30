@@ -124,13 +124,18 @@ Full writeup in MEMORY.md.
       from South-Africa-only to "AWS South Africa and EU regions",
       matching lrxtechgroup-website. See MEMORY.md.
 
-## Known issue (not yet fixed) — stale payment processors in privacy.html
+## Fixed 2026-08-29 — stale payment processors in privacy.html
 
-- [ ] `privacy.html`'s processor table still lists `Stitch` and
+- [x] ~~`privacy.html`'s processor table still lists `Stitch` and
       `Stripe` as payment processors; only PayFast is actually
       implemented in lrxone's billing-service (already corrected on
       the sibling site). Needs explicit confirmation before fixing
-      here — out of scope for the 2026-08-05 FAQ/hosting-copy pass.
+      here — out of scope for the 2026-08-05 FAQ/hosting-copy pass.~~
+      Confirmed with the user and fixed: `Stitch`/`Stripe` removed,
+      `Paystack` added alongside `PayFast` — billing-service added
+      Paystack as its primary card gateway (PayFast as fallback) this
+      session, so both are real, current processors, not just PayFast
+      alone. See MEMORY.md.
 
 ## Fixed 2026-08-04 (nav wordmark scaled down on mobile)
 
