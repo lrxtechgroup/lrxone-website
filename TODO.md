@@ -421,11 +421,36 @@ Full writeup in MEMORY.md.
       "Sign In" instead of "Register Interest" / "Sign In" — Register
       points straight at `app.lrxone.com/register` (a real route in the
       app frontend) instead of a `mailto:`. See MEMORY.md.
-- [ ] Footer still has the old "Register Interest" → `mailto:` link,
+- [x] ~~Footer still has the old "Register Interest" → `mailto:` link,
       now inconsistent with the real "Register" link above it on the
       same page. Left as-is — user scoped the request to "the top" of
       the page specifically; flagged for the user rather than changed
-      unprompted.
+      unprompted.~~ Stale by 2026-08-29 — the footer no longer has a
+      Register link of any kind (removed in a later, undocumented
+      redesign pass; just Terms/Privacy/Refund/Cancellation/FAQ/Contact
+      links now). Superseded by the entry below anyway.
+
+## Reverted 2026-08-29 — nav/hero/FAQ "Register" links back to `mailto:`
+
+- [x] User decision: the hero badge on this page still literally reads
+      "Coming Soon," and nothing in `lrxone` has been verified against
+      a live/deployed environment all session — sending visitors to
+      click a real `app.lrxone.com/register` link is premature. Reverted
+      all three real Register links found on this site
+      (`index.html`'s nav + hero, `faq.html`'s inline "Register for an
+      account" FAQ answer) to `mailto:sales@lrxtechgroup.com?subject=
+      LRX%20One%20-%20Register%20Interest` — matching the exact
+      `sales@lrxtechgroup.com` + subject-line convention
+      `lrxtechgroup-website`'s own `one.html`/`billing.html` "Register
+      Interest" tier-dropdown forms already use. nav/hero button text
+      also reverted from "Register" back to "Register Interest" (its
+      original 2026-07-28 wording) so the label matches what clicking
+      it actually does; `faq.html`'s inline link keeps its original
+      "Register" wording since the surrounding sentence ("Register for
+      an account and we'll be in touch...") already reads as an
+      interest-registration, not a live signup. "Sign In" links
+      (nav/hero, `app.lrxone.com/login`) deliberately untouched — out
+      of the scope the user gave for this change. See MEMORY.md.
 
 ## Fixed 2026-07-27 (yet later same day) — Restructured into a dedicated sign-in page
 

@@ -6,6 +6,49 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-08-29 — Reverted "Register" links back to mailto: — the real app.lrxone.com/register route is premature
+
+Follow-up to offering the stale "footer mailto link inconsistency"
+TODO.md item — checked the actual footer first and found it doesn't
+have a Register link at all anymore (removed in some later,
+undocumented pass; just Terms/Privacy/Refund/Cancellation/FAQ/Contact
+links today), so that specific bullet was moot. Asked the user what
+they actually meant; they clarified: given the hero badge on this page
+still literally reads "Coming Soon," and nothing in `lrxone` has been
+verified against a live/deployed environment this entire session,
+sending visitors to click a real `app.lrxone.com/register` link is
+premature — it should go back to being a `mailto:` interest-registration
+link, reversing the 2026-07-28 change.
+
+Found and fixed all three real Register links on this site (a
+full-repo grep, not just the ones already flagged): `index.html`'s nav
+and hero buttons, and one more not previously documented anywhere —
+`faq.html`'s inline "Register for an account and we'll be in touch..."
+FAQ answer. All three now point to
+`mailto:sales@lrxtechgroup.com?subject=LRX%20One%20-%20Register%20Interest`
+— matching the exact `sales@lrxtechgroup.com` address and subject-line
+shape `lrxtechgroup-website`'s own `one.html`/`billing.html` "Register
+Interest" tier-dropdown forms already use for the same product
+(`updateLink` there builds `mailto:sales@lrxtechgroup.com?subject=LRX
+One Hive - <tier>`), rather than inventing a new convention.
+
+nav/hero button text reverted from "Register" back to "Register
+Interest" — its exact original 2026-07-28 wording — since a mailto:
+link labeled bare "Register" undersells what clicking it actually does
+(opens an email compose window, not a signup form). `faq.html`'s
+inline link kept its original "Register" text: the surrounding
+sentence ("Register for an account and we'll be in touch as soon as
+it's ready") already reads as an interest-registration on its own, and
+"Register Interest for an account" would have read worse. "Sign In"
+links (nav/hero, `app.lrxone.com/login`) deliberately untouched — the
+user scoped this to Register specifically.
+
+Verified via grep that zero `app.lrxone.com/register` references
+remain anywhere in the repo, and that `<a>` tag counts stay balanced
+(23/23 in `index.html`, 20/20 in `faq.html`) after the edits.
+
+---
+
 ## 2026-08-29 — privacy.html's processor table was listing two payment processors that were never actually implemented
 
 Follow-up to a 2026-08-05 finding left deliberately unfixed at the
