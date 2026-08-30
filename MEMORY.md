@@ -6,6 +6,19 @@ finish a unit of work here — don't just leave it to the next session to recons
 
 ---
 
+## 2026-08-29 — sitemap.xml was missing 5 of the site's 6 real pages
+
+Follow-up to this repo's dead-code/asset audit, which flagged (but
+didn't fix, being out of scope for a dead-code pass) that `sitemap.xml`
+only listed the homepage. `cancellation-policy.html`, `faq.html`,
+`privacy.html`, `refund-policy.html`, and `terms.html` are all real,
+linked pages — added all 5, matching `robots.txt`'s declared
+`https://lrxone.com/` domain and the root-relative `.html` URL format
+every internal link on the site already uses. Validated the result is
+well-formed XML.
+
+---
+
 ## 2026-08-29 — Dead-asset audit: removed one orphaned favicon
 
 Part of a comprehensive dead-code sweep across all 5 lrxone repos, done

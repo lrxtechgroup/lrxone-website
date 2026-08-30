@@ -9,13 +9,11 @@ Full writeup in MEMORY.md.
 - [x] ~~`images/favicon-512.png` (43KB) was never referenced anywhere —
       no HTML `<link>`, no `manifest.json`/webmanifest (none exists in
       this repo).~~ Removed 2026-08-29.
-- [ ] **Not dead code, flagged in passing**: `sitemap.xml` only lists
+- [x] ~~**Not dead code, flagged in passing**: `sitemap.xml` only lists
       the homepage — the other 5 real, linked pages
       (`cancellation-policy.html`, `faq.html`, `privacy.html`,
-      `refund-policy.html`, `terms.html`) aren't in it. Found during
-      this audit but out of scope for a dead-code pass (it's a missing
-      -content gap, not something to remove); noted here rather than
-      fixed silently.
+      `refund-policy.html`, `terms.html`) aren't in it.~~ Fixed
+      2026-08-29: all 5 added.
 
 - [x] Same favicon regeneration as `lrxtechgroup-website`. See that
       repo's MEMORY.md.
